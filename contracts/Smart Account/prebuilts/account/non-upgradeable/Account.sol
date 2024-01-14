@@ -33,19 +33,36 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     using ECDSA for bytes32;
     using EnumerableSet for EnumerableSet.AddressSet;
 
+    address public automationUpkeep;
+    address public defaultToken; // GHO
+    address public uniswapRouter;
+    bool public allowedSupply;
+
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
 
     /*///////////////////////////////////////////////////////////////
                     Constructor, Initializer, Modifiers
     //////////////////////////////////////////////////////////////*/
 
-    constructor(IEntryPoint _entrypoint, address _factory) AccountCore(_entrypoint, _factory) {}
+    constructor(IEntryPoint _entrypoint, address _factory, address _automationUpkeep, address _defaultToken, address _uniswapRouter) AccountCore(_entrypoint, _factory) {
+        automationUpkeep = _automationUpkeep; // Chainlink Automation Upkeep
+        defaultToken = _defaultToken; // GHO
+        uniswapRouter = _uniswapRouter; // Uniswap Router
+        allowedSupply = true;
+    }
 
     /// @notice Checks whether the caller is the EntryPoint contract or the admin.
     modifier onlyAdminOrEntrypoint() virtual {
         require(msg.sender == address(entryPoint()) || isAdmin(msg.sender), "Account: not admin or EntryPoint.");
         _;
     }
+
+    /// @notice Checks whether the caller is the Chainlink Upkeep contract or the admin.
+    modifier onlyAdminOrUpkeep virtual {
+        require(msg.sender == automationUpkeep || isAdmin(msg.sender), "Account: not admin or Upkeep.");
+        _;
+    }
+
 
     /// @notice Lets the account receive native tokens.
     receive() external payable {}
@@ -121,6 +138,26 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         }
     }
 
+    /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
+    function executeSwapAndSupply(
+        uint256 supplyAmount,
+        uint256 swapAmount,
+        address token,
+        address aavePool // AAVE Pool address to supply token different from defaultToken aka GHO
+    ) external virtual onlyAdminOrUpkeep {
+        _registerOnFactory();
+        require(allowedSupply, "Account: supply paused.");
+        // Supply token to AAVE
+        bytes memory supplyData = abi.encodeWithSelector(0x8803dbee, token, supplyAmount, address(this), 0);
+        _call(aavePool, 0, supplyData);
+        // Swap token on Uniswap
+        address[] memory path = new address[](2);
+        path[0] = token;
+        path[1] = defaultToken; //GHO
+        bytes memory swapData = abi.encodeWithSelector(0x617ba037, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
+        _call(uniswapRouter, 0, swapData);
+    }
+
     /// @notice Deposit funds for this account in Entrypoint.
     function addDeposit() public payable {
         entryPoint().depositTo{ value: msg.value }(address(this));
@@ -130,6 +167,22 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     function withdrawDepositTo(address payable withdrawAddress, uint256 amount) public {
         _onlyAdmin();
         entryPoint().withdrawTo(withdrawAddress, amount);
+    }
+
+    function setUpkeep(address _upkeep) external virtual onlyAdminOrEntrypoint() {
+        automationUpkeep = _upkeep;
+    }
+    
+    function setDefaultToken(address _defaultToken) external virtual onlyAdminOrEntrypoint() {
+        defaultToken = _defaultToken;
+    }
+
+    function setUniswapRouter(address _uniswapRouter) external virtual onlyAdminOrEntrypoint() {
+        uniswapRouter = _uniswapRouter;
+    }
+
+    function setAllowedSupply(bool _allowedSupply) external virtual onlyAdminOrEntrypoint() {
+        allowedSupply = _allowedSupply;
     }
 
     /*///////////////////////////////////////////////////////////////

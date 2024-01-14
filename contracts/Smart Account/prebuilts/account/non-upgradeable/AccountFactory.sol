@@ -32,8 +32,11 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
 
     constructor(
         address _defaultAdmin,
-        IEntryPoint _entrypoint
-    ) BaseAccountFactory(address(new Account(_entrypoint, address(this))), address(_entrypoint)) {
+        IEntryPoint _entrypoint,
+        address _automationUpkeep, // Chainlink Automation Upkeep
+        address _defaultToken, // GHO
+        address _uniswapRouter // Uniswap Router
+    ) BaseAccountFactory(address(new Account(_entrypoint, address(this),  _automationUpkeep, _defaultToken, _uniswapRouter)), address(_entrypoint)) {
         _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
     }
 
