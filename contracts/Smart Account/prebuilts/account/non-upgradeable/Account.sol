@@ -148,13 +148,13 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _registerOnFactory();
         require(allowedSupply, "Account: supply paused.");
         // Supply token to AAVE
-        bytes memory supplyData = abi.encodeWithSelector(0x8803dbee, token, supplyAmount, address(this), 0);
+        bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
         _call(aavePool, 0, supplyData);
         // Swap token on Uniswap
         address[] memory path = new address[](2);
         path[0] = token;
         path[1] = defaultToken; //GHO
-        bytes memory swapData = abi.encodeWithSelector(0x617ba037, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
+        bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
         _call(uniswapRouter, 0, swapData);
     }
 
