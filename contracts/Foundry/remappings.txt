@@ -1,0 +1,5 @@
+@openzeppelin/=lib/openzeppelin-contracts/
+@chainlink/=lib/chainlink/contracts/
+@thirdweb/=lib/thirdweb-smartaccount/
+ds-test/=lib/forge-std/lib/ds-test/src/
+std/=lib/forge-std/src/
