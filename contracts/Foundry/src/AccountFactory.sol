@@ -39,18 +39,16 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     //////////////////////////////////////////////////////////////*/
     constructor(
         address _defaultAdmin,
-        IEntryPoint _entrypoint,
-        address _defaultToken, // GHO
-        address _uniswapRouter // Uniswap Router
-    ) BaseAccountFactory(address(new Account(_entrypoint, address(this), _defaultToken, _uniswapRouter)), address(_entrypoint)) {
+        IEntryPoint _entrypoint
+    ) BaseAccountFactory(address(new Account(_entrypoint, address(this))), address(_entrypoint)) {
         _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
-        uniswapRouter = _uniswapRouter;
     }
     
-    function initializeUpkeep(address _upkeep) public onlyOwner() {
+    function initializeUpkeepAndRouter(address _upkeep, address _uniswapRouter) public onlyOwner() {
         require(upkeep == address(0), "Already initialized");
         require(msg.sender == owner, "Not owner");
         upkeep = _upkeep;
+        uniswapRouter = _uniswapRouter;
     }
 
     /*///////////////////////////////////////////////////////////////

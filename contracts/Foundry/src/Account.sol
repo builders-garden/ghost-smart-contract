@@ -51,9 +51,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     uint public ghoTreshold;
     address public automationUpkeep;
-    address public defaultToken; // GHO
-    address public uniswapRouter; 
-    address internal ghoAddress = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
+    address public defaultToken; // GHO hardcode
+    address public uniswapRouter; // hardcode 
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -62,10 +61,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
                     Constructor, Initializer, Modifiers
     //////////////////////////////////////////////////////////////*/
 
-    constructor(IEntryPoint _entrypoint, address _factory, address _defaultToken, address _uniswapRouter) AccountCore(_entrypoint, _factory) {
+    constructor(IEntryPoint _entrypoint, address _factory) AccountCore(_entrypoint, _factory) {
         automationUpkeep = msg.sender;
-        defaultToken = _defaultToken; // GHO
-        uniswapRouter = _uniswapRouter; // Uniswap Router
         allowedSupply = true;
     }
 
@@ -193,7 +190,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     }
 
     function executeSupplyToVault() public onlyAdminOrUpkeep() {
-        uint ghoBalance = IERC20(ghoAddress).balanceOf(address(this));
+        uint ghoBalance = IERC20(defaultToken).balanceOf(address(this));
         uint ghoToSupply = ghoBalance - ghoTreshold;
         // send the remainder to the vault
         ghoTreshold = ghoBalance - ghoToSupply;
@@ -209,7 +206,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _onlyAdmin();
         entryPoint().withdrawTo(withdrawAddress, amount);
     }
-
+    /*
     function setUpkeep(address _upkeep) external virtual onlyAdminOrEntrypoint() {
         automationUpkeep = _upkeep;
     }
@@ -221,7 +218,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     function setUniswapRouter(address _uniswapRouter) external virtual onlyAdminOrEntrypoint() {
         uniswapRouter = _uniswapRouter;
     }
-
+    */
     function setAllowedSupply(bool _allowedSupply) external virtual onlyAdminOrEntrypoint() {
         allowedSupply = _allowedSupply;
     }
