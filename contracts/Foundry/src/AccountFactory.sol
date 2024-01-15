@@ -113,13 +113,14 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
                     ++count;
                 }
             }
-            if (tokensToSwap.length >0){
-                filteredtokensToSwap = new address[](count);
-                for (uint k; k<count; ++k){
-                    filteredtokensToSwap[k] = tokensToSwap[k];
-                }
+            filteredtokensToSwap = new address[](count);
+            for (uint k; k<count; ++k){
+                filteredtokensToSwap[k] = tokensToSwap[k];
+            }
+            if (filteredtokensToSwap.length > 0 ) {
                 return  (true, abi.encode(wallets[i], filteredtokensToSwap));
             }
+        
         }
     }
 
