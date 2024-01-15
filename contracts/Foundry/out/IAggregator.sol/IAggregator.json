@@ -1,0 +1,963 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "initCode",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "callGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "verificationGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "preVerificationGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPriorityFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "paymasterAndData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct UserOperation[]",
+          "name": "userOps",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "aggregateSignatures",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "aggregatedSignature",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "initCode",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "callGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "verificationGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "preVerificationGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPriorityFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "paymasterAndData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct UserOperation[]",
+          "name": "userOps",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "validateSignatures",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "initCode",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "callData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "uint256",
+              "name": "callGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "verificationGasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "preVerificationGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxPriorityFeePerGas",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "paymasterAndData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct UserOperation",
+          "name": "userOp",
+          "type": "tuple"
+        }
+      ],
+      "name": "validateUserOpSignature",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "sigForUserOp",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "aggregateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": "275e2d79",
+    "validateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[],bytes)": "e3563a4f",
+    "validateUserOpSignature((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes))": "64c530cd"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"initCode\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"callGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"verificationGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"preVerificationGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxPriorityFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"paymasterAndData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"internalType\":\"struct UserOperation[]\",\"name\":\"userOps\",\"type\":\"tuple[]\"}],\"name\":\"aggregateSignatures\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"aggregatedSignature\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"initCode\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"callGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"verificationGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"preVerificationGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxPriorityFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"paymasterAndData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"internalType\":\"struct UserOperation[]\",\"name\":\"userOps\",\"type\":\"tuple[]\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"validateSignatures\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"initCode\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"callData\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"callGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"verificationGasLimit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"preVerificationGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxPriorityFeePerGas\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"paymasterAndData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"internalType\":\"struct UserOperation\",\"name\":\"userOp\",\"type\":\"tuple\"}],\"name\":\"validateUserOpSignature\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"sigForUserOp\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"aggregateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])\":{\"params\":{\"userOps\":\"array of UserOperations to collect the signatures from.\"},\"returns\":{\"aggregatedSignature\":\"the aggregated signature\"}},\"validateUserOpSignature((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes))\":{\"params\":{\"userOp\":\"the userOperation received from the user.\"},\"returns\":{\"sigForUserOp\":\"the value to put into the signature field of the userOp when calling handleOps.    (usually empty, unless account and aggregator support some kind of \\\"multisig\\\"\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"aggregateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])\":{\"notice\":\"aggregate multiple signatures into a single value. This method is called off-chain to calculate the signature to pass with handleOps() bundler MAY use optimized custom code perform this aggregation\"},\"validateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[],bytes)\":{\"notice\":\"validate aggregated signature. revert if the aggregated signature does not match the given list of operations.\"},\"validateUserOpSignature((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes))\":{\"notice\":\"validate signature of a single userOp This method is should be called by bundler after EntryPoint.simulateValidation() returns (reverts) with ValidationResultWithAggregation First it validates the signature over the userOp. Then it returns data to be used when creating the handleOps.\"}},\"notice\":\"Aggregated Signatures validator.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAggregator.sol\":\"IAggregator\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAggregator.sol\":{\"keccak256\":\"0xf25b6da72dfcb022d6d3c16aaa4a2d9860bf51483356cb26b314b37a01e7a1bb\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://800a724a532870ae3de64fe798352427c9a3168cc44fe1320f1fecea8126df03\",\"dweb:/ipfs/QmNb1s7rDkKePrE4iKMQ3UJyrsScZRomLWf4aj6QBJnRAZ\"]},\"lib/thirdweb-smartaccount/prebuilts/account/utils/Helpers.sol\":{\"keccak256\":\"0x362ebd624a0a4893c8d80f2dc86b27198a6f22d3bca6d4ad648cd4f12b8b2e5d\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://bb43f98886861a0d1a6a80aaf8bfda8a2e8dace798e559dcba9fe5ebd2738817\",\"dweb:/ipfs/QmUfAk7cbLqfhJdGgZeCqdzHFxrtjQgcbGtcQEbioLUDuS\"]},\"lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol\":{\"keccak256\":\"0x3f3aa133687f459f9fb538835a54aa769418dd6303a02c9fa691690fcc397964\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://993f8daa2320ca301167767fff33a6989697394fe6dc65905edc4b32368850b5\",\"dweb:/ipfs/Qmaymg8dsE6mrfAWJPs4DXbHR1wxESJnxyFhNkm7AmKBCK\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.19+commit.7dd6d404"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "struct UserOperation[]",
+              "name": "userOps",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "nonce",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initCode",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "callGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "verificationGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "preVerificationGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxPriorityFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "paymasterAndData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "aggregateSignatures",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "aggregatedSignature",
+              "type": "bytes"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct UserOperation[]",
+              "name": "userOps",
+              "type": "tuple[]",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "nonce",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initCode",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "callGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "verificationGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "preVerificationGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxPriorityFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "paymasterAndData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ]
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "validateSignatures"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct UserOperation",
+              "name": "userOp",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "nonce",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "initCode",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "callData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "callGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "verificationGasLimit",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "preVerificationGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxPriorityFeePerGas",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "paymasterAndData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "signature",
+                  "type": "bytes"
+                }
+              ]
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "validateUserOpSignature",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "sigForUserOp",
+              "type": "bytes"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "aggregateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": {
+            "params": {
+              "userOps": "array of UserOperations to collect the signatures from."
+            },
+            "returns": {
+              "aggregatedSignature": "the aggregated signature"
+            }
+          },
+          "validateUserOpSignature((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes))": {
+            "params": {
+              "userOp": "the userOperation received from the user."
+            },
+            "returns": {
+              "sigForUserOp": "the value to put into the signature field of the userOp when calling handleOps.    (usually empty, unless account and aggregator support some kind of \"multisig\""
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "aggregateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[])": {
+            "notice": "aggregate multiple signatures into a single value. This method is called off-chain to calculate the signature to pass with handleOps() bundler MAY use optimized custom code perform this aggregation"
+          },
+          "validateSignatures((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes)[],bytes)": {
+            "notice": "validate aggregated signature. revert if the aggregated signature does not match the given list of operations."
+          },
+          "validateUserOpSignature((address,uint256,bytes,bytes,uint256,uint256,uint256,uint256,uint256,bytes,bytes))": {
+            "notice": "validate signature of a single userOp This method is should be called by bundler after EntryPoint.simulateValidation() returns (reverts) with ValidationResultWithAggregation First it validates the signature over the userOp. Then it returns data to be used when creating the handleOps."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=lib/chainlink/contracts/",
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":@thirdweb/=lib/thirdweb-smartaccount/",
+        ":chainlink/=lib/chainlink/contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/",
+        ":std/=lib/forge-std/src/",
+        ":thirdweb-smartaccount/=lib/thirdweb-smartaccount/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "lib/thirdweb-smartaccount/prebuilts/account/interface/IAggregator.sol": "IAggregator"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/thirdweb-smartaccount/prebuilts/account/interface/IAggregator.sol": {
+        "keccak256": "0xf25b6da72dfcb022d6d3c16aaa4a2d9860bf51483356cb26b314b37a01e7a1bb",
+        "urls": [
+          "bzz-raw://800a724a532870ae3de64fe798352427c9a3168cc44fe1320f1fecea8126df03",
+          "dweb:/ipfs/QmNb1s7rDkKePrE4iKMQ3UJyrsScZRomLWf4aj6QBJnRAZ"
+        ],
+        "license": "GPL-3.0"
+      },
+      "lib/thirdweb-smartaccount/prebuilts/account/utils/Helpers.sol": {
+        "keccak256": "0x362ebd624a0a4893c8d80f2dc86b27198a6f22d3bca6d4ad648cd4f12b8b2e5d",
+        "urls": [
+          "bzz-raw://bb43f98886861a0d1a6a80aaf8bfda8a2e8dace798e559dcba9fe5ebd2738817",
+          "dweb:/ipfs/QmUfAk7cbLqfhJdGgZeCqdzHFxrtjQgcbGtcQEbioLUDuS"
+        ],
+        "license": "GPL-3.0"
+      },
+      "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol": {
+        "keccak256": "0x3f3aa133687f459f9fb538835a54aa769418dd6303a02c9fa691690fcc397964",
+        "urls": [
+          "bzz-raw://993f8daa2320ca301167767fff33a6989697394fe6dc65905edc4b32368850b5",
+          "dweb:/ipfs/Qmaymg8dsE6mrfAWJPs4DXbHR1wxESJnxyFhNkm7AmKBCK"
+        ],
+        "license": "GPL-3.0"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "lib/thirdweb-smartaccount/prebuilts/account/interface/IAggregator.sol",
+    "id": 31698,
+    "exportedSymbols": {
+      "IAggregator": [
+        31697
+      ],
+      "UserOperation": [
+        33995
+      ],
+      "UserOperationLib": [
+        34165
+      ],
+      "calldataKeccak": [
+        33968
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "36:1596:52",
+    "nodes": [
+      {
+        "id": 31665,
+        "nodeType": "PragmaDirective",
+        "src": "36:24:52",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".12"
+        ]
+      },
+      {
+        "id": 31666,
+        "nodeType": "ImportDirective",
+        "src": "62:36:52",
+        "nodes": [],
+        "absolutePath": "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol",
+        "file": "../utils/UserOperation.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 31698,
+        "sourceUnit": 34166,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 31697,
+        "nodeType": "ContractDefinition",
+        "src": "144:1487:52",
+        "nodes": [
+          {
+            "id": 31677,
+            "nodeType": "FunctionDefinition",
+            "src": "313:102:52",
+            "nodes": [],
+            "documentation": {
+              "id": 31668,
+              "nodeType": "StructuredDocumentation",
+              "src": "172:136:52",
+              "text": " validate aggregated signature.\n revert if the aggregated signature does not match the given list of operations."
+            },
+            "functionSelector": "e3563a4f",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validateSignatures",
+            "nameLocation": "322:18:52",
+            "parameters": {
+              "id": 31675,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31672,
+                  "mutability": "mutable",
+                  "name": "userOps",
+                  "nameLocation": "366:7:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31677,
+                  "src": "341:32:52",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_UserOperation_$33995_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct UserOperation[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 31670,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 31669,
+                        "name": "UserOperation",
+                        "nameLocations": [
+                          "341:13:52"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 33995,
+                        "src": "341:13:52"
+                      },
+                      "referencedDeclaration": 33995,
+                      "src": "341:13:52",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_UserOperation_$33995_storage_ptr",
+                        "typeString": "struct UserOperation"
+                      }
+                    },
+                    "id": 31671,
+                    "nodeType": "ArrayTypeName",
+                    "src": "341:15:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_UserOperation_$33995_storage_$dyn_storage_ptr",
+                      "typeString": "struct UserOperation[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 31674,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nameLocation": "390:9:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31677,
+                  "src": "375:24:52",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 31673,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "375:5:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "340:60:52"
+            },
+            "returnParameters": {
+              "id": 31676,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "414:0:52"
+            },
+            "scope": 31697,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 31686,
+            "nodeType": "FunctionDefinition",
+            "src": "1002:114:52",
+            "nodes": [],
+            "documentation": {
+              "id": 31678,
+              "nodeType": "StructuredDocumentation",
+              "src": "421:576:52",
+              "text": " validate signature of a single userOp\n This method is should be called by bundler after EntryPoint.simulateValidation() returns (reverts) with ValidationResultWithAggregation\n First it validates the signature over the userOp. Then it returns data to be used when creating the handleOps.\n @param userOp the userOperation received from the user.\n @return sigForUserOp the value to put into the signature field of the userOp when calling handleOps.\n    (usually empty, unless account and aggregator support some kind of \"multisig\""
+            },
+            "functionSelector": "64c530cd",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "validateUserOpSignature",
+            "nameLocation": "1011:23:52",
+            "parameters": {
+              "id": 31682,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31681,
+                  "mutability": "mutable",
+                  "name": "userOp",
+                  "nameLocation": "1058:6:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31686,
+                  "src": "1035:29:52",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_UserOperation_$33995_calldata_ptr",
+                    "typeString": "struct UserOperation"
+                  },
+                  "typeName": {
+                    "id": 31680,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 31679,
+                      "name": "UserOperation",
+                      "nameLocations": [
+                        "1035:13:52"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 33995,
+                      "src": "1035:13:52"
+                    },
+                    "referencedDeclaration": 33995,
+                    "src": "1035:13:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_UserOperation_$33995_storage_ptr",
+                      "typeString": "struct UserOperation"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1034:31:52"
+            },
+            "returnParameters": {
+              "id": 31685,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31684,
+                  "mutability": "mutable",
+                  "name": "sigForUserOp",
+                  "nameLocation": "1102:12:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31686,
+                  "src": "1089:25:52",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 31683,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1089:5:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1088:27:52"
+            },
+            "scope": 31697,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 31696,
+            "nodeType": "FunctionDefinition",
+            "src": "1495:134:52",
+            "nodes": [],
+            "documentation": {
+              "id": 31687,
+              "nodeType": "StructuredDocumentation",
+              "src": "1122:368:52",
+              "text": " aggregate multiple signatures into a single value.\n This method is called off-chain to calculate the signature to pass with handleOps()\n bundler MAY use optimized custom code perform this aggregation\n @param userOps array of UserOperations to collect the signatures from.\n @return aggregatedSignature the aggregated signature"
+            },
+            "functionSelector": "275e2d79",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "aggregateSignatures",
+            "nameLocation": "1504:19:52",
+            "parameters": {
+              "id": 31692,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31691,
+                  "mutability": "mutable",
+                  "name": "userOps",
+                  "nameLocation": "1558:7:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31696,
+                  "src": "1533:32:52",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_UserOperation_$33995_calldata_ptr_$dyn_calldata_ptr",
+                    "typeString": "struct UserOperation[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 31689,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 31688,
+                        "name": "UserOperation",
+                        "nameLocations": [
+                          "1533:13:52"
+                        ],
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 33995,
+                        "src": "1533:13:52"
+                      },
+                      "referencedDeclaration": 33995,
+                      "src": "1533:13:52",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_UserOperation_$33995_storage_ptr",
+                        "typeString": "struct UserOperation"
+                      }
+                    },
+                    "id": 31690,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1533:15:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_UserOperation_$33995_storage_$dyn_storage_ptr",
+                      "typeString": "struct UserOperation[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1523:48:52"
+            },
+            "returnParameters": {
+              "id": 31695,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 31694,
+                  "mutability": "mutable",
+                  "name": "aggregatedSignature",
+                  "nameLocation": "1608:19:52",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 31696,
+                  "src": "1595:32:52",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 31693,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1595:5:52",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1594:34:52"
+            },
+            "scope": 31697,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IAggregator",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 31667,
+          "nodeType": "StructuredDocumentation",
+          "src": "100:43:52",
+          "text": " Aggregated Signatures validator."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          31697
+        ],
+        "name": "IAggregator",
+        "nameLocation": "154:11:52",
+        "scope": 31698,
+        "usedErrors": []
+      }
+    ],
+    "license": "GPL-3.0"
+  },
+  "id": 52
+}

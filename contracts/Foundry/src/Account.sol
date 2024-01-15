@@ -165,16 +165,15 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint balance = IERC20(token).balanceOf(address(this));
         uint256 supplyAmount = balance % 1e16;
         uint256 swapAmount = balance - supplyAmount;
-
+        
         (, uint debt, , , ,) = IPool(aavePool).getUserAccountData(address(this));
-
-
-   
+        
         if (supplyAmount > 0){
             if (debt > 0 && supplyAmount <= debt){
-                bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 0, address(this));
+                bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 2, address(this));
             } else {
                 // Supply token to AAVE
+                IERC20(token).approve(aavePool, supplyAmount);
                 bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
                 _call(aavePool, 0, supplyData);
             }
