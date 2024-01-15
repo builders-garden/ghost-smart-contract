@@ -163,14 +163,17 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _registerOnFactory();
         
         uint balance = IERC20(token).balanceOf(address(this));
-        uint256 supplyAmount = balance % 1e16;
+        // Accounts works with 6 decimals tokens (DAI, USDC)
+        uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
-        
+        // Get AAVE v3 bottor debt to repay
         (, uint debt, , , ,) = IPool(aavePool).getUserAccountData(address(this));
         
-        if (supplyAmount > 0){
+        if (supplyAmount > 0) {
+            // We expect debt is lower than supplyAmount
             if (debt > 0 && supplyAmount <= debt){
                 bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 2, address(this));
+                _call(aavePool, 0, repay);
             } else {
                 // Supply token to AAVE
                 IERC20(token).approve(aavePool, supplyAmount);
