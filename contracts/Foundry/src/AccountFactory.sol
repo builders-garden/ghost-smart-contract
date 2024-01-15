@@ -27,6 +27,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     address internal owner;
     address internal upkeep;
     address internal uniswapRouter;
+    address internal ghoAddress = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
     address[] internal s_swappableERC20 = 
     [
         0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8,  //usdc
@@ -104,7 +105,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
         address[] memory swappableERC20 = s_swappableERC20;
         address[] memory wallets = getAllAccounts();
         address[] memory tokensToSwap = new address[](swappableERC20.length);
-        address[] memory filteredtokensToSwap;
+        address[] memory filteredTokensToSwap;
         uint count;
         for (uint i; i<wallets.length; ++i){
             for (uint j; j<swappableERC20.length; ++j){
@@ -113,14 +114,20 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
                     ++count;
                 }
             }
-            filteredtokensToSwap = new address[](count);
+            uint ghoTreshold = Account(payable(wallets[i])).ghoTreshold();
+            uint ghoBalance = IERC20(ghoAddress).balanceOf(wallets[i]);
+
+            bool ghoReceived = (
+                (ghoBalance > ghoTreshold) && (ghoBalance % 1e18 > 0)
+                ? true : false);
+            filteredTokensToSwap = new address[](count);
             for (uint k; k<count; ++k){
-                filteredtokensToSwap[k] = tokensToSwap[k];
+                filteredTokensToSwap[k] = tokensToSwap[k];
             }
-            if (filteredtokensToSwap.length > 0 ) {
-                return  (true, abi.encode(wallets[i], filteredtokensToSwap));
-            }
-        
+            
+            if (filteredTokensToSwap.length > 0) {
+                return  (true, abi.encode(wallets[i], filteredTokensToSwap, ghoReceived));
+            } 
         }
     }
 
@@ -129,9 +136,12 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     * @param performData the data inputed by Chainlink Automation retrieved by checkUpkeep
     */
     function performUpkeep(bytes calldata performData) onlyUpkeep external override(AutomationCompatibleInterface) {
-        (address wallet, address[] memory tokensToSwap) = abi.decode(performData, (address, address[]));
+        (address wallet, address[] memory tokensToSwap, bool ghoReceived) = abi.decode(performData, (address, address[], bool));
         for (uint i; i< tokensToSwap.length; ++i){
             Account(payable(wallet)).executeSwapAndSupply(tokensToSwap[i], uniswapRouter);
-        } 
+        }
+        if (ghoReceived){
+            Account(payable(wallet)).executeSupplyToVault();
+        }
     }
 }

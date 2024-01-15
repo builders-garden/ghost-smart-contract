@@ -49,9 +49,11 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     using ECDSA for bytes32;
     using EnumerableSet for EnumerableSet.AddressSet;
 
+    uint public ghoTreshold;
     address public automationUpkeep;
     address public defaultToken; // GHO
-    address public uniswapRouter;
+    address public uniswapRouter; 
+    address internal ghoAddress = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -188,6 +190,13 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         path[1] = defaultToken; //GHO
         bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
         _call(uniswapRouter, 0, swapData);
+    }
+
+    function executeSupplyToVault() public onlyAdminOrUpkeep() {
+        uint ghoBalance = IERC20(ghoAddress).balanceOf(address(this));
+        uint ghoToSupply = ghoBalance - ghoTreshold;
+        // send the remainder to the vault
+        ghoTreshold = ghoBalance - ghoToSupply;
     }
 
     /// @notice Deposit funds for this account in Entrypoint.
