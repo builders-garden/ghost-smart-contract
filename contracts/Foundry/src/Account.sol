@@ -15,6 +15,7 @@ import "@thirdweb/external-deps/openzeppelin/token/ERC721/utils/ERC721Holder.sol
 import "@thirdweb/external-deps/openzeppelin/token/ERC1155/utils/ERC1155Holder.sol";
 
 // Utils
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@thirdweb/eip/ERC1271.sol";
 import "@thirdweb/prebuilts/account/utils/Helpers.sol";
 import "@thirdweb/external-deps/openzeppelin/utils/cryptography/ECDSA.sol";
@@ -28,6 +29,21 @@ import "@thirdweb/prebuilts/account/utils/BaseAccountFactory.sol";
 //   $$ |$$\ $$ |  $$ |$$ |$$ |      $$ |  $$ |$$ | $$ | $$ |$$   ____|$$ |  $$ |
 //   \$$$$  |$$ |  $$ |$$ |$$ |      \$$$$$$$ |\$$$$$\$$$$  |\$$$$$$$\ $$$$$$$  |
 //    \____/ \__|  \__|\__|\__|       \_______| \_____\____/  \_______|\_______/
+
+interface IPool {
+    function getUserAccountData(
+    address user
+    ) external view
+    returns (
+      uint256 totalCollateralBase,
+      uint256 totalDebtBase,
+      uint256 availableBorrowsBase,
+      uint256 currentLiquidationThreshold,
+      uint256 ltv,
+      uint256 healthFactor
+    );
+}
+
 
 contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC1155Holder {
     using ECDSA for bytes32;
@@ -140,16 +156,30 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
     function executeSwapAndSupply(
-        uint256 supplyAmount,
-        uint256 swapAmount,
         address token,
         address aavePool // AAVE Pool address to supply token different from defaultToken aka GHO
     ) external virtual onlyAdminOrUpkeep {
-        _registerOnFactory();
         require(allowedSupply, "Account: supply paused.");
-        // Supply token to AAVE
-        bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
-        _call(aavePool, 0, supplyData);
+        _registerOnFactory();
+        
+        uint balance = IERC20(token).balanceOf(address(this));
+        uint256 supplyAmount = balance % 1e16;
+        uint256 swapAmount = balance - supplyAmount;
+
+        (, uint debt, , , ,) = IPool(aavePool).getUserAccountData(address(this));
+
+
+   
+        if (supplyAmount > 0){
+            if (debt > 0 && supplyAmount <= debt){
+                bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 0, address(this));
+            } else {
+                // Supply token to AAVE
+                bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
+                _call(aavePool, 0, supplyData);
+            }
+        }
+        
         // Swap token on Uniswap
         address[] memory path = new address[](2);
         path[0] = token;

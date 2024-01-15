@@ -26,7 +26,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
 
     address internal owner;
     address internal upkeep;
-    
+    address internal uniswapRouter;
     address[] internal s_swappableERC20 = 
     [
         0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8,  //usdc
@@ -43,6 +43,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
         address _uniswapRouter // Uniswap Router
     ) BaseAccountFactory(address(new Account(_entrypoint, address(this), _defaultToken, _uniswapRouter)), address(_entrypoint)) {
         _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
+        uniswapRouter = _uniswapRouter;
     }
     
     function initializeUpkeep(address _upkeep) public onlyOwner() {
@@ -102,22 +103,22 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
         
         address[] memory swappableERC20 = s_swappableERC20;
         address[] memory wallets = getAllAccounts();
-        address[] memory assetsToSwap = new address[](swappableERC20.length);
-        address[] memory filteredAssetsToSwap;
+        address[] memory tokensToSwap = new address[](swappableERC20.length);
+        address[] memory filteredtokensToSwap;
         uint count;
         for (uint i; i<wallets.length; ++i){
             for (uint j; j<swappableERC20.length; ++j){
                 if (IERC20(swappableERC20[j]).balanceOf(wallets[i])>0){
-                    assetsToSwap[count] = swappableERC20[j];
+                    tokensToSwap[count] = swappableERC20[j];
                     ++count;
                 }
             }
-            if (assetsToSwap.length >0){
-                filteredAssetsToSwap = new address[](count);
+            if (tokensToSwap.length >0){
+                filteredtokensToSwap = new address[](count);
                 for (uint k; k<count; ++k){
-                    filteredAssetsToSwap[k] = assetsToSwap[k];
+                    filteredtokensToSwap[k] = tokensToSwap[k];
                 }
-                return  (true, abi.encode(wallets[i], filteredAssetsToSwap));
+                return  (true, abi.encode(wallets[i], filteredtokensToSwap));
             }
         }
     }
@@ -127,10 +128,9 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     * @param performData the data inputed by Chainlink Automation retrieved by checkUpkeep
     */
     function performUpkeep(bytes calldata performData) onlyUpkeep external override(AutomationCompatibleInterface) {
-        (address wallet, address[] memory assetsToSwap) = abi.decode(performData, (address, address[]));
-        for (uint i; i< assetsToSwap.length; ++i){
-            uint balance = IERC20(assetsToSwap[i]).balanceOf(wallet);
-            Account(payable(wallet)).executeSwapAndSupply(0, 0, assetsToSwap[i], address(123));
+        (address wallet, address[] memory tokensToSwap) = abi.decode(performData, (address, address[]));
+        for (uint i; i< tokensToSwap.length; ++i){
+            Account(payable(wallet)).executeSwapAndSupply(tokensToSwap[i], uniswapRouter);
         } 
     }
 }
