@@ -172,6 +172,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         if (supplyAmount > 0) {
             // We expect debt is lower than supplyAmount
             if (debt > 0 && supplyAmount <= debt){
+                IERC20(token).approve(aavePool, supplyAmount);
                 bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 2, address(this));
                 _call(aavePool, 0, repay);
             } else {
