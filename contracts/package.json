@@ -18,10 +18,10 @@
   ],
   "dependencies": {
     "@chainlink/contracts": "^0.6.1",
-    "@openzeppelin/contracts": "4.7.3",
+    "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
-    "erc721a-upgradeable": "^3.3.0",
-    "@thirdweb-dev/dynamic-contracts": "^1.1.2"
+    "@thirdweb-dev/dynamic-contracts": "^1.1.2",
+    "erc721a-upgradeable": "^3.3.0"
   },
   "engines": {
     "node": ">=18.0.0"
