@@ -52,8 +52,9 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     uint public ghoTreshold;
     address public automationUpkeep;
     address public defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
-    address public uniswapRouter; // hardcode 
-    address public ghoVault; // hardcode
+    address public uniswapRouter = 0xD04b095b736d10744810D9eac344c306C100fe6F;
+    address public aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
+    address public vault = 0xBA743e062b790725EE00c3b857Ef0Ca28a10C774;
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -156,15 +157,13 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
     function executeSwapAndSupply(
-        address token,
-        address aavePool // AAVE Pool address to supply token different from defaultToken aka GHO
+        address token
     ) external virtual onlyAdminOrUpkeep {
         require(allowedSupply, "Account: supply paused.");
         _registerOnFactory();
         
         uint balance = IERC20(token).balanceOf(address(this));
         // Accounts works with 6 decimals tokens (DAI, USDC)
-        // Eg. 12.50 USDC -> 0.50 USDC supplied, 12 GHO deposited on smart account
         uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
         // Get AAVE v3 bottor debt to repay
@@ -196,8 +195,6 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint ghoToSupply = ghoBalance - ghoTreshold;
         // send the remainder to the vault
         ghoTreshold = ghoBalance - ghoToSupply;
-        bytes memory depositData = abi.encodeWithSelector(0x6e553f65, ghoTreshold, address(this));
-        _call(ghoVault, 0, depositData);
     }
 
     /// @notice Deposit funds for this account in Entrypoint.
@@ -210,19 +207,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _onlyAdmin();
         entryPoint().withdrawTo(withdrawAddress, amount);
     }
-    /*
-    function setUpkeep(address _upkeep) external virtual onlyAdminOrEntrypoint() {
-        automationUpkeep = _upkeep;
-    }
     
-    function setDefaultToken(address _defaultToken) external virtual onlyAdminOrEntrypoint() {
-        defaultToken = _defaultToken;
-    }
-
-    function setUniswapRouter(address _uniswapRouter) external virtual onlyAdminOrEntrypoint() {
-        uniswapRouter = _uniswapRouter;
-    }
-    */
     function setAllowedSupply(bool _allowedSupply) external virtual onlyAdminOrEntrypoint() {
         allowedSupply = _allowedSupply;
     }

@@ -31,7 +31,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     address[] internal s_swappableERC20 = 
     [
         0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8,  //usdc
-        0x3e622317f8C93f7328350cF0B56d9eD4C620C5d6   //dai
+        0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0   //dai
     ];
 
     /*///////////////////////////////////////////////////////////////
@@ -44,11 +44,10 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
         _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
     }
     
-    function initializeUpkeepAndRouter(address _upkeep, address _uniswapRouter) public onlyOwner() {
+    function initializeUpkeepAndRouter(address _upkeep) public onlyOwner() {
         require(upkeep == address(0), "Already initialized");
         require(msg.sender == owner, "Not owner");
         upkeep = _upkeep;
-        uniswapRouter = _uniswapRouter;
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -136,7 +135,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
     function performUpkeep(bytes calldata performData) onlyUpkeep external override(AutomationCompatibleInterface) {
         (address wallet, address[] memory tokensToSwap, bool ghoReceived) = abi.decode(performData, (address, address[], bool));
         for (uint i; i< tokensToSwap.length; ++i){
-            Account(payable(wallet)).executeSwapAndSupply(tokensToSwap[i], uniswapRouter);
+            Account(payable(wallet)).executeSwapAndSupply(tokensToSwap[i]);
         }
         if (ghoReceived){
             Account(payable(wallet)).executeSupplyToVault();
