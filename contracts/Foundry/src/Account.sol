@@ -186,6 +186,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         address[] memory path = new address[](2);
         path[0] = token;
         path[1] = defaultToken; //GHO
+        IERC20(token).approve(uniswapRouter, swapAmount);
         bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
         _call(uniswapRouter, 0, swapData);
     }
