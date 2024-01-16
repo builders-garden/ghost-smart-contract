@@ -53,6 +53,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     address public automationUpkeep;
     address public defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
     address public uniswapRouter; // hardcode 
+    address public ghoVault; // hardcode
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -163,6 +164,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         
         uint balance = IERC20(token).balanceOf(address(this));
         // Accounts works with 6 decimals tokens (DAI, USDC)
+        // Eg. 12.50 USDC -> 0.50 USDC supplied, 12 GHO deposited on smart account
         uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
         // Get AAVE v3 bottor debt to repay
@@ -194,6 +196,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint ghoToSupply = ghoBalance - ghoTreshold;
         // send the remainder to the vault
         ghoTreshold = ghoBalance - ghoToSupply;
+        bytes memory depositData = abi.encodeWithSelector(0x6e553f65, ghoTreshold, address(this));
+        _call(ghoVault, 0, depositData);
     }
 
     /// @notice Deposit funds for this account in Entrypoint.
