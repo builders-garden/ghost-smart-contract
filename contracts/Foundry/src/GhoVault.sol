@@ -10,6 +10,9 @@ import "../src/utils/ERC4626.sol";
 contract TokenVault is ERC4626 {
     // a mapping that checks if a user has deposited the token
     mapping(address => uint256) public shareHolder;
+    mapping(address => uint256) public totalAssetsOfUser;
+    uint256 public assetSupplied;
+
 
     constructor(
         ERC20 _asset,
@@ -28,6 +31,8 @@ contract TokenVault is ERC4626 {
         deposit(_assets, msg.sender);
         // Increase the share of the user
         shareHolder[msg.sender] += _assets;
+        assetSupplied += _assets;
+        totalAssetsOfUser[msg.sender] += _assets;
     }
 
     /**
@@ -52,15 +57,20 @@ contract TokenVault is ERC4626 {
         redeem(assets, _receiver, msg.sender);
         // Decrease the share of the user
         shareHolder[msg.sender] -= _shares;
+        assetSupplied -= _assets;
+        totalAssetsOfUser[msg.sender] -= _assets;
     }
 
     // returns total number of assets
     function totalAssets() public view override returns (uint256) {
-        return asset.balanceOf(address(this));
+        return assetSupplied;
     }
 
-    // returns total balance of user
     function totalAssetsOfUser(address _user) public view returns (uint256) {
-        return asset.balanceOf(_user);
+        return totalAssetsOfUser[_user];
+    }
+
+    function convertUserSharesToAssets(address _user, uint _shares) public view returns (uint256) {
+        return (_shares * totalAssetsOfUser(_user)) / assetSupplied;
     }
 }
