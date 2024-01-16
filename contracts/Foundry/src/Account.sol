@@ -51,7 +51,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     uint public ghoTreshold;
     address public automationUpkeep;
-    address public defaultToken; // GHO hardcode
+    address public defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
     address public uniswapRouter; // hardcode 
     bool public allowedSupply;
     

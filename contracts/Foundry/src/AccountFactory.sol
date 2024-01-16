@@ -123,7 +123,7 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
                 filteredTokensToSwap[k] = tokensToSwap[k];
             }
             
-            if (filteredTokensToSwap.length > 0) {
+            if (filteredTokensToSwap.length > 0 || ghoReceived) {
                 return  (true, abi.encode(wallets[i], filteredTokensToSwap, ghoReceived));
             } 
         }
