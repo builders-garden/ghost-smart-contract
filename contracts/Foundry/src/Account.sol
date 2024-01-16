@@ -202,7 +202,9 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     function executeSupplyToVault() public onlyAdminOrUpkeep() {
         uint ghoBalance = IERC20(defaultToken).balanceOf(address(this));
         uint ghoToSupply = ghoBalance - ghoTreshold;
-        // send the remainder to the vault
+        IERC20(defaultToken).approve(vault, ghoToSupply);
+        bytes memory swapData = abi.encodeWithSelector(0x6e553f65, ghoToSupply, address(this));
+        _call(vault, 0, swapData);
         ghoTreshold = ghoBalance - ghoToSupply;
     }
 
