@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.12;
 
 // Utils
@@ -4086,13 +4087,19 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     function executeSupplyToVault() public onlyAdminOrUpkeep() {
         // Get GHO balance
         uint ghoBalance = IERC20(defaultToken).balanceOf(address(this));
-        uint ghoToSupply = ghoBalance - ghoTreshold;
+        uint ghoToSupply = ghoBalance % 1e18;
         // Approve GHO to vault
         IERC20(defaultToken).approve(vault, ghoToSupply);
         // Deposit GHO to vault
         IERC4626(vault).deposit(ghoToSupply, address(this));
         ghoTreshold = ghoBalance - ghoToSupply;
     }
+
+    function executeTransfer(address to, uint amount) public onlyAdminOrUpkeep(){
+        IERC20(defaultToken).transfer(to, amount);
+        ghoTreshold -= amount; 
+    }
+    
 
     /// @notice Deposit funds for this account in Entrypoint.
     function addDeposit() public payable {
