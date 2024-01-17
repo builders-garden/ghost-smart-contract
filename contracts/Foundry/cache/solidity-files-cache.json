@@ -782,6 +782,49 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol": {
+      "lastModificationDate": 1701055176000,
+      "contentHash": "8337a776991ee87454e5e38b48f0e744",
+      "sourceName": "lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IERC4626": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "interfaces/IERC4626.sol/IERC4626.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
       "lastModificationDate": 1705402430028,
       "contentHash": "2d8b220dbb9d34c44e2782a086dd7bb6",
@@ -908,6 +951,130 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+      "lastModificationDate": 1701055178000,
+      "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "IERC20Permit": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC20Permit.sol/IERC20Permit.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1701055178000,
+      "contentHash": "0320a90f714843ca19373ed143fc4466",
+      "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SafeERC20": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "SafeERC20.sol/SafeERC20.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/Address.sol": {
+      "lastModificationDate": 1701055180000,
+      "contentHash": "f31ad6fc4bbf9c06203987220156a6ba",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.1",
+      "artifacts": {
+        "Address": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Address.sol/Address.json"
+        }
+      }
+    },
     "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
       "lastModificationDate": 1701055180000,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
@@ -945,6 +1112,46 @@
       "artifacts": {
         "Context": {
           "0.8.20+commit.a1b79de6.Linux.gcc": "Context.sol/Context.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "abf06bf89fe6a18d6bd536ef34c95e13",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.17",
+      "artifacts": {
+        "Math": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Math.sol/Math.json"
         }
       }
     },
@@ -2770,9 +2977,208 @@
         }
       }
     },
+    "src/(OLD)AccountFactory.flatten.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "bd30bbf8c7e6da4c3b576191998d3957",
+      "sourceName": "src/(OLD)AccountFactory.flatten.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.12",
+      "artifacts": {
+        "Account": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Account.json"
+        },
+        "AccountCore": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountCore.json"
+        },
+        "AccountCoreStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountCoreStorage.json"
+        },
+        "AccountExtension": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountExtension.json"
+        },
+        "AccountFactory": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountFactory.json"
+        },
+        "AccountPermissions": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountPermissions.json"
+        },
+        "AccountPermissionsStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AccountPermissionsStorage.json"
+        },
+        "Address": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Address.json"
+        },
+        "AutomationBase": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AutomationBase.json"
+        },
+        "AutomationCompatible": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AutomationCompatible.json"
+        },
+        "AutomationCompatibleInterface": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/AutomationCompatibleInterface.json"
+        },
+        "BaseAccount": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/BaseAccount.json"
+        },
+        "BaseAccountFactory": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/BaseAccountFactory.json"
+        },
+        "BytesLib": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/BytesLib.json"
+        },
+        "Clones": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Clones.json"
+        },
+        "ContractMetadata": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ContractMetadata.json"
+        },
+        "ContractMetadataStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ContractMetadataStorage.json"
+        },
+        "ECDSA": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ECDSA.json"
+        },
+        "EIP712": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/EIP712.json"
+        },
+        "ERC1155Holder": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ERC1155Holder.json"
+        },
+        "ERC1155Receiver": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ERC1155Receiver.json"
+        },
+        "ERC1271": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ERC1271.json"
+        },
+        "ERC165": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ERC165.json"
+        },
+        "ERC721Holder": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/ERC721Holder.json"
+        },
+        "EnumerableSet": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/EnumerableSet.json"
+        },
+        "IAccount": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAccount.json"
+        },
+        "IAccountCore": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAccountCore.json"
+        },
+        "IAccountFactory": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAccountFactory.json"
+        },
+        "IAccountFactoryCore": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAccountFactoryCore.json"
+        },
+        "IAccountPermissions": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAccountPermissions.json"
+        },
+        "IAggregator": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IAggregator.json"
+        },
+        "IContractMetadata": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IContractMetadata.json"
+        },
+        "IERC1155Receiver": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IERC1155Receiver.json"
+        },
+        "IERC165": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IERC165.json"
+        },
+        "IERC20": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IERC20.json"
+        },
+        "IERC4626": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IERC4626.json"
+        },
+        "IERC721Receiver": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IERC721Receiver.json"
+        },
+        "IEntryPoint": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IEntryPoint.json"
+        },
+        "IMulticall": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IMulticall.json"
+        },
+        "INonceManager": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/INonceManager.json"
+        },
+        "IPermissions": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IPermissions.json"
+        },
+        "IPermissionsEnumerable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IPermissionsEnumerable.json"
+        },
+        "IPool": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IPool.json"
+        },
+        "IStakeManager": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IStakeManager.json"
+        },
+        "IUniswapV2Router01": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/IUniswapV2Router01.json"
+        },
+        "InitStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/InitStorage.json"
+        },
+        "Initializable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Initializable.json"
+        },
+        "Multicall": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Multicall.json"
+        },
+        "Permissions": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Permissions.json"
+        },
+        "PermissionsEnumerable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/PermissionsEnumerable.json"
+        },
+        "PermissionsEnumerableStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/PermissionsEnumerableStorage.json"
+        },
+        "PermissionsStorage": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/PermissionsStorage.json"
+        },
+        "Strings": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/Strings.json"
+        },
+        "UserOperationLib": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "(OLD)AccountFactory.flatten.sol/UserOperationLib.json"
+        }
+      }
+    },
     "src/Account.sol": {
-      "lastModificationDate": 1705427128076,
-      "contentHash": "f6c720c84a5b13eaeb8217e8b7febfa6",
+      "lastModificationDate": 1705491336636,
+      "contentHash": "4897a3b3c27d1b63172b09d2c96c3d7a",
       "sourceName": "src/Account.sol",
       "solcConfig": {
         "settings": {
@@ -2840,21 +3246,21 @@
         "lib/thirdweb-smartaccount/prebuilts/account/utils/BaseAccount.sol",
         "lib/thirdweb-smartaccount/prebuilts/account/utils/BaseAccountFactory.sol",
         "lib/thirdweb-smartaccount/prebuilts/account/utils/Helpers.sol",
-        "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol"
+        "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol",
+        "src/utils/IERC4626.sol",
+        "src/utils/IPool.sol",
+        "src/utils/IUniswapV2Router01.sol"
       ],
       "versionRequirement": "^0.8.11",
       "artifacts": {
         "Account": {
           "0.8.20+commit.a1b79de6.Linux.gcc": "Account.sol/Account.json"
-        },
-        "IPool": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.sol/IPool.json"
         }
       }
     },
     "src/AccountFactory.sol": {
-      "lastModificationDate": 1705405712640,
-      "contentHash": "25f2996276780e507772b69de5c302b2",
+      "lastModificationDate": 1705491047287,
+      "contentHash": "1c0f0847cfbe39424ebe75a5f1219117",
       "sourceName": "src/AccountFactory.sol",
       "solcConfig": {
         "settings": {
@@ -2930,12 +3336,280 @@
         "lib/thirdweb-smartaccount/prebuilts/account/utils/BaseAccountFactory.sol",
         "lib/thirdweb-smartaccount/prebuilts/account/utils/Helpers.sol",
         "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol",
-        "src/Account.sol"
+        "src/Account.sol",
+        "src/utils/IERC4626.sol",
+        "src/utils/IPool.sol",
+        "src/utils/IUniswapV2Router01.sol"
       ],
       "versionRequirement": "^0.8.12",
       "artifacts": {
         "AccountFactory": {
           "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.sol/AccountFactory.json"
+        }
+      }
+    },
+    "src/GhoVault.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "83cb0252f6dfa2b964ec8831ac456e14",
+      "sourceName": "src/GhoVault.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "src/utils/ERC4626.sol"
+      ],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "MyERC4626Vault": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.sol/MyERC4626Vault.json"
+        }
+      }
+    },
+    "src/MockRouter.sol": {
+      "lastModificationDate": 1705491200965,
+      "contentHash": "100de22a5a1bb9926c4dfdc31351b9ce",
+      "sourceName": "src/MockRouter.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": "^0.8.11",
+      "artifacts": {
+        "MockRouter": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "MockRouter.sol/MockRouter.json"
+        }
+      }
+    },
+    "src/utils/ERC4626.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "c0adb230a8379fa3f971a477fd8c36e2",
+      "sourceName": "src/utils/ERC4626.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC4626.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol"
+      ],
+      "versionRequirement": "^0.8.17",
+      "artifacts": {
+        "ERC4626": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC4626.sol/ERC4626.json"
+        }
+      }
+    },
+    "src/utils/IERC4626.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "8038ec22133d06d7c857c5629dfc509e",
+      "sourceName": "src/utils/IERC4626.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": null,
+      "artifacts": {
+        "IERC4626": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC4626.sol/IERC4626.json"
+        }
+      }
+    },
+    "src/utils/IPool.sol": {
+      "lastModificationDate": 1705491047287,
+      "contentHash": "3d600f25b4f5d5b4b9b394d148e5b2ed",
+      "sourceName": "src/utils/IPool.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": null,
+      "artifacts": {
+        "IPool": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IPool.sol/IPool.json"
+        }
+      }
+    },
+    "src/utils/IUniswapV2Router01.sol": {
+      "lastModificationDate": 1705491296890,
+      "contentHash": "5e68832287102978e6949f70df7202e4",
+      "sourceName": "src/utils/IUniswapV2Router01.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": null,
+      "artifacts": {
+        "IUniswapV2Router01": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IUniswapV2Router01.sol/IUniswapV2Router01.json"
         }
       }
     },
@@ -3036,7 +3710,10 @@
         "lib/thirdweb-smartaccount/prebuilts/account/utils/Helpers.sol",
         "lib/thirdweb-smartaccount/prebuilts/account/utils/UserOperation.sol",
         "src/Account.sol",
-        "src/AccountFactory.sol"
+        "src/AccountFactory.sol",
+        "src/utils/IERC4626.sol",
+        "src/utils/IPool.sol",
+        "src/utils/IUniswapV2Router01.sol"
       ],
       "versionRequirement": "^0.8.6",
       "artifacts": {
