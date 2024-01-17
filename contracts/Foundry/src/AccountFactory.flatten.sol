@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.12;
 
 // Utils
@@ -3883,6 +3882,44 @@ interface IPool {
       uint256 ltv,
       uint256 healthFactor
     );
+
+    function supply(address asset, uint256 amount, address onBehalfOf, uint16 referralCode) external;
+}
+
+interface IUniswapV2Router01 {
+    
+    function swapExactTokensForTokens(
+        uint amountIn,
+        uint amountOutMin,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external returns (uint[] memory amounts);
+    
+}
+
+
+/**
+ * @dev Interface of the ERC-4626 "Tokenized Vault Standard", as defined in
+ * https://eips.ethereum.org/EIPS/eip-4626[ERC-4626].
+ */
+interface IERC4626 is IERC20 {
+    
+
+    /**
+     * @dev Mints shares Vault shares to receiver by depositing exactly amount of underlying tokens.
+     *
+     * - MUST emit the Deposit event.
+     * - MAY support an additional flow in which the underlying tokens are owned by the Vault contract before the
+     *   deposit execution, and are accounted for during deposit.
+     * - MUST revert if all of assets cannot be deposited (due to deposit limit being reached, slippage, the user not
+     *   approving enough underlying tokens to the Vault contract, etc).
+     *
+     * NOTE: most implementations will require pre-approval of the Vault with the Vault’s underlying asset token.
+     */
+    function deposit(uint256 assets, address receiver) external returns (uint256 shares);
+
+    
 }
 
 
@@ -3892,10 +3929,10 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     uint public ghoTreshold;
     address public automationUpkeep;
-    address public defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
-    address public uniswapRouter = 0xD04b095b736d10744810D9eac344c306C100fe6F;
-    address public aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
-    address public vault = 0xBA743e062b790725EE00c3b857Ef0Ca28a10C774;
+    address public defaultToken; 
+    address public uniswapRouter; 
+    address public aavePool; 
+    address public vault; 
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -3927,6 +3964,10 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _setAdmin(_defaultAdmin, true);
         automationUpkeep = msg.sender;
         allowedSupply = true;
+        defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
+        uniswapRouter = 0xf125dbd2865D1638efB4B98fd07A11CCA2D9D7FD;
+        aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
+        vault = 0xCDF50AB9837b08E4777F5a28ABFC518431112475;
     }
 
     /// @notice Lets the account receive native tokens.
@@ -4006,48 +4047,37 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
     function executeSwapAndSupply(
         address token
-    ) external virtual onlyAdminOrUpkeep {
+    ) external virtual {
         require(allowedSupply, "Account: supply paused.");
-        _registerOnFactory();
         
         uint balance = IERC20(token).balanceOf(address(this));
         // Accounts works with 6 decimals tokens (DAI, USDC)
         uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
-        // Get AAVE v3 bottor debt to repay
-        (, uint debt, , , ,) = IPool(aavePool).getUserAccountData(address(this));
-        
-        if (supplyAmount > 0) {
-            // We expect debt is lower than supplyAmount
-            if (debt > 0 && supplyAmount <= debt){
-                IERC20(token).approve(aavePool, supplyAmount);
-                bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 2, address(this));
-                _call(aavePool, 0, repay);
-            } else {
-                // Supply token to AAVE
-                IERC20(token).approve(aavePool, supplyAmount);
-                bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
-                _call(aavePool, 0, supplyData);
-            }
-        }
         
         // Swap token on Uniswap
         address[] memory path = new address[](2);
         path[0] = token;
         path[1] = defaultToken; //GHO
         IERC20(token).approve(uniswapRouter, swapAmount);
-        bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
-        _call(uniswapRouter, 0, swapData);
+        
+        /*bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
+        _call(uniswapRouter, 0, swapData);*/
+        IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(swapAmount, swapAmount, path, address(this), 10);
     }
 
-    function executeSupplyToVault() public onlyAdminOrUpkeep() {
+    function executeSupplyToVault() public {
         uint ghoBalance = IERC20(defaultToken).balanceOf(address(this));
         uint ghoToSupply = ghoBalance - ghoTreshold;
-        IERC20(defaultToken).approve(vault, ghoToSupply);
+        IERC20(defaultToken).approve(vault, ghoBalance);
+        /*
         bytes memory swapData = abi.encodeWithSelector(0x6e553f65, ghoToSupply, address(this));
-        _call(vault, 0, swapData);
+        _call(vault, 0, swapData);*/
+        //IPool(aavePool).supply(ghoToSupply, address(this));
+        IERC4626(vault).deposit(ghoBalance, address(this));
         ghoTreshold = ghoBalance - ghoToSupply;
     }
+
 
     /// @notice Deposit funds for this account in Entrypoint.
     function addDeposit() public payable {
@@ -4187,9 +4217,8 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
         _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
     }
     
-    function initializeUpkeepAndRouter(address _upkeep) public onlyOwner() {
+    function initializeUpkeepAndRouter(address _upkeep) public {
         require(upkeep == address(0), "Already initialized");
-        require(msg.sender == owner, "Not owner");
         upkeep = _upkeep;
     }
 
@@ -4270,6 +4299,8 @@ contract AccountFactory is BaseAccountFactory, ContractMetadata, PermissionsEnum
             } 
         }
     }
+
+    
 
     /**
     * @dev performUpkeep function called by Chainlink Automation infrastructure after checkUpkeep checks

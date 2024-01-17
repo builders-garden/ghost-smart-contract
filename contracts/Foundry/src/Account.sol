@@ -167,9 +167,11 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         address token
     ) external virtual onlyAdminOrUpkeep {
         require(allowedSupply, "Account: supply paused.");
+
         _registerOnFactory();
         
         uint balance = IERC20(token).balanceOf(address(this));
+        
         // Accounts works with 6 decimals tokens (DAI, USDC)
         uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
@@ -204,6 +206,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint ghoToSupply = ghoBalance - ghoTreshold;
         IERC20(defaultToken).approve(vault, ghoToSupply);
         bytes memory swapData = abi.encodeWithSelector(0x6e553f65, ghoToSupply, address(this));
+
         _call(vault, 0, swapData);
         ghoTreshold = ghoBalance - ghoToSupply;
     }
