@@ -13,7 +13,7 @@ contract MockRouter {
         address to,
         uint deadline
     ) external returns (uint[] memory amounts) {
-        require(path.length == 2, "MockRouter: path length must be 2");
+        require(path.length != 0, "MockRouter: path length");
         // Mock Router only supports 6 decimals stablecoin to GHO
         IERC20(path[0]).transferFrom(msg.sender, address(this), amountIn);
         uint256 amountOut = amountIn*1e12;

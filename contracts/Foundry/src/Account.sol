@@ -20,7 +20,9 @@ import "@thirdweb/eip/ERC1271.sol";
 import "@thirdweb/prebuilts/account/utils/Helpers.sol";
 import "@thirdweb/external-deps/openzeppelin/utils/cryptography/ECDSA.sol";
 import "@thirdweb/prebuilts/account/utils/BaseAccountFactory.sol";
-
+import "../src/utils/IERC4626.sol";
+import "../src/utils/IPool.sol";
+import "../src/utils/IUniswapV2Router01.sol";
 //   $$\     $$\       $$\                 $$\                         $$\
 //   $$ |    $$ |      \__|                $$ |                        $$ |
 // $$$$$$\   $$$$$$$\  $$\  $$$$$$\   $$$$$$$ |$$\  $$\  $$\  $$$$$$\  $$$$$$$\
@@ -30,20 +32,6 @@ import "@thirdweb/prebuilts/account/utils/BaseAccountFactory.sol";
 //   \$$$$  |$$ |  $$ |$$ |$$ |      \$$$$$$$ |\$$$$$\$$$$  |\$$$$$$$\ $$$$$$$  |
 //    \____/ \__|  \__|\__|\__|       \_______| \_____\____/  \_______|\_______/
 
-interface IPool {
-    function getUserAccountData(
-    address user
-    ) external view
-    returns (
-      uint256 totalCollateralBase,
-      uint256 totalDebtBase,
-      uint256 availableBorrowsBase,
-      uint256 currentLiquidationThreshold,
-      uint256 ltv,
-      uint256 healthFactor
-    );
-}
-
 
 contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC1155Holder {
     using ECDSA for bytes32;
@@ -51,10 +39,10 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     uint public ghoTreshold;
     address public automationUpkeep;
-    address public defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
-    address public uniswapRouter = 0xD04b095b736d10744810D9eac344c306C100fe6F;
-    address public aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
-    address public vault = 0xBA743e062b790725EE00c3b857Ef0Ca28a10C774;
+    address public defaultToken;
+    address public uniswapRouter;
+    address public aavePool;
+    address public vault;
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -79,13 +67,17 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         require(msg.sender == automationUpkeep || isAdmin(msg.sender), "Account: not admin or Upkeep.");
         _;
     }
-    
+
     function initialize(address _defaultAdmin, bytes calldata _data) public override initializer {
         // This is passed as data in the _registerOnFactory() call in AccountExtension / Account.
         AccountCoreStorage.data().creationSalt = _generateSalt(_defaultAdmin, _data);
         _setAdmin(_defaultAdmin, true);
         automationUpkeep = msg.sender;
         allowedSupply = true;
+        defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
+        uniswapRouter = 0xf125dbd2865D1638efB4B98fd07A11CCA2D9D7FD;
+        aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
+        vault = 0xCDF50AB9837b08E4777F5a28ABFC518431112475;
     }
 
     /// @notice Lets the account receive native tokens.
@@ -167,11 +159,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         address token
     ) external virtual onlyAdminOrUpkeep {
         require(allowedSupply, "Account: supply paused.");
-
-        _registerOnFactory();
-        
+        // Get token balance        
         uint balance = IERC20(token).balanceOf(address(this));
-        
         // Accounts works with 6 decimals tokens (DAI, USDC)
         uint256 supplyAmount = balance % 1e6;
         uint256 swapAmount = balance - supplyAmount;
@@ -181,14 +170,15 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         if (supplyAmount > 0) {
             // We expect debt is lower than supplyAmount
             if (debt > 0 && supplyAmount <= debt){
+                // Approve token to repay
                 IERC20(token).approve(aavePool, supplyAmount);
-                bytes memory repay = abi.encodeWithSelector(0x573ade81, token, supplyAmount, 2, address(this));
-                _call(aavePool, 0, repay);
+                // Repay token to AAVE
+                IPool(aavePool).repay(token, supplyAmount, 2, address(this));
             } else {
                 // Supply token to AAVE
                 IERC20(token).approve(aavePool, supplyAmount);
-                bytes memory supplyData = abi.encodeWithSelector(0x617ba037, token, supplyAmount, address(this), 0);
-                _call(aavePool, 0, supplyData);
+                // Supply token to AAVE
+                IPool(aavePool).supply(token, supplyAmount, address(this), 0);
             }
         }
         
@@ -196,18 +186,20 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         address[] memory path = new address[](2);
         path[0] = token;
         path[1] = defaultToken; //GHO
+        // Approve token to swap
         IERC20(token).approve(uniswapRouter, swapAmount);
-        bytes memory swapData = abi.encodeWithSelector(0x8803dbee, swapAmount, swapAmount, path, address(this), (block.timestamp+300));
-        _call(uniswapRouter, 0, swapData);
+        // Swap token on Uniswap
+        IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(swapAmount, swapAmount, path, address(this), block.timestamp);
     }
 
     function executeSupplyToVault() public onlyAdminOrUpkeep() {
+        // Get GHO balance
         uint ghoBalance = IERC20(defaultToken).balanceOf(address(this));
         uint ghoToSupply = ghoBalance - ghoTreshold;
+        // Approve GHO to vault
         IERC20(defaultToken).approve(vault, ghoToSupply);
-        bytes memory swapData = abi.encodeWithSelector(0x6e553f65, ghoToSupply, address(this));
-
-        _call(vault, 0, swapData);
+        // Deposit GHO to vault
+        IERC4626(vault).deposit(ghoToSupply, address(this));
         ghoTreshold = ghoBalance - ghoToSupply;
     }
 
