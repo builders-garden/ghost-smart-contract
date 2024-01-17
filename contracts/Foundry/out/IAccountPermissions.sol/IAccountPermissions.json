@@ -430,10 +430,10 @@
     "setPermissionsForSigner((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)": "5892e236",
     "verifySignerPermissionRequest((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)": "a9082d84"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isAdmin\",\"type\":\"bool\"}],\"name\":\"AdminUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"authorizingSigner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"targetSigner\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"indexed\":false,\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"permissions\",\"type\":\"tuple\"}],\"name\":\"SignerPermissionsUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getAllActiveSigners\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions[]\",\"name\":\"signers\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAdmins\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"admins\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllSigners\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions[]\",\"name\":\"signers\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getPermissionsForSigner\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions\",\"name\":\"permissions\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isActiveSigner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"req\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"setPermissionsForSigner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"req\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"verifySignerPermissionRequest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"thirdweb\",\"kind\":\"dev\",\"methods\":{\"verifySignerPermissionRequest((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)\":{\"details\":\"Verifies that a request is signed by an authorized account.\"}},\"version\":1},\"userdoc\":{\"events\":{\"AdminUpdated(address,bool)\":{\"notice\":\"Emitted when an admin is set or removed.\"},\"SignerPermissionsUpdated(address,address,(address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32))\":{\"notice\":\"Emitted when permissions for a signer are updated.\"}},\"kind\":\"user\",\"methods\":{\"getAllActiveSigners()\":{\"notice\":\"Returns all signers with active permissions to use the account.\"},\"getAllAdmins()\":{\"notice\":\"Returns all admins of the account.\"},\"getAllSigners()\":{\"notice\":\"Returns all active and inactive signers of the account.\"},\"getPermissionsForSigner(address)\":{\"notice\":\"Returns the restrictions under which a signer can use the smart wallet.\"},\"isActiveSigner(address)\":{\"notice\":\"Returns whether the given account is an active signer on the account.\"},\"isAdmin(address)\":{\"notice\":\"Returns whether the given account is an admin.\"},\"setPermissionsForSigner((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)\":{\"notice\":\"Sets the permissions for a given signer.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/interface/IAccountPermissions.sol\":\"IAccountPermissions\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IAccountPermissions.sol\":{\"keccak256\":\"0xfb7f2234c9c03480db9241fb9ca487a6b671c03f27836abbb33e24e79f401c52\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://156c44d9bc550c602e964dd655112de25a3966cfd6870e9631b9d841cebe028b\",\"dweb:/ipfs/Qmbq5ozkA52o86eGxDG3wMBYtMZM6dMatnA3B64sbYjADJ\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"isAdmin\",\"type\":\"bool\"}],\"name\":\"AdminUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"authorizingSigner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"targetSigner\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"indexed\":false,\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"permissions\",\"type\":\"tuple\"}],\"name\":\"SignerPermissionsUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getAllActiveSigners\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions[]\",\"name\":\"signers\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAdmins\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"admins\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllSigners\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions[]\",\"name\":\"signers\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getPermissionsForSigner\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"startTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"endTimestamp\",\"type\":\"uint128\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissions\",\"name\":\"permissions\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isActiveSigner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"isAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"req\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"setPermissionsForSigner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"isAdmin\",\"type\":\"uint8\"},{\"internalType\":\"address[]\",\"name\":\"approvedTargets\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"nativeTokenLimitPerTransaction\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"permissionStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"permissionEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityStartTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"reqValidityEndTimestamp\",\"type\":\"uint128\"},{\"internalType\":\"bytes32\",\"name\":\"uid\",\"type\":\"bytes32\"}],\"internalType\":\"struct IAccountPermissions.SignerPermissionRequest\",\"name\":\"req\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"verifySignerPermissionRequest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"},{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"thirdweb\",\"kind\":\"dev\",\"methods\":{\"verifySignerPermissionRequest((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)\":{\"details\":\"Verifies that a request is signed by an authorized account.\"}},\"version\":1},\"userdoc\":{\"events\":{\"AdminUpdated(address,bool)\":{\"notice\":\"Emitted when an admin is set or removed.\"},\"SignerPermissionsUpdated(address,address,(address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32))\":{\"notice\":\"Emitted when permissions for a signer are updated.\"}},\"kind\":\"user\",\"methods\":{\"getAllActiveSigners()\":{\"notice\":\"Returns all signers with active permissions to use the account.\"},\"getAllAdmins()\":{\"notice\":\"Returns all admins of the account.\"},\"getAllSigners()\":{\"notice\":\"Returns all active and inactive signers of the account.\"},\"getPermissionsForSigner(address)\":{\"notice\":\"Returns the restrictions under which a signer can use the smart wallet.\"},\"isActiveSigner(address)\":{\"notice\":\"Returns whether the given account is an active signer on the account.\"},\"isAdmin(address)\":{\"notice\":\"Returns whether the given account is an admin.\"},\"setPermissionsForSigner((address,uint8,address[],uint256,uint128,uint128,uint128,uint128,bytes32),bytes)\":{\"notice\":\"Sets the permissions for a given signer.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/interface/IAccountPermissions.sol\":\"IAccountPermissions\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IAccountPermissions.sol\":{\"keccak256\":\"0xfb7f2234c9c03480db9241fb9ca487a6b671c03f27836abbb33e24e79f401c52\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://156c44d9bc550c602e964dd655112de25a3966cfd6870e9631b9d841cebe028b\",\"dweb:/ipfs/Qmbq5ozkA52o86eGxDG3wMBYtMZM6dMatnA3B64sbYjADJ\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -922,10 +922,10 @@
   },
   "ast": {
     "absolutePath": "lib/thirdweb-smartaccount/extension/interface/IAccountPermissions.sol",
-    "id": 27522,
+    "id": 27525,
     "exportedSymbols": {
       "IAccountPermissions": [
-        27521
+        27524
       ]
     },
     "nodeType": "SourceUnit",
@@ -944,25 +944,31 @@
         ]
       },
       {
-        "id": 27521,
+        "id": 27524,
         "nodeType": "ContractDefinition",
         "src": "86:5408:26",
         "nodes": [
           {
-            "id": 27414,
+            "id": 27415,
             "nodeType": "StructDefinition",
             "src": "1359:355:26",
             "nodes": [],
             "canonicalName": "IAccountPermissions.SignerPermissionRequest",
+            "documentation": {
+              "id": 27395,
+              "nodeType": "StructuredDocumentation",
+              "src": "300:1054:26",
+              "text": "  @notice The payload that must be signed by an authorized wallet to set permissions for a signer to use the smart wallet.\n  @param signer The addres of the signer to give permissions.\n  @param approvedTargets The list of approved targets that a role holder can call using the smart wallet.\n  @param nativeTokenLimitPerTransaction The maximum value that can be transferred by a role holder in a single transaction.\n  @param permissionStartTimestamp The UNIX timestamp at and after which a signer has permission to use the smart wallet.\n  @param permissionEndTimestamp The UNIX timestamp at and after which a signer no longer has permission to use the smart wallet.\n  @param reqValidityStartTimestamp The UNIX timestamp at and after which a signature is valid.\n  @param reqValidityEndTimestamp The UNIX timestamp at and after which a signature is invalid/expired.\n  @param uid A unique non-repeatable ID for the payload.\n  @param isAdmin Whether the signer should be an admin."
+            },
             "members": [
               {
                 "constant": false,
-                "id": 27396,
+                "id": 27397,
                 "mutability": "mutable",
                 "name": "signer",
                 "nameLocation": "1408:6:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1400:14:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -971,7 +977,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 27395,
+                  "id": 27396,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1400:7:26",
@@ -985,12 +991,12 @@
               },
               {
                 "constant": false,
-                "id": 27398,
+                "id": 27399,
                 "mutability": "mutable",
                 "name": "isAdmin",
                 "nameLocation": "1430:7:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1424:13:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -999,7 +1005,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 27397,
+                  "id": 27398,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "1424:5:26",
@@ -1012,12 +1018,12 @@
               },
               {
                 "constant": false,
-                "id": 27401,
+                "id": 27402,
                 "mutability": "mutable",
                 "name": "approvedTargets",
                 "nameLocation": "1457:15:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1447:25:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1027,7 +1033,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 27399,
+                    "id": 27400,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1447:7:26",
@@ -1037,7 +1043,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 27400,
+                  "id": 27401,
                   "nodeType": "ArrayTypeName",
                   "src": "1447:9:26",
                   "typeDescriptions": {
@@ -1049,12 +1055,12 @@
               },
               {
                 "constant": false,
-                "id": 27403,
+                "id": 27404,
                 "mutability": "mutable",
                 "name": "nativeTokenLimitPerTransaction",
                 "nameLocation": "1490:30:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1482:38:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1063,7 +1069,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 27402,
+                  "id": 27403,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1482:7:26",
@@ -1076,12 +1082,12 @@
               },
               {
                 "constant": false,
-                "id": 27405,
+                "id": 27406,
                 "mutability": "mutable",
                 "name": "permissionStartTimestamp",
                 "nameLocation": "1538:24:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1530:32:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1090,7 +1096,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27404,
+                  "id": 27405,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1530:7:26",
@@ -1103,12 +1109,12 @@
               },
               {
                 "constant": false,
-                "id": 27407,
+                "id": 27408,
                 "mutability": "mutable",
                 "name": "permissionEndTimestamp",
                 "nameLocation": "1580:22:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1572:30:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1117,7 +1123,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27406,
+                  "id": 27407,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1572:7:26",
@@ -1130,12 +1136,12 @@
               },
               {
                 "constant": false,
-                "id": 27409,
+                "id": 27410,
                 "mutability": "mutable",
                 "name": "reqValidityStartTimestamp",
                 "nameLocation": "1620:25:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1612:33:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1144,7 +1150,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27408,
+                  "id": 27409,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1612:7:26",
@@ -1157,12 +1163,12 @@
               },
               {
                 "constant": false,
-                "id": 27411,
+                "id": 27412,
                 "mutability": "mutable",
                 "name": "reqValidityEndTimestamp",
                 "nameLocation": "1663:23:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1655:31:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1171,7 +1177,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27410,
+                  "id": 27411,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1655:7:26",
@@ -1184,12 +1190,12 @@
               },
               {
                 "constant": false,
-                "id": 27413,
+                "id": 27414,
                 "mutability": "mutable",
                 "name": "uid",
                 "nameLocation": "1704:3:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27414,
+                "scope": 27415,
                 "src": "1696:11:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1198,7 +1204,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 27412,
+                  "id": 27413,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1696:7:26",
@@ -1212,24 +1218,30 @@
             ],
             "name": "SignerPermissionRequest",
             "nameLocation": "1366:23:26",
-            "scope": 27521,
+            "scope": 27524,
             "visibility": "public"
           },
           {
-            "id": 27426,
+            "id": 27428,
             "nodeType": "StructDefinition",
             "src": "2351:201:26",
             "nodes": [],
             "canonicalName": "IAccountPermissions.SignerPermissions",
+            "documentation": {
+              "id": 27416,
+              "nodeType": "StructuredDocumentation",
+              "src": "1720:626:26",
+              "text": "  @notice The permissions that a signer has to use the smart wallet.\n  @param signer The address of the signer.\n  @param approvedTargets The list of approved targets that a role holder can call using the smart wallet.\n  @param nativeTokenLimitPerTransaction The maximum value that can be transferred by a role holder in a single transaction.\n  @param startTimestamp The UNIX timestamp at and after which a signer has permission to use the smart wallet.\n  @param endTimestamp The UNIX timestamp at and after which a signer no longer has permission to use the smart wallet."
+            },
             "members": [
               {
                 "constant": false,
-                "id": 27416,
+                "id": 27418,
                 "mutability": "mutable",
                 "name": "signer",
                 "nameLocation": "2394:6:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27426,
+                "scope": 27428,
                 "src": "2386:14:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1238,7 +1250,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 27415,
+                  "id": 27417,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2386:7:26",
@@ -1252,12 +1264,12 @@
               },
               {
                 "constant": false,
-                "id": 27419,
+                "id": 27421,
                 "mutability": "mutable",
                 "name": "approvedTargets",
                 "nameLocation": "2420:15:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27426,
+                "scope": 27428,
                 "src": "2410:25:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1267,7 +1279,7 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 27417,
+                    "id": 27419,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2410:7:26",
@@ -1277,7 +1289,7 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 27418,
+                  "id": 27420,
                   "nodeType": "ArrayTypeName",
                   "src": "2410:9:26",
                   "typeDescriptions": {
@@ -1289,12 +1301,12 @@
               },
               {
                 "constant": false,
-                "id": 27421,
+                "id": 27423,
                 "mutability": "mutable",
                 "name": "nativeTokenLimitPerTransaction",
                 "nameLocation": "2453:30:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27426,
+                "scope": 27428,
                 "src": "2445:38:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1303,7 +1315,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 27420,
+                  "id": 27422,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "2445:7:26",
@@ -1316,12 +1328,12 @@
               },
               {
                 "constant": false,
-                "id": 27423,
+                "id": 27425,
                 "mutability": "mutable",
                 "name": "startTimestamp",
                 "nameLocation": "2501:14:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27426,
+                "scope": 27428,
                 "src": "2493:22:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1330,7 +1342,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27422,
+                  "id": 27424,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "2493:7:26",
@@ -1343,12 +1355,12 @@
               },
               {
                 "constant": false,
-                "id": 27425,
+                "id": 27427,
                 "mutability": "mutable",
                 "name": "endTimestamp",
                 "nameLocation": "2533:12:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27426,
+                "scope": 27428,
                 "src": "2525:20:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1357,7 +1369,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27424,
+                  "id": 27426,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "2525:7:26",
@@ -1371,24 +1383,30 @@
             ],
             "name": "SignerPermissions",
             "nameLocation": "2358:17:26",
-            "scope": 27521,
+            "scope": 27524,
             "visibility": "public"
           },
           {
-            "id": 27433,
+            "id": 27436,
             "nodeType": "StructDefinition",
             "src": "3050:148:26",
             "nodes": [],
             "canonicalName": "IAccountPermissions.SignerPermissionsStatic",
+            "documentation": {
+              "id": 27429,
+              "nodeType": "StructuredDocumentation",
+              "src": "2558:487:26",
+              "text": "  @notice Internal struct for storing permissions for a signer (without approved targets).\n  @param nativeTokenLimitPerTransaction The maximum value that can be transferred by a role holder in a single transaction.\n  @param startTimestamp The UNIX timestamp at and after which a signer has permission to use the smart wallet.\n  @param endTimestamp The UNIX timestamp at and after which a signer no longer has permission to use the smart wallet."
+            },
             "members": [
               {
                 "constant": false,
-                "id": 27428,
+                "id": 27431,
                 "mutability": "mutable",
                 "name": "nativeTokenLimitPerTransaction",
                 "nameLocation": "3099:30:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27433,
+                "scope": 27436,
                 "src": "3091:38:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1397,7 +1415,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 27427,
+                  "id": 27430,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "3091:7:26",
@@ -1410,12 +1428,12 @@
               },
               {
                 "constant": false,
-                "id": 27430,
+                "id": 27433,
                 "mutability": "mutable",
                 "name": "startTimestamp",
                 "nameLocation": "3147:14:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27433,
+                "scope": 27436,
                 "src": "3139:22:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1424,7 +1442,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27429,
+                  "id": 27432,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "3139:7:26",
@@ -1437,12 +1455,12 @@
               },
               {
                 "constant": false,
-                "id": 27432,
+                "id": 27435,
                 "mutability": "mutable",
                 "name": "endTimestamp",
                 "nameLocation": "3179:12:26",
                 "nodeType": "VariableDeclaration",
-                "scope": 27433,
+                "scope": 27436,
                 "src": "3171:20:26",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1451,7 +1469,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 27431,
+                  "id": 27434,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "3171:7:26",
@@ -1465,17 +1483,17 @@
             ],
             "name": "SignerPermissionsStatic",
             "nameLocation": "3057:23:26",
-            "scope": 27521,
+            "scope": 27524,
             "visibility": "public"
           },
           {
-            "id": 27443,
+            "id": 27446,
             "nodeType": "EventDefinition",
             "src": "3450:163:26",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 27434,
+              "id": 27437,
               "nodeType": "StructuredDocumentation",
               "src": "3383:62:26",
               "text": "@notice Emitted when permissions for a signer are updated."
@@ -1484,18 +1502,18 @@
             "name": "SignerPermissionsUpdated",
             "nameLocation": "3456:24:26",
             "parameters": {
-              "id": 27442,
+              "id": 27445,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27436,
+                  "id": 27439,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "authorizingSigner",
                   "nameLocation": "3506:17:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27443,
+                  "scope": 27446,
                   "src": "3490:33:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1504,7 +1522,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27435,
+                    "id": 27438,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3490:7:26",
@@ -1518,13 +1536,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 27438,
+                  "id": 27441,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "targetSigner",
                   "nameLocation": "3549:12:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27443,
+                  "scope": 27446,
                   "src": "3533:28:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1533,7 +1551,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27437,
+                    "id": 27440,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3533:7:26",
@@ -1547,37 +1565,37 @@
                 },
                 {
                   "constant": false,
-                  "id": 27441,
+                  "id": 27444,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "permissions",
                   "nameLocation": "3595:11:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27443,
+                  "scope": 27446,
                   "src": "3571:35:26",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_memory_ptr",
+                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_memory_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                   },
                   "typeName": {
-                    "id": 27440,
+                    "id": 27443,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 27439,
+                      "id": 27442,
                       "name": "SignerPermissionRequest",
                       "nameLocations": [
                         "3571:23:26"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 27414,
+                      "referencedDeclaration": 27415,
                       "src": "3571:23:26"
                     },
-                    "referencedDeclaration": 27414,
+                    "referencedDeclaration": 27415,
                     "src": "3571:23:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_storage_ptr",
+                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                     }
                   },
@@ -1588,13 +1606,13 @@
             }
           },
           {
-            "id": 27450,
+            "id": 27453,
             "nodeType": "EventDefinition",
             "src": "3676:57:26",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 27444,
+              "id": 27447,
               "nodeType": "StructuredDocumentation",
               "src": "3619:52:26",
               "text": "@notice Emitted when an admin is set or removed."
@@ -1603,18 +1621,18 @@
             "name": "AdminUpdated",
             "nameLocation": "3682:12:26",
             "parameters": {
-              "id": 27449,
+              "id": 27452,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27446,
+                  "id": 27449,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "3711:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27450,
+                  "scope": 27453,
                   "src": "3695:22:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1623,7 +1641,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27445,
+                    "id": 27448,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3695:7:26",
@@ -1637,13 +1655,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 27448,
+                  "id": 27451,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "isAdmin",
                   "nameLocation": "3724:7:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27450,
+                  "scope": 27453,
                   "src": "3719:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1652,7 +1670,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 27447,
+                    "id": 27450,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "3719:4:26",
@@ -1668,12 +1686,12 @@
             }
           },
           {
-            "id": 27458,
+            "id": 27461,
             "nodeType": "FunctionDefinition",
             "src": "3985:62:26",
             "nodes": [],
             "documentation": {
-              "id": 27451,
+              "id": 27454,
               "nodeType": "StructuredDocumentation",
               "src": "3922:58:26",
               "text": "@notice Returns whether the given account is an admin."
@@ -1685,17 +1703,17 @@
             "name": "isAdmin",
             "nameLocation": "3994:7:26",
             "parameters": {
-              "id": 27454,
+              "id": 27457,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27453,
+                  "id": 27456,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "4010:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27458,
+                  "scope": 27461,
                   "src": "4002:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1704,7 +1722,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27452,
+                    "id": 27455,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4002:7:26",
@@ -1720,17 +1738,17 @@
               "src": "4001:16:26"
             },
             "returnParameters": {
-              "id": 27457,
+              "id": 27460,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27456,
+                  "id": 27459,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27458,
+                  "scope": 27461,
                   "src": "4041:4:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1739,7 +1757,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 27455,
+                    "id": 27458,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4041:4:26",
@@ -1753,18 +1771,18 @@
               ],
               "src": "4040:6:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27466,
+            "id": 27469,
             "nodeType": "FunctionDefinition",
             "src": "4139:69:26",
             "nodes": [],
             "documentation": {
-              "id": 27459,
+              "id": 27462,
               "nodeType": "StructuredDocumentation",
               "src": "4053:81:26",
               "text": "@notice Returns whether the given account is an active signer on the account."
@@ -1776,17 +1794,17 @@
             "name": "isActiveSigner",
             "nameLocation": "4148:14:26",
             "parameters": {
-              "id": 27462,
+              "id": 27465,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27461,
+                  "id": 27464,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "4171:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27466,
+                  "scope": 27469,
                   "src": "4163:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1795,7 +1813,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27460,
+                    "id": 27463,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4163:7:26",
@@ -1811,17 +1829,17 @@
               "src": "4162:16:26"
             },
             "returnParameters": {
-              "id": 27465,
+              "id": 27468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27464,
+                  "id": 27467,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27466,
+                  "scope": 27469,
                   "src": "4202:4:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1830,7 +1848,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 27463,
+                    "id": 27466,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "4202:4:26",
@@ -1844,18 +1862,18 @@
               ],
               "src": "4201:6:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27475,
+            "id": 27478,
             "nodeType": "FunctionDefinition",
             "src": "4302:110:26",
             "nodes": [],
             "documentation": {
-              "id": 27467,
+              "id": 27470,
               "nodeType": "StructuredDocumentation",
               "src": "4214:83:26",
               "text": "@notice Returns the restrictions under which a signer can use the smart wallet."
@@ -1867,17 +1885,17 @@
             "name": "getPermissionsForSigner",
             "nameLocation": "4311:23:26",
             "parameters": {
-              "id": 27470,
+              "id": 27473,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27469,
+                  "id": 27472,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "4343:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27475,
+                  "scope": 27478,
                   "src": "4335:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1886,7 +1904,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27468,
+                    "id": 27471,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4335:7:26",
@@ -1902,41 +1920,41 @@
               "src": "4334:16:26"
             },
             "returnParameters": {
-              "id": 27474,
+              "id": 27477,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27473,
+                  "id": 27476,
                   "mutability": "mutable",
                   "name": "permissions",
                   "nameLocation": "4399:11:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27475,
+                  "scope": 27478,
                   "src": "4374:36:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_SignerPermissions_$27426_memory_ptr",
+                    "typeIdentifier": "t_struct$_SignerPermissions_$27428_memory_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissions"
                   },
                   "typeName": {
-                    "id": 27472,
+                    "id": 27475,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 27471,
+                      "id": 27474,
                       "name": "SignerPermissions",
                       "nameLocations": [
                         "4374:17:26"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 27426,
+                      "referencedDeclaration": 27428,
                       "src": "4374:17:26"
                     },
-                    "referencedDeclaration": 27426,
+                    "referencedDeclaration": 27428,
                     "src": "4374:17:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_SignerPermissions_$27426_storage_ptr",
+                      "typeIdentifier": "t_struct$_SignerPermissions_$27428_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissions"
                     }
                   },
@@ -1945,18 +1963,18 @@
               ],
               "src": "4373:38:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27483,
+            "id": 27486,
             "nodeType": "FunctionDefinition",
             "src": "4490:84:26",
             "nodes": [],
             "documentation": {
-              "id": 27476,
+              "id": 27479,
               "nodeType": "StructuredDocumentation",
               "src": "4418:67:26",
               "text": "@notice Returns all active and inactive signers of the account."
@@ -1968,56 +1986,56 @@
             "name": "getAllSigners",
             "nameLocation": "4499:13:26",
             "parameters": {
-              "id": 27477,
+              "id": 27480,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4512:2:26"
             },
             "returnParameters": {
-              "id": 27482,
+              "id": 27485,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27481,
+                  "id": 27484,
                   "mutability": "mutable",
                   "name": "signers",
                   "nameLocation": "4565:7:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27483,
+                  "scope": 27486,
                   "src": "4538:34:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27426_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27428_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissions[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 27479,
+                      "id": 27482,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 27478,
+                        "id": 27481,
                         "name": "SignerPermissions",
                         "nameLocations": [
                           "4538:17:26"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 27426,
+                        "referencedDeclaration": 27428,
                         "src": "4538:17:26"
                       },
-                      "referencedDeclaration": 27426,
+                      "referencedDeclaration": 27428,
                       "src": "4538:17:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_SignerPermissions_$27426_storage_ptr",
+                        "typeIdentifier": "t_struct$_SignerPermissions_$27428_storage_ptr",
                         "typeString": "struct IAccountPermissions.SignerPermissions"
                       }
                     },
-                    "id": 27480,
+                    "id": 27483,
                     "nodeType": "ArrayTypeName",
                     "src": "4538:19:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27426_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27428_storage_$dyn_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissions[]"
                     }
                   },
@@ -2026,18 +2044,18 @@
               ],
               "src": "4537:36:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27491,
+            "id": 27494,
             "nodeType": "FunctionDefinition",
             "src": "4660:90:26",
             "nodes": [],
             "documentation": {
-              "id": 27484,
+              "id": 27487,
               "nodeType": "StructuredDocumentation",
               "src": "4580:75:26",
               "text": "@notice Returns all signers with active permissions to use the account."
@@ -2049,56 +2067,56 @@
             "name": "getAllActiveSigners",
             "nameLocation": "4669:19:26",
             "parameters": {
-              "id": 27485,
+              "id": 27488,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4688:2:26"
             },
             "returnParameters": {
-              "id": 27490,
+              "id": 27493,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27489,
+                  "id": 27492,
                   "mutability": "mutable",
                   "name": "signers",
                   "nameLocation": "4741:7:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27491,
+                  "scope": 27494,
                   "src": "4714:34:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27426_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27428_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissions[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 27487,
+                      "id": 27490,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 27486,
+                        "id": 27489,
                         "name": "SignerPermissions",
                         "nameLocations": [
                           "4714:17:26"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 27426,
+                        "referencedDeclaration": 27428,
                         "src": "4714:17:26"
                       },
-                      "referencedDeclaration": 27426,
+                      "referencedDeclaration": 27428,
                       "src": "4714:17:26",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_SignerPermissions_$27426_storage_ptr",
+                        "typeIdentifier": "t_struct$_SignerPermissions_$27428_storage_ptr",
                         "typeString": "struct IAccountPermissions.SignerPermissions"
                       }
                     },
-                    "id": 27488,
+                    "id": 27491,
                     "nodeType": "ArrayTypeName",
                     "src": "4714:19:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27426_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_SignerPermissions_$27428_storage_$dyn_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissions[]"
                     }
                   },
@@ -2107,18 +2125,18 @@
               ],
               "src": "4713:36:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27498,
+            "id": 27501,
             "nodeType": "FunctionDefinition",
             "src": "4807:72:26",
             "nodes": [],
             "documentation": {
-              "id": 27492,
+              "id": 27495,
               "nodeType": "StructuredDocumentation",
               "src": "4756:46:26",
               "text": "@notice Returns all admins of the account."
@@ -2130,23 +2148,23 @@
             "name": "getAllAdmins",
             "nameLocation": "4816:12:26",
             "parameters": {
-              "id": 27493,
+              "id": 27496,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4828:2:26"
             },
             "returnParameters": {
-              "id": 27497,
+              "id": 27500,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27496,
+                  "id": 27499,
                   "mutability": "mutable",
                   "name": "admins",
                   "nameLocation": "4871:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27498,
+                  "scope": 27501,
                   "src": "4854:23:26",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2156,7 +2174,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 27494,
+                      "id": 27497,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "4854:7:26",
@@ -2166,7 +2184,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 27495,
+                    "id": 27498,
                     "nodeType": "ArrayTypeName",
                     "src": "4854:9:26",
                     "typeDescriptions": {
@@ -2179,18 +2197,18 @@
               ],
               "src": "4853:25:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27511,
+            "id": 27514,
             "nodeType": "FunctionDefinition",
             "src": "4958:178:26",
             "nodes": [],
             "documentation": {
-              "id": 27499,
+              "id": 27502,
               "nodeType": "StructuredDocumentation",
               "src": "4885:68:26",
               "text": "@dev Verifies that a request is signed by an authorized account."
@@ -2202,41 +2220,41 @@
             "name": "verifySignerPermissionRequest",
             "nameLocation": "4967:29:26",
             "parameters": {
-              "id": 27505,
+              "id": 27508,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27502,
+                  "id": 27505,
                   "mutability": "mutable",
                   "name": "req",
                   "nameLocation": "5039:3:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27511,
+                  "scope": 27514,
                   "src": "5006:36:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_calldata_ptr",
+                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_calldata_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                   },
                   "typeName": {
-                    "id": 27501,
+                    "id": 27504,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 27500,
+                      "id": 27503,
                       "name": "SignerPermissionRequest",
                       "nameLocations": [
                         "5006:23:26"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 27414,
+                      "referencedDeclaration": 27415,
                       "src": "5006:23:26"
                     },
-                    "referencedDeclaration": 27414,
+                    "referencedDeclaration": 27415,
                     "src": "5006:23:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_storage_ptr",
+                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                     }
                   },
@@ -2244,12 +2262,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 27504,
+                  "id": 27507,
                   "mutability": "mutable",
                   "name": "signature",
                   "nameLocation": "5067:9:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27511,
+                  "scope": 27514,
                   "src": "5052:24:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2258,7 +2276,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 27503,
+                    "id": 27506,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "5052:5:26",
@@ -2273,17 +2291,17 @@
               "src": "4996:86:26"
             },
             "returnParameters": {
-              "id": 27510,
+              "id": 27513,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27507,
+                  "id": 27510,
                   "mutability": "mutable",
                   "name": "success",
                   "nameLocation": "5111:7:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27511,
+                  "scope": 27514,
                   "src": "5106:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2292,7 +2310,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 27506,
+                    "id": 27509,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "5106:4:26",
@@ -2305,12 +2323,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 27509,
+                  "id": 27512,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "5128:6:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27511,
+                  "scope": 27514,
                   "src": "5120:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2319,7 +2337,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27508,
+                    "id": 27511,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "5120:7:26",
@@ -2334,18 +2352,18 @@
               ],
               "src": "5105:30:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27520,
+            "id": 27523,
             "nodeType": "FunctionDefinition",
             "src": "5386:106:26",
             "nodes": [],
             "documentation": {
-              "id": 27512,
+              "id": 27515,
               "nodeType": "StructuredDocumentation",
               "src": "5329:52:26",
               "text": "@notice Sets the permissions for a given signer."
@@ -2357,41 +2375,41 @@
             "name": "setPermissionsForSigner",
             "nameLocation": "5395:23:26",
             "parameters": {
-              "id": 27518,
+              "id": 27521,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27515,
+                  "id": 27518,
                   "mutability": "mutable",
                   "name": "req",
                   "nameLocation": "5452:3:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27520,
+                  "scope": 27523,
                   "src": "5419:36:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_calldata_ptr",
+                    "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_calldata_ptr",
                     "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                   },
                   "typeName": {
-                    "id": 27514,
+                    "id": 27517,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 27513,
+                      "id": 27516,
                       "name": "SignerPermissionRequest",
                       "nameLocations": [
                         "5419:23:26"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 27414,
+                      "referencedDeclaration": 27415,
                       "src": "5419:23:26"
                     },
-                    "referencedDeclaration": 27414,
+                    "referencedDeclaration": 27415,
                     "src": "5419:23:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27414_storage_ptr",
+                      "typeIdentifier": "t_struct$_SignerPermissionRequest_$27415_storage_ptr",
                       "typeString": "struct IAccountPermissions.SignerPermissionRequest"
                     }
                   },
@@ -2399,12 +2417,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 27517,
+                  "id": 27520,
                   "mutability": "mutable",
                   "name": "signature",
                   "nameLocation": "5472:9:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27520,
+                  "scope": 27523,
                   "src": "5457:24:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -2413,7 +2431,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 27516,
+                    "id": 27519,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "5457:5:26",
@@ -2428,12 +2446,12 @@
               "src": "5418:64:26"
             },
             "returnParameters": {
-              "id": 27519,
+              "id": 27522,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "5491:0:26"
             },
-            "scope": 27521,
+            "scope": 27524,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -2452,12 +2470,16 @@
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          27521
+          27524
         ],
         "name": "IAccountPermissions",
         "nameLocation": "96:19:26",
-        "scope": 27522,
-        "usedErrors": []
+        "scope": 27525,
+        "usedErrors": [],
+        "usedEvents": [
+          27446,
+          27453
+        ]
       }
     ],
     "license": "Apache-2.0"

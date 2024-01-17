@@ -235,10 +235,10 @@
     "renounceRole(bytes32,address)": "36568abe",
     "revokeRole(bytes32,address)": "d547741f"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"External interface of AccessControlEnumerable declared to support ERC165 detection.\",\"events\":{\"RoleAdminChanged(bytes32,bytes32,bytes32)\":{\"details\":\"Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. _Available since v3.1._\"},\"RoleGranted(bytes32,address,address)\":{\"details\":\"Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-_setupRole}.\"},\"RoleRevoked(bytes32,address,address)\":{\"details\":\"Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call:   - if using `revokeRole`, it is the admin role bearer   - if using `renounceRole`, it is the role bearer (i.e. `account`)\"}},\"kind\":\"dev\",\"methods\":{\"getRoleAdmin(bytes32)\":{\"details\":\"Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {AccessControl-_setRoleAdmin}.\"},\"getRoleMember(bytes32,uint256)\":{\"details\":\"Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following [forum post](https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296) for more information.\"},\"getRoleMemberCount(bytes32)\":{\"details\":\"Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.\"},\"grantRole(bytes32,address)\":{\"details\":\"Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role.\"},\"hasRole(bytes32,address)\":{\"details\":\"Returns `true` if `account` has been granted `role`.\"},\"renounceRole(bytes32,address)\":{\"details\":\"Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`.\"},\"revokeRole(bytes32,address)\":{\"details\":\"Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/interface/IPermissionsEnumerable.sol\":\"IPermissionsEnumerable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IPermissions.sol\":{\"keccak256\":\"0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d\",\"dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS\"]},\"lib/thirdweb-smartaccount/extension/interface/IPermissionsEnumerable.sol\":{\"keccak256\":\"0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee\",\"dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"External interface of AccessControlEnumerable declared to support ERC165 detection.\",\"events\":{\"RoleAdminChanged(bytes32,bytes32,bytes32)\":{\"details\":\"Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. _Available since v3.1._\"},\"RoleGranted(bytes32,address,address)\":{\"details\":\"Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-_setupRole}.\"},\"RoleRevoked(bytes32,address,address)\":{\"details\":\"Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call:   - if using `revokeRole`, it is the admin role bearer   - if using `renounceRole`, it is the role bearer (i.e. `account`)\"}},\"kind\":\"dev\",\"methods\":{\"getRoleAdmin(bytes32)\":{\"details\":\"Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {AccessControl-_setRoleAdmin}.\"},\"getRoleMember(bytes32,uint256)\":{\"details\":\"Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following [forum post](https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296) for more information.\"},\"getRoleMemberCount(bytes32)\":{\"details\":\"Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.\"},\"grantRole(bytes32,address)\":{\"details\":\"Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role.\"},\"hasRole(bytes32,address)\":{\"details\":\"Returns `true` if `account` has been granted `role`.\"},\"renounceRole(bytes32,address)\":{\"details\":\"Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`.\"},\"revokeRole(bytes32,address)\":{\"details\":\"Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/interface/IPermissionsEnumerable.sol\":\"IPermissionsEnumerable\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IPermissions.sol\":{\"keccak256\":\"0xc0cd1f87bac474a06f85e2b341b9b57662aee957fc24180d42c872481c2f2ae3\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://7dec3eed451d63867531d693f0be3279fa2c9aef3130f0826c3520c06820fa5d\",\"dweb:/ipfs/QmTYANrcPdd9SCe99DWsKJ19evNRQKQGZeoS1Keew4M2cS\"]},\"lib/thirdweb-smartaccount/extension/interface/IPermissionsEnumerable.sol\":{\"keccak256\":\"0x2e742c18a4481bad41d56424cd16c52def2fb415f69e5fb5f67d8d979300ff95\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://d9be33bb865e3e82aca540a3e38cbc2bf2e431f9d1bf39c50d6c757e7b7bf3ee\",\"dweb:/ipfs/Qmdad1Xqj5SQ44Bk4bwD2uA36XnGHtqnVYSomKZQvnUBVG\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -535,20 +535,20 @@
   },
   "ast": {
     "absolutePath": "lib/thirdweb-smartaccount/extension/interface/IPermissionsEnumerable.sol",
-    "id": 27657,
+    "id": 27660,
     "exportedSymbols": {
       "IPermissions": [
-        27631
+        27634
       ],
       "IPermissionsEnumerable": [
-        27656
+        27659
       ]
     },
     "nodeType": "SourceUnit",
     "src": "39:1142:30",
     "nodes": [
       {
-        "id": 27633,
+        "id": 27636,
         "nodeType": "PragmaDirective",
         "src": "39:23:30",
         "nodes": [],
@@ -560,30 +560,30 @@
         ]
       },
       {
-        "id": 27634,
+        "id": 27637,
         "nodeType": "ImportDirective",
         "src": "86:28:30",
         "nodes": [],
         "absolutePath": "lib/thirdweb-smartaccount/extension/interface/IPermissions.sol",
         "file": "./IPermissions.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 27657,
-        "sourceUnit": 27632,
+        "scope": 27660,
+        "sourceUnit": 27635,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 27656,
+        "id": 27659,
         "nodeType": "ContractDefinition",
         "src": "216:964:30",
         "nodes": [
           {
-            "id": 27647,
+            "id": 27650,
             "nodeType": "FunctionDefinition",
             "src": "852:84:30",
             "nodes": [],
             "documentation": {
-              "id": 27638,
+              "id": 27641,
               "nodeType": "StructuredDocumentation",
               "src": "271:576:30",
               "text": " @dev Returns one of the accounts that have `role`. `index` must be a\n value between 0 and {getRoleMemberCount}, non-inclusive.\n Role bearers are not sorted in any particular way, and their ordering may\n change at any point.\n WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure\n you perform all queries on the same block. See the following\n [forum post](https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296)\n for more information."
@@ -595,17 +595,17 @@
             "name": "getRoleMember",
             "nameLocation": "861:13:30",
             "parameters": {
-              "id": 27643,
+              "id": 27646,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27640,
+                  "id": 27643,
                   "mutability": "mutable",
                   "name": "role",
                   "nameLocation": "883:4:30",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27647,
+                  "scope": 27650,
                   "src": "875:12:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -614,7 +614,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 27639,
+                    "id": 27642,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "875:7:30",
@@ -627,12 +627,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 27642,
+                  "id": 27645,
                   "mutability": "mutable",
                   "name": "index",
                   "nameLocation": "897:5:30",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27647,
+                  "scope": 27650,
                   "src": "889:13:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -641,7 +641,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 27641,
+                    "id": 27644,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "889:7:30",
@@ -656,17 +656,17 @@
               "src": "874:29:30"
             },
             "returnParameters": {
-              "id": 27646,
+              "id": 27649,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27645,
+                  "id": 27648,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27647,
+                  "scope": 27650,
                   "src": "927:7:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -675,7 +675,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 27644,
+                    "id": 27647,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "927:7:30",
@@ -690,18 +690,18 @@
               ],
               "src": "926:9:30"
             },
-            "scope": 27656,
+            "scope": 27659,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 27655,
+            "id": 27658,
             "nodeType": "FunctionDefinition",
             "src": "1104:74:30",
             "nodes": [],
             "documentation": {
-              "id": 27648,
+              "id": 27651,
               "nodeType": "StructuredDocumentation",
               "src": "942:157:30",
               "text": " @dev Returns the number of accounts that have `role`. Can be used\n together with {getRoleMember} to enumerate all bearers of a role."
@@ -713,17 +713,17 @@
             "name": "getRoleMemberCount",
             "nameLocation": "1113:18:30",
             "parameters": {
-              "id": 27651,
+              "id": 27654,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27650,
+                  "id": 27653,
                   "mutability": "mutable",
                   "name": "role",
                   "nameLocation": "1140:4:30",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27655,
+                  "scope": 27658,
                   "src": "1132:12:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -732,7 +732,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 27649,
+                    "id": 27652,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "1132:7:30",
@@ -747,17 +747,17 @@
               "src": "1131:14:30"
             },
             "returnParameters": {
-              "id": 27654,
+              "id": 27657,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 27653,
+                  "id": 27656,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 27655,
+                  "scope": 27658,
                   "src": "1169:7:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -766,7 +766,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 27652,
+                    "id": 27655,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1169:7:30",
@@ -780,7 +780,7 @@
               ],
               "src": "1168:9:30"
             },
-            "scope": 27656,
+            "scope": 27659,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -790,16 +790,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 27636,
+              "id": 27639,
               "name": "IPermissions",
               "nameLocations": [
                 "252:12:30"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 27631,
+              "referencedDeclaration": 27634,
               "src": "252:12:30"
             },
-            "id": 27637,
+            "id": 27640,
             "nodeType": "InheritanceSpecifier",
             "src": "252:12:30"
           }
@@ -808,20 +808,25 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 27635,
+          "id": 27638,
           "nodeType": "StructuredDocumentation",
           "src": "116:99:30",
           "text": " @dev External interface of AccessControlEnumerable declared to support ERC165 detection."
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          27656,
-          27631
+          27659,
+          27634
         ],
         "name": "IPermissionsEnumerable",
         "nameLocation": "226:22:30",
-        "scope": 27657,
-        "usedErrors": []
+        "scope": 27660,
+        "usedErrors": [],
+        "usedEvents": [
+          27573,
+          27582,
+          27591
+        ]
       }
     ],
     "license": "Apache-2.0"

@@ -189,7 +189,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         // Approve token to swap
         IERC20(token).approve(uniswapRouter, swapAmount);
         // Swap token on Uniswap
-        IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(swapAmount, swapAmount, path, address(this), block.timestamp);
+        uint amountReceived = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(swapAmount, swapAmount, path, address(this), block.timestamp);
+        ghoTreshold += amountReceived;
     }
 
     function executeSupplyToVault() public onlyAdminOrUpkeep() {

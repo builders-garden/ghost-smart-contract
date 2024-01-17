@@ -38,10 +38,10 @@
   "methodIdentifiers": {
     "isValidSignature(bytes32,bytes)": "1626ba7e"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"isValidSignature\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"magicValue\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"isValidSignature(bytes32,bytes)\":{\"details\":\"Should return whether the signature provided is valid for the provided hash\",\"params\":{\"_hash\":\"Hash of the data to be signed\",\"_signature\":\"Signature byte array associated with _hash MUST return the bytes4 magic value 0x1626ba7e when function passes. MUST NOT modify state (using STATICCALL for solc < 0.5, view modifier for solc > 0.5) MUST allow external calls\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/eip/ERC1271.sol\":\"ERC1271\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/eip/ERC1271.sol\":{\"keccak256\":\"0xce12f73b64a1d954ce3b96cc83974d9a9d7b1e6f34e75ed8c1fdcf19ed92574e\",\"license\":\"Apache 2.0\",\"urls\":[\"bzz-raw://ac19729c3f76aa804eff7dd0365bfaff3871b22953908a26cc0dd07a0319c6c0\",\"dweb:/ipfs/QmTQMZGceJ4QvWAwngCEbt6PfQhZMHWhuzE8wWVC8yR7Ro\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"isValidSignature\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"magicValue\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"isValidSignature(bytes32,bytes)\":{\"details\":\"Should return whether the signature provided is valid for the provided hash\",\"params\":{\"_hash\":\"Hash of the data to be signed\",\"_signature\":\"Signature byte array associated with _hash MUST return the bytes4 magic value 0x1626ba7e when function passes. MUST NOT modify state (using STATICCALL for solc < 0.5, view modifier for solc > 0.5) MUST allow external calls\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/eip/ERC1271.sol\":\"ERC1271\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/eip/ERC1271.sol\":{\"keccak256\":\"0xce12f73b64a1d954ce3b96cc83974d9a9d7b1e6f34e75ed8c1fdcf19ed92574e\",\"license\":\"Apache 2.0\",\"urls\":[\"bzz-raw://ac19729c3f76aa804eff7dd0365bfaff3871b22953908a26cc0dd07a0319c6c0\",\"dweb:/ipfs/QmTQMZGceJ4QvWAwngCEbt6PfQhZMHWhuzE8wWVC8yR7Ro\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -328,7 +328,8 @@
         "name": "ERC1271",
         "nameLocation": "82:7:22",
         "scope": 27253,
-        "usedErrors": []
+        "usedErrors": [],
+        "usedEvents": []
       }
     ],
     "license": "Apache 2.0"

@@ -168,10 +168,10 @@
     "getAddress(address,bytes)": "8878ed33",
     "getAllAccounts()": "08e93d0a"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountAdmin\",\"type\":\"address\"}],\"name\":\"AccountCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerRemoved\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"accountImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"createAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getAccountsOfSigner\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"adminSigner\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAccounts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"events\":{\"AccountCreated(address,address)\":{\"notice\":\"Emitted when a new Account is created.\"},\"SignerAdded(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"},\"SignerRemoved(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"}},\"kind\":\"user\",\"methods\":{\"accountImplementation()\":{\"notice\":\"Returns the address of the Account implementation.\"},\"createAccount(address,bytes)\":{\"notice\":\"Deploys a new Account for admin.\"},\"getAccountsOfSigner(address)\":{\"notice\":\"Returns all accounts on which a signer has (active or inactive) permissions.\"},\"getAddress(address,bytes)\":{\"notice\":\"Returns the address of an Account that would be deployed with the given admin signer.\"},\"getAllAccounts()\":{\"notice\":\"Returns all accounts created on the factory.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":\"IAccountFactoryCore\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":{\"keccak256\":\"0x8a518d843fb5249c28df0b50d8beb0726f8114f42dd74d90dbfe62b1b0c26856\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://48379dc33cd42392ce0d988585dc62101c45a24ab554e3ab1e5e6d324845ef6c\",\"dweb:/ipfs/QmRRmYDzyL5x82pWSDWJSHniNFP87aQdXYqfWtj4g9aw5s\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountAdmin\",\"type\":\"address\"}],\"name\":\"AccountCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerRemoved\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"accountImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"createAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getAccountsOfSigner\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"adminSigner\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAccounts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"events\":{\"AccountCreated(address,address)\":{\"notice\":\"Emitted when a new Account is created.\"},\"SignerAdded(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"},\"SignerRemoved(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"}},\"kind\":\"user\",\"methods\":{\"accountImplementation()\":{\"notice\":\"Returns the address of the Account implementation.\"},\"createAccount(address,bytes)\":{\"notice\":\"Deploys a new Account for admin.\"},\"getAccountsOfSigner(address)\":{\"notice\":\"Returns all accounts on which a signer has (active or inactive) permissions.\"},\"getAddress(address,bytes)\":{\"notice\":\"Returns the address of an Account that would be deployed with the given admin signer.\"},\"getAllAccounts()\":{\"notice\":\"Returns all accounts created on the factory.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":\"IAccountFactoryCore\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":{\"keccak256\":\"0x8a518d843fb5249c28df0b50d8beb0726f8114f42dd74d90dbfe62b1b0c26856\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://48379dc33cd42392ce0d988585dc62101c45a24ab554e3ab1e5e6d324845ef6c\",\"dweb:/ipfs/QmRRmYDzyL5x82pWSDWJSHniNFP87aQdXYqfWtj4g9aw5s\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -392,17 +392,17 @@
   },
   "ast": {
     "absolutePath": "lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol",
-    "id": 31664,
+    "id": 31669,
     "exportedSymbols": {
       "IAccountFactoryCore": [
-        31663
+        31668
       ]
     },
     "nodeType": "SourceUnit",
     "src": "36:1840:51",
     "nodes": [
       {
-        "id": 31599,
+        "id": 31604,
         "nodeType": "PragmaDirective",
         "src": "36:24:51",
         "nodes": [],
@@ -414,18 +414,18 @@
         ]
       },
       {
-        "id": 31663,
+        "id": 31668,
         "nodeType": "ContractDefinition",
         "src": "62:1813:51",
         "nodes": [
           {
-            "id": 31606,
+            "id": 31611,
             "nodeType": "EventDefinition",
             "src": "332:76:51",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 31600,
+              "id": 31605,
               "nodeType": "StructuredDocumentation",
               "src": "277:50:51",
               "text": "@notice Emitted when a new Account is created."
@@ -434,18 +434,18 @@
             "name": "AccountCreated",
             "nameLocation": "338:14:51",
             "parameters": {
-              "id": 31605,
+              "id": 31610,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31602,
+                  "id": 31607,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "account",
                   "nameLocation": "369:7:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31606,
+                  "scope": 31611,
                   "src": "353:23:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -454,7 +454,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31601,
+                    "id": 31606,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:7:51",
@@ -468,13 +468,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 31604,
+                  "id": 31609,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "accountAdmin",
                   "nameLocation": "394:12:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31606,
+                  "scope": 31611,
                   "src": "378:28:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -483,7 +483,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31603,
+                    "id": 31608,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "378:7:51",
@@ -500,13 +500,13 @@
             }
           },
           {
-            "id": 31613,
+            "id": 31618,
             "nodeType": "EventDefinition",
             "src": "480:67:51",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 31607,
+              "id": 31612,
               "nodeType": "StructuredDocumentation",
               "src": "414:61:51",
               "text": "@notice Emitted when a new signer is added to an Account."
@@ -515,18 +515,18 @@
             "name": "SignerAdded",
             "nameLocation": "486:11:51",
             "parameters": {
-              "id": 31612,
+              "id": 31617,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31609,
+                  "id": 31614,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "account",
                   "nameLocation": "514:7:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31613,
+                  "scope": 31618,
                   "src": "498:23:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -535,7 +535,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31608,
+                    "id": 31613,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "498:7:51",
@@ -549,13 +549,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 31611,
+                  "id": 31616,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "539:6:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31613,
+                  "scope": 31618,
                   "src": "523:22:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -564,7 +564,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31610,
+                    "id": 31615,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "523:7:51",
@@ -581,13 +581,13 @@
             }
           },
           {
-            "id": 31620,
+            "id": 31625,
             "nodeType": "EventDefinition",
             "src": "619:69:51",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 31614,
+              "id": 31619,
               "nodeType": "StructuredDocumentation",
               "src": "553:61:51",
               "text": "@notice Emitted when a new signer is added to an Account."
@@ -596,18 +596,18 @@
             "name": "SignerRemoved",
             "nameLocation": "625:13:51",
             "parameters": {
-              "id": 31619,
+              "id": 31624,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31616,
+                  "id": 31621,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "account",
                   "nameLocation": "655:7:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31620,
+                  "scope": 31625,
                   "src": "639:23:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -616,7 +616,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31615,
+                    "id": 31620,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "639:7:51",
@@ -630,13 +630,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 31618,
+                  "id": 31623,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "680:6:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31620,
+                  "scope": 31625,
                   "src": "664:22:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -645,7 +645,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31617,
+                    "id": 31622,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "664:7:51",
@@ -662,12 +662,12 @@
             }
           },
           {
-            "id": 31630,
+            "id": 31635,
             "nodeType": "FunctionDefinition",
             "src": "927:95:51",
             "nodes": [],
             "documentation": {
-              "id": 31621,
+              "id": 31626,
               "nodeType": "StructuredDocumentation",
               "src": "878:44:51",
               "text": "@notice Deploys a new Account for admin."
@@ -679,17 +679,17 @@
             "name": "createAccount",
             "nameLocation": "936:13:51",
             "parameters": {
-              "id": 31626,
+              "id": 31631,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31623,
+                  "id": 31628,
                   "mutability": "mutable",
                   "name": "admin",
                   "nameLocation": "958:5:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31630,
+                  "scope": 31635,
                   "src": "950:13:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -698,7 +698,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31622,
+                    "id": 31627,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "950:7:51",
@@ -712,12 +712,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 31625,
+                  "id": 31630,
                   "mutability": "mutable",
                   "name": "_data",
                   "nameLocation": "980:5:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31630,
+                  "scope": 31635,
                   "src": "965:20:51",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -726,7 +726,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 31624,
+                    "id": 31629,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "965:5:51",
@@ -741,17 +741,17 @@
               "src": "949:37:51"
             },
             "returnParameters": {
-              "id": 31629,
+              "id": 31634,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31628,
+                  "id": 31633,
                   "mutability": "mutable",
                   "name": "account",
                   "nameLocation": "1013:7:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31630,
+                  "scope": 31635,
                   "src": "1005:15:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -760,7 +760,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31627,
+                    "id": 31632,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1005:7:51",
@@ -775,18 +775,18 @@
               ],
               "src": "1004:17:51"
             },
-            "scope": 31663,
+            "scope": 31668,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 31636,
+            "id": 31641,
             "nodeType": "FunctionDefinition",
             "src": "1278:65:51",
             "nodes": [],
             "documentation": {
-              "id": 31631,
+              "id": 31636,
               "nodeType": "StructuredDocumentation",
               "src": "1211:62:51",
               "text": "@notice Returns the address of the Account implementation."
@@ -798,23 +798,23 @@
             "name": "accountImplementation",
             "nameLocation": "1287:21:51",
             "parameters": {
-              "id": 31632,
+              "id": 31637,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1308:2:51"
             },
             "returnParameters": {
-              "id": 31635,
+              "id": 31640,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31634,
+                  "id": 31639,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31636,
+                  "scope": 31641,
                   "src": "1334:7:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -823,7 +823,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31633,
+                    "id": 31638,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1334:7:51",
@@ -838,18 +838,18 @@
               ],
               "src": "1333:9:51"
             },
-            "scope": 31663,
+            "scope": 31668,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 31643,
+            "id": 31648,
             "nodeType": "FunctionDefinition",
             "src": "1410:67:51",
             "nodes": [],
             "documentation": {
-              "id": 31637,
+              "id": 31642,
               "nodeType": "StructuredDocumentation",
               "src": "1349:56:51",
               "text": "@notice Returns all accounts created on the factory."
@@ -861,23 +861,23 @@
             "name": "getAllAccounts",
             "nameLocation": "1419:14:51",
             "parameters": {
-              "id": 31638,
+              "id": 31643,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1433:2:51"
             },
             "returnParameters": {
-              "id": 31642,
+              "id": 31647,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31641,
+                  "id": 31646,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31643,
+                  "scope": 31648,
                   "src": "1459:16:51",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -887,7 +887,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 31639,
+                      "id": 31644,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1459:7:51",
@@ -897,7 +897,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 31640,
+                    "id": 31645,
                     "nodeType": "ArrayTypeName",
                     "src": "1459:9:51",
                     "typeDescriptions": {
@@ -910,18 +910,18 @@
               ],
               "src": "1458:18:51"
             },
-            "scope": 31663,
+            "scope": 31668,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 31653,
+            "id": 31658,
             "nodeType": "FunctionDefinition",
             "src": "1585:94:51",
             "nodes": [],
             "documentation": {
-              "id": 31644,
+              "id": 31649,
               "nodeType": "StructuredDocumentation",
               "src": "1483:97:51",
               "text": "@notice Returns the address of an Account that would be deployed with the given admin signer."
@@ -933,17 +933,17 @@
             "name": "getAddress",
             "nameLocation": "1594:10:51",
             "parameters": {
-              "id": 31649,
+              "id": 31654,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31646,
+                  "id": 31651,
                   "mutability": "mutable",
                   "name": "adminSigner",
                   "nameLocation": "1613:11:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31653,
+                  "scope": 31658,
                   "src": "1605:19:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -952,7 +952,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31645,
+                    "id": 31650,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1605:7:51",
@@ -966,12 +966,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 31648,
+                  "id": 31653,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "1641:4:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31653,
+                  "scope": 31658,
                   "src": "1626:19:51",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -980,7 +980,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 31647,
+                    "id": 31652,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1626:5:51",
@@ -995,17 +995,17 @@
               "src": "1604:42:51"
             },
             "returnParameters": {
-              "id": 31652,
+              "id": 31657,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31651,
+                  "id": 31656,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31653,
+                  "scope": 31658,
                   "src": "1670:7:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1014,7 +1014,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31650,
+                    "id": 31655,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1670:7:51",
@@ -1029,18 +1029,18 @@
               ],
               "src": "1669:9:51"
             },
-            "scope": 31663,
+            "scope": 31668,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 31662,
+            "id": 31667,
             "nodeType": "FunctionDefinition",
             "src": "1778:95:51",
             "nodes": [],
             "documentation": {
-              "id": 31654,
+              "id": 31659,
               "nodeType": "StructuredDocumentation",
               "src": "1685:88:51",
               "text": "@notice Returns all accounts on which a signer has (active or inactive) permissions."
@@ -1052,17 +1052,17 @@
             "name": "getAccountsOfSigner",
             "nameLocation": "1787:19:51",
             "parameters": {
-              "id": 31657,
+              "id": 31662,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31656,
+                  "id": 31661,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "1815:6:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31662,
+                  "scope": 31667,
                   "src": "1807:14:51",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1071,7 +1071,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31655,
+                    "id": 31660,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1807:7:51",
@@ -1087,17 +1087,17 @@
               "src": "1806:16:51"
             },
             "returnParameters": {
-              "id": 31661,
+              "id": 31666,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31660,
+                  "id": 31665,
                   "mutability": "mutable",
                   "name": "accounts",
                   "nameLocation": "1863:8:51",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31662,
+                  "scope": 31667,
                   "src": "1846:25:51",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1107,7 +1107,7 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 31658,
+                      "id": 31663,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
                       "src": "1846:7:51",
@@ -1117,7 +1117,7 @@
                         "typeString": "address"
                       }
                     },
-                    "id": 31659,
+                    "id": 31664,
                     "nodeType": "ArrayTypeName",
                     "src": "1846:9:51",
                     "typeDescriptions": {
@@ -1130,7 +1130,7 @@
               ],
               "src": "1845:27:51"
             },
-            "scope": 31663,
+            "scope": 31668,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1143,12 +1143,17 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          31663
+          31668
         ],
         "name": "IAccountFactoryCore",
         "nameLocation": "72:19:51",
-        "scope": 31664,
-        "usedErrors": []
+        "scope": 31669,
+        "usedErrors": [],
+        "usedEvents": [
+          31611,
+          31618,
+          31625
+        ]
       }
     ],
     "license": "GPL-3.0"

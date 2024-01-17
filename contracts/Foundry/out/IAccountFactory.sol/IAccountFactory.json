@@ -206,10 +206,10 @@
     "onSignerAdded(address,bytes32)": "0b61e12b",
     "onSignerRemoved(address,bytes32)": "9387a380"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountAdmin\",\"type\":\"address\"}],\"name\":\"AccountCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerRemoved\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"accountImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"createAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getAccountsOfSigner\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"adminSigner\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAccounts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"onSignerAdded\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"onSignerRemoved\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"events\":{\"AccountCreated(address,address)\":{\"notice\":\"Emitted when a new Account is created.\"},\"SignerAdded(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"},\"SignerRemoved(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"}},\"kind\":\"user\",\"methods\":{\"accountImplementation()\":{\"notice\":\"Returns the address of the Account implementation.\"},\"createAccount(address,bytes)\":{\"notice\":\"Deploys a new Account for admin.\"},\"getAccountsOfSigner(address)\":{\"notice\":\"Returns all accounts on which a signer has (active or inactive) permissions.\"},\"getAddress(address,bytes)\":{\"notice\":\"Returns the address of an Account that would be deployed with the given admin signer.\"},\"getAllAccounts()\":{\"notice\":\"Returns all accounts created on the factory.\"},\"onSignerAdded(address,bytes32)\":{\"notice\":\"Callback function for an Account to register its signers.\"},\"onSignerRemoved(address,bytes32)\":{\"notice\":\"Callback function for an Account to un-register its signers.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactory.sol\":\"IAccountFactory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactory.sol\":{\"keccak256\":\"0xc57560766cadb9834bed6f7ade0d8968152dd8118e46211d084f3aa476dd3169\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://189672029caee09d461fc4bc8d6d9fdbdc25ce0ce96e0b07cd47c0ad739cccc3\",\"dweb:/ipfs/QmeBzdQHTuupCW5LeuGCqxJYSDXTnprHcBegBY3v93ahwW\"]},\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":{\"keccak256\":\"0x8a518d843fb5249c28df0b50d8beb0726f8114f42dd74d90dbfe62b1b0c26856\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://48379dc33cd42392ce0d988585dc62101c45a24ab554e3ab1e5e6d324845ef6c\",\"dweb:/ipfs/QmRRmYDzyL5x82pWSDWJSHniNFP87aQdXYqfWtj4g9aw5s\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"accountAdmin\",\"type\":\"address\"}],\"name\":\"AccountCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"SignerRemoved\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"accountImplementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"createAccount\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"name\":\"getAccountsOfSigner\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"accounts\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"adminSigner\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"getAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllAccounts\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"onSignerAdded\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"onSignerRemoved\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"events\":{\"AccountCreated(address,address)\":{\"notice\":\"Emitted when a new Account is created.\"},\"SignerAdded(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"},\"SignerRemoved(address,address)\":{\"notice\":\"Emitted when a new signer is added to an Account.\"}},\"kind\":\"user\",\"methods\":{\"accountImplementation()\":{\"notice\":\"Returns the address of the Account implementation.\"},\"createAccount(address,bytes)\":{\"notice\":\"Deploys a new Account for admin.\"},\"getAccountsOfSigner(address)\":{\"notice\":\"Returns all accounts on which a signer has (active or inactive) permissions.\"},\"getAddress(address,bytes)\":{\"notice\":\"Returns the address of an Account that would be deployed with the given admin signer.\"},\"getAllAccounts()\":{\"notice\":\"Returns all accounts created on the factory.\"},\"onSignerAdded(address,bytes32)\":{\"notice\":\"Callback function for an Account to register its signers.\"},\"onSignerRemoved(address,bytes32)\":{\"notice\":\"Callback function for an Account to un-register its signers.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactory.sol\":\"IAccountFactory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactory.sol\":{\"keccak256\":\"0xc57560766cadb9834bed6f7ade0d8968152dd8118e46211d084f3aa476dd3169\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://189672029caee09d461fc4bc8d6d9fdbdc25ce0ce96e0b07cd47c0ad739cccc3\",\"dweb:/ipfs/QmeBzdQHTuupCW5LeuGCqxJYSDXTnprHcBegBY3v93ahwW\"]},\"lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol\":{\"keccak256\":\"0x8a518d843fb5249c28df0b50d8beb0726f8114f42dd74d90dbfe62b1b0c26856\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://48379dc33cd42392ce0d988585dc62101c45a24ab554e3ab1e5e6d324845ef6c\",\"dweb:/ipfs/QmRRmYDzyL5x82pWSDWJSHniNFP87aQdXYqfWtj4g9aw5s\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -478,20 +478,20 @@
   },
   "ast": {
     "absolutePath": "lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactory.sol",
-    "id": 31598,
+    "id": 31603,
     "exportedSymbols": {
       "IAccountFactory": [
-        31597
+        31602
       ],
       "IAccountFactoryCore": [
-        31663
+        31668
       ]
     },
     "nodeType": "SourceUnit",
     "src": "36:587:50",
     "nodes": [
       {
-        "id": 31577,
+        "id": 31582,
         "nodeType": "PragmaDirective",
         "src": "36:24:50",
         "nodes": [],
@@ -503,30 +503,30 @@
         ]
       },
       {
-        "id": 31578,
+        "id": 31583,
         "nodeType": "ImportDirective",
         "src": "62:35:50",
         "nodes": [],
         "absolutePath": "lib/thirdweb-smartaccount/prebuilts/account/interface/IAccountFactoryCore.sol",
         "file": "./IAccountFactoryCore.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 31598,
-        "sourceUnit": 31664,
+        "scope": 31603,
+        "sourceUnit": 31669,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 31597,
+        "id": 31602,
         "nodeType": "ContractDefinition",
         "src": "99:523:50",
         "nodes": [
           {
-            "id": 31588,
+            "id": 31593,
             "nodeType": "FunctionDefinition",
             "src": "411:62:50",
             "nodes": [],
             "documentation": {
-              "id": 31581,
+              "id": 31586,
               "nodeType": "StructuredDocumentation",
               "src": "337:69:50",
               "text": "@notice Callback function for an Account to register its signers."
@@ -538,17 +538,17 @@
             "name": "onSignerAdded",
             "nameLocation": "420:13:50",
             "parameters": {
-              "id": 31586,
+              "id": 31591,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31583,
+                  "id": 31588,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "442:6:50",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31588,
+                  "scope": 31593,
                   "src": "434:14:50",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -557,7 +557,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31582,
+                    "id": 31587,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "434:7:50",
@@ -571,12 +571,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 31585,
+                  "id": 31590,
                   "mutability": "mutable",
                   "name": "salt",
                   "nameLocation": "458:4:50",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31588,
+                  "scope": 31593,
                   "src": "450:12:50",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -585,7 +585,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 31584,
+                    "id": 31589,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "450:7:50",
@@ -600,23 +600,23 @@
               "src": "433:30:50"
             },
             "returnParameters": {
-              "id": 31587,
+              "id": 31592,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "472:0:50"
             },
-            "scope": 31597,
+            "scope": 31602,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 31596,
+            "id": 31601,
             "nodeType": "FunctionDefinition",
             "src": "556:64:50",
             "nodes": [],
             "documentation": {
-              "id": 31589,
+              "id": 31594,
               "nodeType": "StructuredDocumentation",
               "src": "479:72:50",
               "text": "@notice Callback function for an Account to un-register its signers."
@@ -628,17 +628,17 @@
             "name": "onSignerRemoved",
             "nameLocation": "565:15:50",
             "parameters": {
-              "id": 31594,
+              "id": 31599,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 31591,
+                  "id": 31596,
                   "mutability": "mutable",
                   "name": "signer",
                   "nameLocation": "589:6:50",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31596,
+                  "scope": 31601,
                   "src": "581:14:50",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -647,7 +647,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 31590,
+                    "id": 31595,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "581:7:50",
@@ -661,12 +661,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 31593,
+                  "id": 31598,
                   "mutability": "mutable",
                   "name": "salt",
                   "nameLocation": "605:4:50",
                   "nodeType": "VariableDeclaration",
-                  "scope": 31596,
+                  "scope": 31601,
                   "src": "597:12:50",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -675,7 +675,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 31592,
+                    "id": 31597,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "597:7:50",
@@ -690,12 +690,12 @@
               "src": "580:30:50"
             },
             "returnParameters": {
-              "id": 31595,
+              "id": 31600,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "619:0:50"
             },
-            "scope": 31597,
+            "scope": 31602,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -705,16 +705,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 31579,
+              "id": 31584,
               "name": "IAccountFactoryCore",
               "nameLocations": [
                 "128:19:50"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 31663,
+              "referencedDeclaration": 31668,
               "src": "128:19:50"
             },
-            "id": 31580,
+            "id": 31585,
             "nodeType": "InheritanceSpecifier",
             "src": "128:19:50"
           }
@@ -724,13 +724,18 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          31597,
-          31663
+          31602,
+          31668
         ],
         "name": "IAccountFactory",
         "nameLocation": "109:15:50",
-        "scope": 31598,
-        "usedErrors": []
+        "scope": 31603,
+        "usedErrors": [],
+        "usedEvents": [
+          31611,
+          31618,
+          31625
+        ]
       }
     ],
     "license": "GPL-3.0"

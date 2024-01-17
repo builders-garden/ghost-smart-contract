@@ -15,22 +15,22 @@
     }
   ],
   "bytecode": {
-    "object": "0x60a6610038600b82828239805160001a607314602b57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060335760003560e01c80637e837fbf146038575b600080fd5b605e7f4bc804ba64359c0e35e5ed5d90ee596ecaa49a3a930ddcb1470ea0dd625da90081565b60405190815260200160405180910390f3fea26469706673582212205977c901845f55c6d0f966da13c38423d8736a409bfb54f2159c22de924e50dc64736f6c63430008130033",
+    "object": "0x60a6610038600b82828239805160001a607314602b57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060335760003560e01c80637e837fbf146038575b600080fd5b605e7f4bc804ba64359c0e35e5ed5d90ee596ecaa49a3a930ddcb1470ea0dd625da90081565b60405190815260200160405180910390f3fea2646970667358221220953f3b4cfbd8d5b92bc37bde10eb955b1018de8302f945b9e0f737e56f16d8ac64736f6c63430008140033",
     "sourceMap": "482:664:32:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;482:664:32;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x730000000000000000000000000000000000000000301460806040526004361060335760003560e01c80637e837fbf146038575b600080fd5b605e7f4bc804ba64359c0e35e5ed5d90ee596ecaa49a3a930ddcb1470ea0dd625da90081565b60405190815260200160405180910390f3fea26469706673582212205977c901845f55c6d0f966da13c38423d8736a409bfb54f2159c22de924e50dc64736f6c63430008130033",
+    "object": "0x730000000000000000000000000000000000000000301460806040526004361060335760003560e01c80637e837fbf146038575b600080fd5b605e7f4bc804ba64359c0e35e5ed5d90ee596ecaa49a3a930ddcb1470ea0dd625da90081565b60405190815260200160405180910390f3fea2646970667358221220953f3b4cfbd8d5b92bc37bde10eb955b1018de8302f945b9e0f737e56f16d8ac64736f6c63430008140033",
     "sourceMap": "482:664:32:-:0;;;;;;;;;;;;;;;;;;;;;;;;701:135;;770:66;701:135;;;;;168:25:66;;;156:2;141:18;701:135:32;;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {
     "CONTRACT_METADATA_STORAGE_POSITION()": "7e837fbf"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CONTRACT_METADATA_STORAGE_POSITION\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"thirdweb.com\",\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"CONTRACT_METADATA_STORAGE_POSITION\":{\"custom:storage-location\":\"erc7201:contract.metadata.storage\",\"details\":\"keccak256(abi.encode(uint256(keccak256(\\\"contract.metadata.storage\\\")) - 1)) & ~bytes32(uint256(0xff))\"}},\"title\":\"Contract Metadata\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Thirdweb's `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI           for you contract.           Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/upgradeable/ContractMetadata.sol\":\"ContractMetadataStorage\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IContractMetadata.sol\":{\"keccak256\":\"0x41d3f7f43c124e9ff0247cb94f4e8fc8c5a79b1de331c67eb03654154248d7f2\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://fa8d6251cf3a876193cc719b456c02ff23d3f2d5486431e9bdaf290be9a4ce9a\",\"dweb:/ipfs/QmRwnA2q15Vdkc66fz6BAinZM3tjuVNHn5CeGzc7ZFMAzr\"]},\"lib/thirdweb-smartaccount/extension/upgradeable/ContractMetadata.sol\":{\"keccak256\":\"0xe42f63bdf826446047de0825bc930d8a157cf613cf35b74cd10ade9246ed5907\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://a907ddcadb07f70600753b37b129d7be234f44cd557aaa0a5833b0a796a2a826\",\"dweb:/ipfs/QmdhJ3Y4N6nnQDgLCPVmyRU26sgJfkLxUnqgSt911Eqmms\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CONTRACT_METADATA_STORAGE_POSITION\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"thirdweb.com\",\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"CONTRACT_METADATA_STORAGE_POSITION\":{\"custom:storage-location\":\"erc7201:contract.metadata.storage\",\"details\":\"keccak256(abi.encode(uint256(keccak256(\\\"contract.metadata.storage\\\")) - 1)) & ~bytes32(uint256(0xff))\"}},\"title\":\"Contract Metadata\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Thirdweb's `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI           for you contract.           Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/thirdweb-smartaccount/extension/upgradeable/ContractMetadata.sol\":\"ContractMetadataStorage\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=lib/chainlink/contracts/\",\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@thirdweb/=lib/thirdweb-smartaccount/\",\":chainlink/=lib/chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\",\":std/=lib/forge-std/src/\",\":thirdweb-smartaccount/=lib/thirdweb-smartaccount/\"]},\"sources\":{\"lib/thirdweb-smartaccount/extension/interface/IContractMetadata.sol\":{\"keccak256\":\"0x41d3f7f43c124e9ff0247cb94f4e8fc8c5a79b1de331c67eb03654154248d7f2\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://fa8d6251cf3a876193cc719b456c02ff23d3f2d5486431e9bdaf290be9a4ce9a\",\"dweb:/ipfs/QmRwnA2q15Vdkc66fz6BAinZM3tjuVNHn5CeGzc7ZFMAzr\"]},\"lib/thirdweb-smartaccount/extension/upgradeable/ContractMetadata.sol\":{\"keccak256\":\"0xe42f63bdf826446047de0825bc930d8a157cf613cf35b74cd10ade9246ed5907\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://a907ddcadb07f70600753b37b129d7be234f44cd557aaa0a5833b0a796a2a826\",\"dweb:/ipfs/QmdhJ3Y4N6nnQDgLCPVmyRU26sgJfkLxUnqgSt911Eqmms\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.19+commit.7dd6d404"
+      "version": "0.8.20+commit.a1b79de6"
     },
     "language": "Solidity",
     "output": {
@@ -106,23 +106,23 @@
   },
   "ast": {
     "absolutePath": "lib/thirdweb-smartaccount/extension/upgradeable/ContractMetadata.sol",
-    "id": 28508,
+    "id": 28511,
     "exportedSymbols": {
       "ContractMetadata": [
-        28507
+        28510
       ],
       "ContractMetadataStorage": [
-        28427
+        28430
       ],
       "IContractMetadata": [
-        27544
+        27547
       ]
     },
     "nodeType": "SourceUnit",
     "src": "39:2653:32",
     "nodes": [
       {
-        "id": 28404,
+        "id": 28407,
         "nodeType": "PragmaDirective",
         "src": "39:23:32",
         "nodes": [],
@@ -134,31 +134,31 @@
         ]
       },
       {
-        "id": 28405,
+        "id": 28408,
         "nodeType": "ImportDirective",
         "src": "86:44:32",
         "nodes": [],
         "absolutePath": "lib/thirdweb-smartaccount/extension/interface/IContractMetadata.sol",
         "file": "../interface/IContractMetadata.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 28508,
-        "sourceUnit": 27545,
+        "scope": 28511,
+        "sourceUnit": 27548,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 28427,
+        "id": 28430,
         "nodeType": "ContractDefinition",
         "src": "482:664:32",
         "nodes": [
           {
-            "id": 28410,
+            "id": 28413,
             "nodeType": "VariableDeclaration",
             "src": "701:135:32",
             "nodes": [],
             "constant": true,
             "documentation": {
-              "id": 28407,
+              "id": 28410,
               "nodeType": "StructuredDocumentation",
               "src": "520:176:32",
               "text": "@custom:storage-location erc7201:contract.metadata.storage\n @dev keccak256(abi.encode(uint256(keccak256(\"contract.metadata.storage\")) - 1)) & ~bytes32(uint256(0xff))"
@@ -167,7 +167,7 @@
             "mutability": "constant",
             "name": "CONTRACT_METADATA_STORAGE_POSITION",
             "nameLocation": "725:34:32",
-            "scope": 28427,
+            "scope": 28430,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -175,7 +175,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 28408,
+              "id": 28411,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "701:7:32",
@@ -186,7 +186,7 @@
             },
             "value": {
               "hexValue": "307834626338303462613634333539633065333565356564356439306565353936656361613439613361393330646463623134373065613064643632356461393030",
-              "id": 28409,
+              "id": 28412,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -203,7 +203,7 @@
             "visibility": "public"
           },
           {
-            "id": 28414,
+            "id": 28417,
             "nodeType": "StructDefinition",
             "src": "843:102:32",
             "nodes": [],
@@ -211,12 +211,12 @@
             "members": [
               {
                 "constant": false,
-                "id": 28413,
+                "id": 28416,
                 "mutability": "mutable",
                 "name": "contractURI",
                 "nameLocation": "927:11:32",
                 "nodeType": "VariableDeclaration",
-                "scope": 28414,
+                "scope": 28417,
                 "src": "920:18:32",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -225,7 +225,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 28412,
+                  "id": 28415,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "920:6:32",
@@ -239,33 +239,33 @@
             ],
             "name": "Data",
             "nameLocation": "850:4:32",
-            "scope": 28427,
+            "scope": 28430,
             "visibility": "public"
           },
           {
-            "id": 28426,
+            "id": 28429,
             "nodeType": "FunctionDefinition",
             "src": "951:193:32",
             "nodes": [],
             "body": {
-              "id": 28425,
+              "id": 28428,
               "nodeType": "Block",
               "src": "1010:134:32",
               "nodes": [],
               "statements": [
                 {
                   "assignments": [
-                    28421
+                    28424
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 28421,
+                      "id": 28424,
                       "mutability": "mutable",
                       "name": "position",
                       "nameLocation": "1028:8:32",
                       "nodeType": "VariableDeclaration",
-                      "scope": 28425,
+                      "scope": 28428,
                       "src": "1020:16:32",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -274,7 +274,7 @@
                         "typeString": "bytes32"
                       },
                       "typeName": {
-                        "id": 28420,
+                        "id": 28423,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1020:7:32",
@@ -286,13 +286,13 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 28423,
+                  "id": 28426,
                   "initialValue": {
-                    "id": 28422,
+                    "id": 28425,
                     "name": "CONTRACT_METADATA_STORAGE_POSITION",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 28410,
+                    "referencedDeclaration": 28413,
                     "src": "1039:34:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
@@ -328,7 +328,7 @@
                   "evmVersion": "london",
                   "externalReferences": [
                     {
-                      "declaration": 28418,
+                      "declaration": 28421,
                       "isOffset": false,
                       "isSlot": true,
                       "src": "1106:10:32",
@@ -336,14 +336,14 @@
                       "valueSize": 1
                     },
                     {
-                      "declaration": 28421,
+                      "declaration": 28424,
                       "isOffset": false,
                       "isSlot": false,
                       "src": "1120:8:32",
                       "valueSize": 1
                     }
                   ],
-                  "id": 28424,
+                  "id": 28427,
                   "nodeType": "InlineAssembly",
                   "src": "1083:55:32"
                 }
@@ -355,47 +355,47 @@
             "name": "data",
             "nameLocation": "960:4:32",
             "parameters": {
-              "id": 28415,
+              "id": 28418,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "964:2:32"
             },
             "returnParameters": {
-              "id": 28419,
+              "id": 28422,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28418,
+                  "id": 28421,
                   "mutability": "mutable",
                   "name": "data_",
                   "nameLocation": "1003:5:32",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28426,
+                  "scope": 28429,
                   "src": "990:18:32",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                     "typeString": "struct ContractMetadataStorage.Data"
                   },
                   "typeName": {
-                    "id": 28417,
+                    "id": 28420,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 28416,
+                      "id": 28419,
                       "name": "Data",
                       "nameLocations": [
                         "990:4:32"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 28414,
+                      "referencedDeclaration": 28417,
                       "src": "990:4:32"
                     },
-                    "referencedDeclaration": 28414,
+                    "referencedDeclaration": 28417,
                     "src": "990:4:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                       "typeString": "struct ContractMetadataStorage.Data"
                     }
                   },
@@ -404,7 +404,7 @@
               ],
               "src": "989:20:32"
             },
-            "scope": 28427,
+            "scope": 28430,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
@@ -416,39 +416,40 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 28406,
+          "id": 28409,
           "nodeType": "StructuredDocumentation",
           "src": "132:348:32",
           "text": "  @author  thirdweb.com\n  @title   Contract Metadata\n  @notice  Thirdweb's `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI\n           for you contract.\n           Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea."
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          28427
+          28430
         ],
         "name": "ContractMetadataStorage",
         "nameLocation": "490:23:32",
-        "scope": 28508,
-        "usedErrors": []
+        "scope": 28511,
+        "usedErrors": [],
+        "usedEvents": []
       },
       {
-        "id": 28507,
+        "id": 28510,
         "nodeType": "ContractDefinition",
         "src": "1148:1543:32",
         "nodes": [
           {
-            "id": 28450,
+            "id": 28453,
             "nodeType": "FunctionDefinition",
             "src": "1607:188:32",
             "nodes": [],
             "body": {
-              "id": 28449,
+              "id": 28452,
               "nodeType": "Block",
               "src": "1669:126:32",
               "nodes": [],
               "statements": [
                 {
                   "condition": {
-                    "id": 28438,
+                    "id": 28441,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -461,18 +462,18 @@
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 28436,
+                        "id": 28439,
                         "name": "_canSetContractURI",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28506,
+                        "referencedDeclaration": 28509,
                         "src": "1684:18:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$__$returns$_t_bool_$",
                           "typeString": "function () view returns (bool)"
                         }
                       },
-                      "id": 28437,
+                      "id": 28440,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -493,11 +494,11 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 28444,
+                  "id": 28447,
                   "nodeType": "IfStatement",
                   "src": "1679:76:32",
                   "trueBody": {
-                    "id": 28443,
+                    "id": 28446,
                     "nodeType": "Block",
                     "src": "1706:49:32",
                     "statements": [
@@ -506,7 +507,7 @@
                           "arguments": [
                             {
                               "hexValue": "4e6f7420617574686f72697a6564",
-                              "id": 28440,
+                              "id": 28443,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -528,7 +529,7 @@
                                 "typeString": "literal_string \"Not authorized\""
                               }
                             ],
-                            "id": 28439,
+                            "id": 28442,
                             "name": "revert",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [
@@ -542,7 +543,7 @@
                               "typeString": "function (string memory) pure"
                             }
                           },
-                          "id": 28441,
+                          "id": 28444,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -558,7 +559,7 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 28442,
+                        "id": 28445,
                         "nodeType": "ExpressionStatement",
                         "src": "1720:24:32"
                       }
@@ -569,11 +570,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 28446,
+                        "id": 28449,
                         "name": "_uri",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28432,
+                        "referencedDeclaration": 28435,
                         "src": "1783:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -588,18 +589,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 28445,
+                      "id": 28448,
                       "name": "_setupContractURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 28474,
+                      "referencedDeclaration": 28477,
                       "src": "1765:17:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 28447,
+                    "id": 28450,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -615,17 +616,17 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 28448,
+                  "id": 28451,
                   "nodeType": "ExpressionStatement",
                   "src": "1765:23:32"
                 }
               ]
             },
             "baseFunctions": [
-              27536
+              27539
             ],
             "documentation": {
-              "id": 28430,
+              "id": 28433,
               "nodeType": "StructuredDocumentation",
               "src": "1210:392:32",
               "text": "  @notice         Lets a contract admin set the URI for contract-level metadata.\n  @dev            Caller should be authorized to setup contractURI, e.g. contract admin.\n                  See {_canSetContractURI}.\n                  Emits {ContractURIUpdated Event}.\n  @param _uri     keccak256 hash of the role. e.g. keccak256(\"TRANSFER_ROLE\")"
@@ -637,23 +638,23 @@
             "name": "setContractURI",
             "nameLocation": "1616:14:32",
             "overrides": {
-              "id": 28434,
+              "id": 28437,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
               "src": "1660:8:32"
             },
             "parameters": {
-              "id": 28433,
+              "id": 28436,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28432,
+                  "id": 28435,
                   "mutability": "mutable",
                   "name": "_uri",
                   "nameLocation": "1645:4:32",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28450,
+                  "scope": 28453,
                   "src": "1631:18:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -662,7 +663,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 28431,
+                    "id": 28434,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1631:6:32",
@@ -677,40 +678,40 @@
               "src": "1630:20:32"
             },
             "returnParameters": {
-              "id": 28435,
+              "id": 28438,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1669:0:32"
             },
-            "scope": 28507,
+            "scope": 28510,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 28474,
+            "id": 28477,
             "nodeType": "FunctionDefinition",
             "src": "1877:239:32",
             "nodes": [],
             "body": {
-              "id": 28473,
+              "id": 28476,
               "nodeType": "Block",
               "src": "1933:183:32",
               "nodes": [],
               "statements": [
                 {
                   "assignments": [
-                    28457
+                    28460
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 28457,
+                      "id": 28460,
                       "mutability": "mutable",
                       "name": "prevURI",
                       "nameLocation": "1957:7:32",
                       "nodeType": "VariableDeclaration",
-                      "scope": 28473,
+                      "scope": 28476,
                       "src": "1943:21:32",
                       "stateVariable": false,
                       "storageLocation": "memory",
@@ -719,7 +720,7 @@
                         "typeString": "string"
                       },
                       "typeName": {
-                        "id": 28456,
+                        "id": 28459,
                         "name": "string",
                         "nodeType": "ElementaryTypeName",
                         "src": "1943:6:32",
@@ -731,24 +732,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 28461,
+                  "id": 28464,
                   "initialValue": {
                     "expression": {
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 28458,
+                        "id": 28461,
                         "name": "_contractMetadataStorage",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28500,
+                        "referencedDeclaration": 28503,
                         "src": "1967:24:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28414_storage_ptr_$",
+                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28417_storage_ptr_$",
                           "typeString": "function () pure returns (struct ContractMetadataStorage.Data storage pointer)"
                         }
                       },
-                      "id": 28459,
+                      "id": 28462,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -760,11 +761,11 @@
                       "src": "1967:26:32",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                        "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                         "typeString": "struct ContractMetadataStorage.Data storage pointer"
                       }
                     },
-                    "id": 28460,
+                    "id": 28463,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -772,7 +773,7 @@
                     "memberLocation": "1994:11:32",
                     "memberName": "contractURI",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 28413,
+                    "referencedDeclaration": 28416,
                     "src": "1967:38:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
@@ -784,7 +785,7 @@
                 },
                 {
                   "expression": {
-                    "id": 28466,
+                    "id": 28469,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -794,18 +795,18 @@
                         "arguments": [],
                         "expression": {
                           "argumentTypes": [],
-                          "id": 28462,
+                          "id": 28465,
                           "name": "_contractMetadataStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 28500,
+                          "referencedDeclaration": 28503,
                           "src": "2015:24:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28414_storage_ptr_$",
+                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28417_storage_ptr_$",
                             "typeString": "function () pure returns (struct ContractMetadataStorage.Data storage pointer)"
                           }
                         },
-                        "id": 28463,
+                        "id": 28466,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -817,11 +818,11 @@
                         "src": "2015:26:32",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                          "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                           "typeString": "struct ContractMetadataStorage.Data storage pointer"
                         }
                       },
-                      "id": 28464,
+                      "id": 28467,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -829,7 +830,7 @@
                       "memberLocation": "2042:11:32",
                       "memberName": "contractURI",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 28413,
+                      "referencedDeclaration": 28416,
                       "src": "2015:38:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -839,11 +840,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 28465,
+                      "id": 28468,
                       "name": "_uri",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 28453,
+                      "referencedDeclaration": 28456,
                       "src": "2056:4:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -856,7 +857,7 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 28467,
+                  "id": 28470,
                   "nodeType": "ExpressionStatement",
                   "src": "2015:45:32"
                 },
@@ -864,11 +865,11 @@
                   "eventCall": {
                     "arguments": [
                       {
-                        "id": 28469,
+                        "id": 28472,
                         "name": "prevURI",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28457,
+                        "referencedDeclaration": 28460,
                         "src": "2095:7:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -876,11 +877,11 @@
                         }
                       },
                       {
-                        "id": 28470,
+                        "id": 28473,
                         "name": "_uri",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28453,
+                        "referencedDeclaration": 28456,
                         "src": "2104:4:32",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -899,18 +900,18 @@
                           "typeString": "string memory"
                         }
                       ],
-                      "id": 28468,
+                      "id": 28471,
                       "name": "ContractURIUpdated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 27543,
+                      "referencedDeclaration": 27546,
                       "src": "2076:18:32",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory,string memory)"
                       }
                     },
-                    "id": 28471,
+                    "id": 28474,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -926,14 +927,14 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 28472,
+                  "id": 28475,
                   "nodeType": "EmitStatement",
                   "src": "2071:38:32"
                 }
               ]
             },
             "documentation": {
-              "id": 28451,
+              "id": 28454,
               "nodeType": "StructuredDocumentation",
               "src": "1801:71:32",
               "text": "@dev Lets a contract admin set the URI for contract-level metadata."
@@ -944,17 +945,17 @@
             "name": "_setupContractURI",
             "nameLocation": "1886:17:32",
             "parameters": {
-              "id": 28454,
+              "id": 28457,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28453,
+                  "id": 28456,
                   "mutability": "mutable",
                   "name": "_uri",
                   "nameLocation": "1918:4:32",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28474,
+                  "scope": 28477,
                   "src": "1904:18:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -963,7 +964,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 28452,
+                    "id": 28455,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1904:6:32",
@@ -978,23 +979,23 @@
               "src": "1903:20:32"
             },
             "returnParameters": {
-              "id": 28455,
+              "id": 28458,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1933:0:32"
             },
-            "scope": 28507,
+            "scope": 28510,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 28486,
+            "id": 28489,
             "nodeType": "FunctionDefinition",
             "src": "2173:138:32",
             "nodes": [],
             "body": {
-              "id": 28485,
+              "id": 28488,
               "nodeType": "Block",
               "src": "2249:62:32",
               "nodes": [],
@@ -1005,18 +1006,18 @@
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 28481,
+                        "id": 28484,
                         "name": "_contractMetadataStorage",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 28500,
+                        "referencedDeclaration": 28503,
                         "src": "2266:24:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28414_storage_ptr_$",
+                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28417_storage_ptr_$",
                           "typeString": "function () pure returns (struct ContractMetadataStorage.Data storage pointer)"
                         }
                       },
-                      "id": 28482,
+                      "id": 28485,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1028,11 +1029,11 @@
                       "src": "2266:26:32",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                        "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                         "typeString": "struct ContractMetadataStorage.Data storage pointer"
                       }
                     },
-                    "id": 28483,
+                    "id": 28486,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -1040,25 +1041,25 @@
                     "memberLocation": "2293:11:32",
                     "memberName": "contractURI",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 28413,
+                    "referencedDeclaration": 28416,
                     "src": "2266:38:32",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage",
                       "typeString": "string storage ref"
                     }
                   },
-                  "functionReturnParameters": 28480,
-                  "id": 28484,
+                  "functionReturnParameters": 28483,
+                  "id": 28487,
                   "nodeType": "Return",
                   "src": "2259:45:32"
                 }
               ]
             },
             "baseFunctions": [
-              27530
+              27533
             ],
             "documentation": {
-              "id": 28475,
+              "id": 28478,
               "nodeType": "StructuredDocumentation",
               "src": "2122:46:32",
               "text": "@notice Returns the contract metadata URI."
@@ -1070,29 +1071,29 @@
             "name": "contractURI",
             "nameLocation": "2182:11:32",
             "overrides": {
-              "id": 28477,
+              "id": 28480,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
               "src": "2216:8:32"
             },
             "parameters": {
-              "id": 28476,
+              "id": 28479,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2193:2:32"
             },
             "returnParameters": {
-              "id": 28480,
+              "id": 28483,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28479,
+                  "id": 28482,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28486,
+                  "scope": 28489,
                   "src": "2234:13:32",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1101,7 +1102,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 28478,
+                    "id": 28481,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2234:6:32",
@@ -1115,38 +1116,38 @@
               ],
               "src": "2233:15:32"
             },
-            "scope": 28507,
+            "scope": 28510,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "public"
           },
           {
-            "id": 28500,
+            "id": 28503,
             "nodeType": "FunctionDefinition",
             "src": "2370:156:32",
             "nodes": [],
             "body": {
-              "id": 28499,
+              "id": 28502,
               "nodeType": "Block",
               "src": "2472:54:32",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 28497,
+                    "id": 28500,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 28493,
+                      "id": 28496,
                       "name": "data",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 28491,
+                      "referencedDeclaration": 28494,
                       "src": "2482:4:32",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                        "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                         "typeString": "struct ContractMetadataStorage.Data storage pointer"
                       }
                     },
@@ -1157,18 +1158,18 @@
                       "expression": {
                         "argumentTypes": [],
                         "expression": {
-                          "id": 28494,
+                          "id": 28497,
                           "name": "ContractMetadataStorage",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 28427,
+                          "referencedDeclaration": 28430,
                           "src": "2489:23:32",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ContractMetadataStorage_$28427_$",
+                            "typeIdentifier": "t_type$_t_contract$_ContractMetadataStorage_$28430_$",
                             "typeString": "type(library ContractMetadataStorage)"
                           }
                         },
-                        "id": 28495,
+                        "id": 28498,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1176,14 +1177,14 @@
                         "memberLocation": "2513:4:32",
                         "memberName": "data",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 28426,
+                        "referencedDeclaration": 28429,
                         "src": "2489:28:32",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28414_storage_ptr_$",
+                          "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_Data_$28417_storage_ptr_$",
                           "typeString": "function () pure returns (struct ContractMetadataStorage.Data storage pointer)"
                         }
                       },
-                      "id": 28496,
+                      "id": 28499,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1195,24 +1196,24 @@
                       "src": "2489:30:32",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                        "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                         "typeString": "struct ContractMetadataStorage.Data storage pointer"
                       }
                     },
                     "src": "2482:37:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                       "typeString": "struct ContractMetadataStorage.Data storage pointer"
                     }
                   },
-                  "id": 28498,
+                  "id": 28501,
                   "nodeType": "ExpressionStatement",
                   "src": "2482:37:32"
                 }
               ]
             },
             "documentation": {
-              "id": 28487,
+              "id": 28490,
               "nodeType": "StructuredDocumentation",
               "src": "2317:48:32",
               "text": "@dev Returns the AccountPermissions storage."
@@ -1223,48 +1224,48 @@
             "name": "_contractMetadataStorage",
             "nameLocation": "2379:24:32",
             "parameters": {
-              "id": 28488,
+              "id": 28491,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2403:2:32"
             },
             "returnParameters": {
-              "id": 28492,
+              "id": 28495,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28491,
+                  "id": 28494,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "2466:4:32",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28500,
+                  "scope": 28503,
                   "src": "2429:41:32",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                    "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                     "typeString": "struct ContractMetadataStorage.Data"
                   },
                   "typeName": {
-                    "id": 28490,
+                    "id": 28493,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 28489,
+                      "id": 28492,
                       "name": "ContractMetadataStorage.Data",
                       "nameLocations": [
                         "2429:23:32",
                         "2453:4:32"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 28414,
+                      "referencedDeclaration": 28417,
                       "src": "2429:28:32"
                     },
-                    "referencedDeclaration": 28414,
+                    "referencedDeclaration": 28417,
                     "src": "2429:28:32",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Data_$28414_storage_ptr",
+                      "typeIdentifier": "t_struct$_Data_$28417_storage_ptr",
                       "typeString": "struct ContractMetadataStorage.Data"
                     }
                   },
@@ -1273,18 +1274,18 @@
               ],
               "src": "2428:43:32"
             },
-            "scope": 28507,
+            "scope": 28510,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 28506,
+            "id": 28509,
             "nodeType": "FunctionDefinition",
             "src": "2622:67:32",
             "nodes": [],
             "documentation": {
-              "id": 28501,
+              "id": 28504,
               "nodeType": "StructuredDocumentation",
               "src": "2532:85:32",
               "text": "@dev Returns whether contract metadata can be set in the given execution context."
@@ -1295,23 +1296,23 @@
             "name": "_canSetContractURI",
             "nameLocation": "2631:18:32",
             "parameters": {
-              "id": 28502,
+              "id": 28505,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2649:2:32"
             },
             "returnParameters": {
-              "id": 28505,
+              "id": 28508,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 28504,
+                  "id": 28507,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 28506,
+                  "scope": 28509,
                   "src": "2683:4:32",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1320,7 +1321,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 28503,
+                    "id": 28506,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "2683:4:32",
@@ -1334,7 +1335,7 @@
               ],
               "src": "2682:6:32"
             },
-            "scope": 28507,
+            "scope": 28510,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "internal"
@@ -1344,16 +1345,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 28428,
+              "id": 28431,
               "name": "IContractMetadata",
               "nameLocations": [
                 "1186:17:32"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 27544,
+              "referencedDeclaration": 27547,
               "src": "1186:17:32"
             },
-            "id": 28429,
+            "id": 28432,
             "nodeType": "InheritanceSpecifier",
             "src": "1186:17:32"
           }
@@ -1363,13 +1364,16 @@
         "contractKind": "contract",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          28507,
-          27544
+          28510,
+          27547
         ],
         "name": "ContractMetadata",
         "nameLocation": "1166:16:32",
-        "scope": 28508,
-        "usedErrors": []
+        "scope": 28511,
+        "usedErrors": [],
+        "usedEvents": [
+          27546
+        ]
       }
     ],
     "license": "Apache-2.0"
