@@ -37,7 +37,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     using ECDSA for bytes32;
     using EnumerableSet for EnumerableSet.AddressSet;
 
-    uint public ghoTreshold;
+    uint public ghoThreshold;
     address public automationUpkeep;
     address public defaultToken;
     address public uniswapRouter;
@@ -137,22 +137,32 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     /// @notice Executes a transaction (called directly from an admin, or by entryPoint)
     function execute(address _target, uint256 _value, bytes calldata _calldata) external virtual onlyAdminOrEntrypoint {
+        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
         _registerOnFactory();
         _call(_target, _value, _calldata);
+        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
+        if (endBalance < balance){
+            ghoThreshold -= (balance - endBalance);
+        }
     }
 
     /// @notice Executes a sequence transaction (called directly from an admin, or by entryPoint)
-    function executeBatch(
+     function executeBatch(
         address[] calldata _target,
         uint256[] calldata _value,
         bytes[] calldata _calldata
     ) external virtual onlyAdminOrEntrypoint {
+        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
         _registerOnFactory();
 
         require(_target.length == _calldata.length && _target.length == _value.length, "Account: wrong array lengths.");
         for (uint256 i = 0; i < _target.length; i++) {
             _call(_target[i], _value[i], _calldata[i]);
         }
+        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
+        if (endBalance < balance){
+            ghoThreshold -= (balance - endBalance);
+        } 
     }
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
@@ -182,7 +192,6 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
                 IPool(aavePool).supply(token, supplyAmount, address(this), 0);
             }
         }
-        
         // Swap token on Uniswap
         address[] memory path = new address[](2);
         path[0] = token;
@@ -191,7 +200,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         IERC20(token).approve(uniswapRouter, swapAmount);
         // Swap token on Uniswap
         uint amountReceived = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(swapAmount, swapAmount, path, address(this), block.timestamp);
-        ghoTreshold += amountReceived;
+        ghoThreshold += amountReceived;
     }
 
     function executeSupplyToVault() public onlyAdminOrUpkeep() {
@@ -202,14 +211,8 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         IERC20(defaultToken).approve(vault, ghoToSupply);
         // Deposit GHO to vault
         IERC4626(vault).deposit(ghoToSupply, address(this));
-        ghoTreshold = ghoBalance - ghoToSupply;
+        ghoThreshold = ghoBalance - ghoToSupply;
     }
-
-    function executeTransfer(address to, uint amount) public onlyAdminOrUpkeep(){
-        IERC20(defaultToken).transfer(to, amount);
-        ghoTreshold -= amount; 
-    }
-    
 
     /// @notice Deposit funds for this account in Entrypoint.
     function addDeposit() public payable {
