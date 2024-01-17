@@ -74,10 +74,11 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         _setAdmin(_defaultAdmin, true);
         automationUpkeep = msg.sender;
         allowedSupply = true;
-        defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
-        uniswapRouter = 0xf125dbd2865D1638efB4B98fd07A11CCA2D9D7FD;
+
+        defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60; //GHO
+        uniswapRouter = 0x97f6E26dE5aD982eebC54819573156903a1d3024; 
         aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
-        vault = 0xCDF50AB9837b08E4777F5a28ABFC518431112475;
+        vault = 0xB9379DE0f8E2ed31b58828388eB3F619Cdf018d9;
     }
 
     /// @notice Lets the account receive native tokens.
