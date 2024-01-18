@@ -11,11 +11,15 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
 
     address constant USDC = 0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8; // USDC Sepolia
     address constant GHO = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60; // GHO Sepolia
-    address constant uniswapRouter = 0x97f6E26dE5aD982eebC54819573156903a1d3024; // Uniswap Sepolia
+    address constant uniswapRouter = 0x49b86914d97Db46FF0F771F7bea4f0B28501605b; // Uniswap Sepolia
     address constant nonfungPositionManager = 0x1238536071E1c677A632429e3655c799b22cDA52; // Uniswap Sepolia
+
+    mapping(address => uint256) public liquidityPositions;
+    mapping(address => uint256) public assetsTot;
 
     uint256 public positionId;
     uint256 public totalLiquidity;
+    uint256 public totAssets;
 
     IERC20 private constant usdc = IERC20(USDC);
     IERC20 private constant gho = IERC20(GHO);
@@ -24,12 +28,19 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
     int24 private constant MAX_TICK = -MIN_TICK;
     int24 private constant TICK_SPACING = 60;
 
-    uint256 public nOfUsers;
-
     INonfungiblePositionManager public nonfungiblePositionManager =
         INonfungiblePositionManager(0x1238536071E1c677A632429e3655c799b22cDA52); // NonfungiblePositionManager Sepolia
         
     constructor(address _token, string memory name, string memory symbol) ERC4626(IERC20Metadata(_token)) ERC20(name, symbol) {}
+
+    /** @dev See {IERC4626-totalAssets}. */
+    function totalAssetsOfUser(address user) public view returns (uint256) {
+        return assetsTot[user];
+    }
+    /** @dev See {IERC4626-totalAssets}. */
+    function totalAssets() public view override returns (uint256) {
+        return totAssets;
+    }
 
 
     function deposit(
@@ -40,16 +51,15 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
     if (assets > maxAssets) {
       revert ERC4626ExceededMaxDeposit(receiver, assets, maxAssets);
     }
-    uint256 shares = previewDeposit(assets);
-    _deposit(_msgSender(), receiver, assets, shares);
-
+    //uint256 shares = previewDeposit(assets);
+    SafeERC20.safeTransferFrom(gho, msg.sender, address(this), assets);
     // Swap token on Uniswap
     address[] memory path = new address[](2);
     path[0] = GHO;
     path[1] = USDC;
     uint256 amountToSwap = assets / 2;
     // Approve token to swap
-    IERC20(path[0]).approve(uniswapRouter, amountToSwap);
+    IERC20(path[0]).approve(uniswapRouter, assets);
     // Swap token on Uniswap
     uint256[] memory amountOut;
     (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
@@ -61,24 +71,48 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
     );
     uint256 liquidity;
 
-    if (nOfUsers == 0) {
+    if (liquidityPositions[msg.sender] == 0) {
         // Approve token to swap
-        IERC20(path[0]).approve(nonfungPositionManager, amountToSwap);
+        IERC20(path[0]).approve(address(nonfungiblePositionManager), assets);
         // Approve token to swap
-        IERC20(path[1]).approve(nonfungPositionManager, amountOut[1]);
+        IERC20(path[1]).approve(address(nonfungiblePositionManager), amountOut[1]*2);
         // mint new Uni v3 position
         (positionId, liquidity , , ) = mintNewPosition(amountOut[1], amountToSwap);
+        liquidityPositions[msg.sender] = positionId;
     } else {
        // Approve token to swap
-       IERC20(path[0]).approve(nonfungPositionManager, amountToSwap);
+       IERC20(path[0]).approve(nonfungPositionManager, assets);
        // Approve token to swap
-       IERC20(path[1]).approve(nonfungPositionManager, amountToSwap);
+       IERC20(path[1]).approve(nonfungPositionManager, amountOut[1]*2);
        // increase liquidity
        (liquidity, , ) = increaseLiquidityCurrentRange(positionId, amountOut[1], amountToSwap);
     }
+    
+    uint256 shares = liquidity;
+    _deposit(_msgSender(), receiver, assets, shares);
     totalLiquidity += liquidity;
-    nOfUsers += 1;
+    assetsTot[receiver] += assets;
+    totAssets += assets;
     return shares;
+  }
+
+  function _deposit(
+    address caller,
+    address receiver,
+    uint256 assets,
+    uint256 shares
+  ) internal override {
+    // If _asset is ERC-777, `transferFrom` can trigger a reentrancy BEFORE the transfer happens through the
+    // `tokensToSend` hook. On the other hand, the `tokenReceived` hook, that is triggered after the transfer,
+    // calls the vault, which is assumed not malicious.
+    //
+    // Conclusion: we need to do the transfer before we mint so that any reentrancy would happen before the
+    // assets are transferred and before the shares are minted, which is a valid state.
+    // slither-disable-next-line reentrancy-no-eth
+    //SafeERC20.safeTransferFrom(_asset, caller, address(this), assets);
+    _mint(receiver, shares);
+
+    emit Deposit(caller, receiver, assets, shares);
   }
 
 
@@ -95,11 +129,6 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         uint amount0ToAdd,
         uint amount1ToAdd
     ) public returns (uint tokenId, uint128 liquidity, uint amount0, uint amount1) {
-        usdc.transferFrom(msg.sender, address(this), amount0ToAdd);
-        gho.transferFrom(msg.sender, address(this), amount1ToAdd);
-
-        usdc.approve(address(nonfungiblePositionManager), amount0ToAdd);
-        gho.approve(address(nonfungiblePositionManager), amount1ToAdd);
 
         INonfungiblePositionManager.MintParams
             memory params = INonfungiblePositionManager.MintParams({
@@ -134,7 +163,7 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
 
     function collectAllFees(
         uint tokenId
-    ) external returns (uint amount0, uint amount1) {
+    ) internal returns (uint amount0, uint amount1) {
         INonfungiblePositionManager.CollectParams
             memory params = INonfungiblePositionManager.CollectParams({
                 tokenId: tokenId,
@@ -150,13 +179,9 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         uint tokenId,
         uint amount0ToAdd,
         uint amount1ToAdd
-    ) public returns (uint128 liquidity, uint amount0, uint amount1) {
-        usdc.transferFrom(msg.sender, address(this), amount0ToAdd);
-        gho.transferFrom(msg.sender, address(this), amount1ToAdd);
-
-        usdc.approve(address(nonfungiblePositionManager), amount0ToAdd);
-        gho.approve(address(nonfungiblePositionManager), amount1ToAdd);
-
+    ) internal returns (uint128 liquidity, uint amount0, uint amount1) {
+        require(liquidityPositions[msg.sender] != 0, "position does not exist");
+       
         INonfungiblePositionManager.IncreaseLiquidityParams
             memory params = INonfungiblePositionManager.IncreaseLiquidityParams({
                 tokenId: tokenId,
@@ -170,12 +195,93 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         (liquidity, amount0, amount1) = nonfungiblePositionManager.increaseLiquidity(
             params
         );
+
+        if (amount0 < amount0ToAdd) {
+            usdc.approve(address(nonfungiblePositionManager), 0);
+            uint refund0 = amount0ToAdd - amount0;
+            usdc.transfer(msg.sender, refund0);
+        }
+        if (amount1 < amount1ToAdd) {
+            gho.approve(address(nonfungiblePositionManager), 0);
+            uint refund1 = amount1ToAdd - amount1;
+            gho.transfer(msg.sender, refund1);
+        }
     }
+
+     /** @dev See {IERC4626-withdraw}. */
+    function withdraw(
+        uint256 shares,
+        address receiver,
+        address owner
+    ) public override returns (uint256) {
+        
+        require(liquidityPositions[msg.sender] != 0, "position does not exist");
+
+        // collect fees
+        uint256 feeAmount0;
+        uint256 feeAmount1;
+        (feeAmount0, feeAmount1) = collectAllFees(liquidityPositions[msg.sender]);
+
+        // withdraw from Uniswap
+        uint256 amount0;
+        uint256 amount1;
+        (amount0, amount1) = decreaseLiquidityCurrentRange(liquidityPositions[msg.sender], uint128(shares));
+
+        //swap to gho
+        address[] memory path = new address[](2);
+        path[0] = USDC;
+        path[1] = GHO;
+
+        // Approve token to swap
+        IERC20(path[0]).approve(uniswapRouter, amount0+feeAmount0);
+        
+        // Swap token on Uniswap
+        uint256[] memory amountOut;
+        (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
+            amount0+feeAmount0,
+            0,
+            path,
+            address(this),
+            block.timestamp
+        );
+
+        // send to user wallet
+        gho.transfer(receiver, amountOut[1]+amount1+feeAmount1);
+
+        //uint256 shares = previewWithdraw(assets);
+        _withdraw(_msgSender(), receiver, owner, shares, shares);
+        assetsTot[owner] -= amountOut[1]+amount1+feeAmount1;
+        totAssets -= amountOut[1]+amount1+feeAmount1;
+        totalLiquidity -= shares;
+        return shares;
+    }
+    function _withdraw(
+    address caller,
+    address receiver,
+    address owner,
+    uint256 assets,
+    uint256 shares
+  ) override internal {
+    if (caller != owner) {
+      _spendAllowance(owner, caller, shares);
+    }
+
+    // If _asset is ERC-777, `transfer` can trigger a reentrancy AFTER the transfer happens through the
+    // `tokensReceived` hook. On the other hand, the `tokensToSend` hook, that is triggered before the transfer,
+    // calls the vault, which is assumed not malicious.
+    //
+    // Conclusion: we need to do the transfer after the burn so that any reentrancy would happen after the
+    // shares are burned and after the assets are transferred, which is a valid state.
+    _burn(owner, shares);
+    //SafeERC20.safeTransfer(_asset, receiver, assets);
+
+    emit Withdraw(caller, receiver, owner, assets, shares);
+  }
 
     function decreaseLiquidityCurrentRange(
         uint tokenId,
         uint128 liquidity
-    ) public returns (uint amount0, uint amount1) {
+    ) internal returns (uint amount0, uint amount1) {
         INonfungiblePositionManager.DecreaseLiquidityParams
             memory params = INonfungiblePositionManager.DecreaseLiquidityParams({
                 tokenId: tokenId,
