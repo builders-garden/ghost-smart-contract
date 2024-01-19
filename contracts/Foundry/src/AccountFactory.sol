@@ -135,7 +135,7 @@ contract AccountFactory is
           ++count;
         }
       }
-      uint ghoTreshold = Account(payable(wallets[i])).ghoTreshold();
+      uint ghoTreshold = Account(payable(wallets[i])).ghoThreshold();
       uint ghoBalance = IERC20(ghoAddress).balanceOf(wallets[i]);
 
       bool ghoReceived = (
