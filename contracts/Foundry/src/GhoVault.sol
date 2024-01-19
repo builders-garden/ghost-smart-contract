@@ -7,7 +7,7 @@ import "../src/utils/ERC4626.sol";
 import "../src/utils/INonfungiblePositionManager.sol";
 import "../src/utils/IUniswapV2Router01.sol";
 
-contract MyERC4626Vault is ERC4626, IERC721Receiver {
+contract GhoVault is ERC4626, IERC721Receiver {
 
     address constant USDC = 0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8; // USDC Sepolia
     address constant GHO = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60; // GHO Sepolia
