@@ -150,9 +150,21 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         );
 
         if (amount0 < amount0ToAdd) {
-            usdc.approve(address(nonfungiblePositionManager), 0);
+            
             uint refund0 = amount0ToAdd - amount0;
-            usdc.transfer(msg.sender, refund0);
+            address[] memory path = new address[](2);
+            path[0] = USDC;
+            path[1] = GHO;
+            uint256[] memory amountOut;
+            usdc.approve(uniswapRouter, refund0);
+            (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
+                refund0,
+                0,
+                path,
+                address(this),
+                block.timestamp
+            );
+            gho.transfer(msg.sender, amountOut[1]);
         }
         if (amount1 < amount1ToAdd) {
             gho.approve(address(nonfungiblePositionManager), 0);
@@ -197,9 +209,21 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         );
 
         if (amount0 < amount0ToAdd) {
-            usdc.approve(address(nonfungiblePositionManager), 0);
+            
             uint refund0 = amount0ToAdd - amount0;
-            usdc.transfer(msg.sender, refund0);
+            address[] memory path = new address[](2);
+            path[0] = USDC;
+            path[1] = GHO;
+            uint256[] memory amountOut;
+            usdc.approve(uniswapRouter, refund0);
+            (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
+                refund0,
+                0,
+                path,
+                address(this),
+                block.timestamp
+            );
+            gho.transfer(msg.sender, amountOut[1]);
         }
         if (amount1 < amount1ToAdd) {
             gho.approve(address(nonfungiblePositionManager), 0);
@@ -217,15 +241,15 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         
         require(liquidityPositions[msg.sender] != 0, "position does not exist");
 
-        // collect fees
-        uint256 feeAmount0;
-        uint256 feeAmount1;
-        (feeAmount0, feeAmount1) = collectAllFees(liquidityPositions[msg.sender]);
-
         // withdraw from Uniswap
         uint256 amount0;
         uint256 amount1;
         (amount0, amount1) = decreaseLiquidityCurrentRange(liquidityPositions[msg.sender], uint128(shares));
+
+        // collect fees
+        uint256 feeAmount0;
+        uint256 feeAmount1;
+        (feeAmount0, feeAmount1) = collectAllFees(liquidityPositions[msg.sender]);
 
         //swap to gho
         address[] memory path = new address[](2);
@@ -234,11 +258,13 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
 
         // Approve token to swap
         IERC20(path[0]).approve(uniswapRouter, amount0+feeAmount0);
-        
+
+        uint balance = IERC20(USDC).balanceOf(address(this));
+
         // Swap token on Uniswap
         uint256[] memory amountOut;
         (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
-            amount0+feeAmount0,
+            balance,
             0,
             path,
             address(this),
@@ -246,7 +272,7 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         );
 
         // send to user wallet
-        gho.transfer(receiver, amountOut[1]+amount1+feeAmount1);
+        gho.transfer(receiver, IERC20(GHO).balanceOf(address(this)));
 
         //uint256 shares = previewWithdraw(assets);
         _withdraw(_msgSender(), receiver, owner, shares, shares);
