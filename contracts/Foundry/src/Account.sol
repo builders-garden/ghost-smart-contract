@@ -212,7 +212,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         IERC20(defaultToken).approve(vault, ghoToSupply);
         // Deposit GHO to vault
         IERC4626(vault).deposit(ghoToSupply, address(this));
-        ghoThreshold = ghoBalance - ghoToSupply;
+        ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
     }
 
     /// @notice Deposit funds for this account in Entrypoint.

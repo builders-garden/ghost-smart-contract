@@ -70,6 +70,10 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         block.timestamp
     );
     uint256 liquidity;
+    uint256 amountAdd0;
+    uint256 amountAdd1;
+    uint refundUsdc;
+    uint refundGho;
 
     if (liquidityPositions[msg.sender] == 0) {
         // Approve token to swap
@@ -77,7 +81,7 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         // Approve token to swap
         IERC20(path[1]).approve(address(nonfungiblePositionManager), amountOut[1]*2);
         // mint new Uni v3 position
-        (positionId, liquidity , , ) = mintNewPosition(amountOut[1], amountToSwap);
+        (positionId, liquidity , amountAdd0, amountAdd1, refundUsdc, refundGho) = mintNewPosition(amountOut[1], amountToSwap);
         liquidityPositions[msg.sender] = positionId;
     } else {
        // Approve token to swap
@@ -85,14 +89,15 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
        // Approve token to swap
        IERC20(path[1]).approve(nonfungPositionManager, amountOut[1]*2);
        // increase liquidity
-       (liquidity, , ) = increaseLiquidityCurrentRange(positionId, amountOut[1], amountToSwap);
+       (liquidity, , , refundUsdc, refundGho ) = increaseLiquidityCurrentRange(positionId, amountOut[1], amountToSwap);
     }
     
     uint256 shares = liquidity;
     _deposit(_msgSender(), receiver, assets, shares);
+    // update liquidity params for view methods
     totalLiquidity += liquidity;
-    assetsTot[receiver] += assets;
-    totAssets += assets;
+    assetsTot[receiver] += (assets-refundUsdc-refundGho);
+    totAssets += (assets-refundUsdc-refundGho);
     return shares;
   }
 
@@ -128,7 +133,7 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
     function mintNewPosition(
         uint amount0ToAdd,
         uint amount1ToAdd
-    ) public returns (uint tokenId, uint128 liquidity, uint amount0, uint amount1) {
+    ) public returns (uint tokenId, uint128 liquidity, uint amount0, uint amount1, uint refundUsdc, uint refundGho) {
 
         INonfungiblePositionManager.MintParams
             memory params = INonfungiblePositionManager.MintParams({
@@ -165,11 +170,12 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
                 block.timestamp
             );
             gho.transfer(msg.sender, amountOut[1]);
+            refundUsdc = amountOut[1];
         }
         if (amount1 < amount1ToAdd) {
             gho.approve(address(nonfungiblePositionManager), 0);
-            uint refund1 = amount1ToAdd - amount1;
-            gho.transfer(msg.sender, refund1);
+            refundGho = amount1ToAdd - amount1;
+            gho.transfer(msg.sender, refundGho);
         }
     }
 
@@ -191,7 +197,7 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         uint tokenId,
         uint amount0ToAdd,
         uint amount1ToAdd
-    ) internal returns (uint128 liquidity, uint amount0, uint amount1) {
+    ) internal returns (uint128 liquidity, uint amount0, uint amount1, uint refundUsdc, uint refundGho) {
         require(liquidityPositions[msg.sender] != 0, "position does not exist");
        
         INonfungiblePositionManager.IncreaseLiquidityParams
@@ -224,11 +230,12 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
                 block.timestamp
             );
             gho.transfer(msg.sender, amountOut[1]);
+            refundUsdc = amountOut[1];
         }
         if (amount1 < amount1ToAdd) {
             gho.approve(address(nonfungiblePositionManager), 0);
-            uint refund1 = amount1ToAdd - amount1;
-            gho.transfer(msg.sender, refund1);
+            refundGho = amount1ToAdd - amount1;
+            gho.transfer(msg.sender, refundGho);
         }
     }
 
@@ -259,25 +266,27 @@ contract MyERC4626Vault is ERC4626, IERC721Receiver {
         // Approve token to swap
         IERC20(path[0]).approve(uniswapRouter, amount0+feeAmount0);
 
-        uint balance = IERC20(USDC).balanceOf(address(this));
+        
 
         // Swap token on Uniswap
         uint256[] memory amountOut;
         (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(
-            balance,
+            IERC20(USDC).balanceOf(address(this)),
             0,
             path,
             address(this),
             block.timestamp
         );
+        uint balanceGho = IERC20(GHO).balanceOf(address(this));
 
         // send to user wallet
-        gho.transfer(receiver, IERC20(GHO).balanceOf(address(this)));
+        gho.transfer(receiver, balanceGho);
 
         //uint256 shares = previewWithdraw(assets);
         _withdraw(_msgSender(), receiver, owner, shares, shares);
-        assetsTot[owner] -= amountOut[1]+amount1+feeAmount1;
-        totAssets -= amountOut[1]+amount1+feeAmount1;
+        // update liquidity params for view methods
+        assetsTot[owner] -= balanceGho;
+        totAssets -= balanceGho;
         totalLiquidity -= shares;
         return shares;
     }
