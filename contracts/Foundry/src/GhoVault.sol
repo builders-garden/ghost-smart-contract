@@ -85,9 +85,9 @@ contract GhostVault is ERC4626, IERC721Receiver {
         liquidityPositions[msg.sender] = positionId;
     } else {
        // Approve token to swap
-       IERC20(path[0]).approve(nonfungPositionManager, assets);
+       IERC20(path[0]).approve(address(nonfungiblePositionManager), assets);
        // Approve token to swap
-       IERC20(path[1]).approve(nonfungPositionManager, amountOut[1]*2);
+       IERC20(path[1]).approve(address(nonfungiblePositionManager), amountOut[1]*2);
        // increase liquidity
        (liquidity, , , refundUsdc, refundGho ) = increaseLiquidityCurrentRange(positionId, amountOut[1], amountToSwap);
     }
