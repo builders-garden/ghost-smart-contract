@@ -14,7 +14,7 @@ contract Router {
         uint256 deadline
     ) external returns (uint256[] memory) {
 
-        bool decimalCheck; // This should be based on some logic
+        bool decimalCheck; 
         uint256 amountOut;
         if (path[0] == gho){
             decimalCheck = true;
@@ -24,7 +24,7 @@ contract Router {
         } else {
             amountOut = amountIn * (10**(18-6));
         }
-        // Mock token transfer logic (Uncomment in actual logic)
+        
         IERC20(path[0]).transferFrom(msg.sender, address(this), amountIn);
         IERC20(path[1]).transfer(msg.sender, amountOut); 
 
