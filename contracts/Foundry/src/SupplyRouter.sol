@@ -15,11 +15,8 @@ contract Router {
 
         uint256 amountOut;
         IERC20(path[0]).transferFrom(msg.sender, address(this), amountIn);
-        IERC20(path[1]).transfer(msg.sender, amountOut); 
+        IERC20(path[1]).transfer(msg.sender, amountIn); 
 
-        uint256[] memory amounts = new uint256[](2);
-        amounts[0] = amountIn;
-        amounts[1] = amountOut;
 
         return amounts;
     }
