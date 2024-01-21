@@ -992,7 +992,7 @@ interface IAccount {
  ** Account-Abstraction (EIP-4337) singleton EntryPoint implementation.
  ** Only one instance required on each chain.
  **/
-
+// SPDX-License-Identifier: GPL-3.0
 
 
 /* solhint-disable avoid-low-level-calls */
@@ -4096,9 +4096,11 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
     uint public ghoThreshold;
     address public automationUpkeep;
     address public defaultToken;
+    address public usdcToken;
     address public uniswapRouter;
     address public aavePool;
     address public vault;
+    address public supplyAndSwapTrigger;
     bool public allowedSupply;
     
     bytes32 private constant MSG_TYPEHASH = keccak256("AccountMessage(bytes message)");
@@ -4132,9 +4134,11 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         allowedSupply = true;
 
         defaultToken = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60; //GHO
-        uniswapRouter = 0x97f6E26dE5aD982eebC54819573156903a1d3024; 
+        usdcToken = 0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8; //USDC
+        uniswapRouter = 0xC51aFe94b5931894f92A7D8F2D628985FFE4c9f9; 
         aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
-        vault = 0xB9379DE0f8E2ed31b58828388eB3F619Cdf018d9;
+        vault = 0xCA324EB66adDA0B9612D3CF40cc1DDb50bBB756d;
+        supplyAndSwapTrigger = 0x3B1356916bA1d5e2b78Dc0bC4fBB0aE33353FA12; 
     }
 
     /// @notice Lets the account receive native tokens.
@@ -4193,13 +4197,9 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     /// @notice Executes a transaction (called directly from an admin, or by entryPoint)
     function execute(address _target, uint256 _value, bytes calldata _calldata) external virtual onlyAdminOrEntrypoint {
-        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
         _registerOnFactory();
         _call(_target, _value, _calldata);
-        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
-        if (endBalance < balance){
-            ghoThreshold -= (balance - endBalance);
-        }
+        ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
     }
 
     /// @notice Executes a sequence transaction (called directly from an admin, or by entryPoint)
@@ -4208,17 +4208,12 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint256[] calldata _value,
         bytes[] calldata _calldata
     ) external virtual onlyAdminOrEntrypoint {
-        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
         _registerOnFactory();
-
         require(_target.length == _calldata.length && _target.length == _value.length, "Account: wrong array lengths.");
         for (uint256 i = 0; i < _target.length; i++) {
             _call(_target[i], _value[i], _calldata[i]);
         }
-        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
-        if (endBalance < balance){
-            ghoThreshold -= (balance - endBalance);
-        } 
+        ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
     }
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
@@ -4269,6 +4264,22 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         // Deposit GHO to vault
         IERC4626(vault).deposit(ghoToSupply, address(this));
         ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
+    }
+
+    function executeSwapSupply(uint256 amountIn) internal {
+        // Swap token on Uniswap
+        address[] memory path = new address[](2);
+        path[0] = defaultToken; //GHO
+        path[1] = usdcToken; // usdc
+        // Approve token to swap
+        IERC20(defaultToken).approve(uniswapRouter, amountIn);
+        // Swap token on Uniswap
+        uint256[] memory amountOut;
+        (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(amountIn, amountIn, path, address(this), block.timestamp);
+        // Supply on AAVE v3
+        IERC20(usdcToken).approve(aavePool, amountOut[1]);
+        // Supply token to AAVE
+        IPool(aavePool).supply(usdcToken, amountOut[1], address(this), 0);
     }
 
     /// @notice Deposit funds for this account in Entrypoint.

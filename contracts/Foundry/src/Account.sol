@@ -152,15 +152,12 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint256[] calldata _value,
         bytes[] calldata _calldata
     ) external virtual onlyAdminOrEntrypoint {
-        
         _registerOnFactory();
-
         require(_target.length == _calldata.length && _target.length == _value.length, "Account: wrong array lengths.");
         for (uint256 i = 0; i < _target.length; i++) {
             _call(_target[i], _value[i], _calldata[i]);
         }
         ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
-        
     }
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
