@@ -4,8 +4,8 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "../src/utils/ERC4626.sol";
-import "../src/utils/INonfungiblePositionManager.sol";
-import "../src/utils/IUniswapV2Router01.sol";
+import "../src/interfaces/INonfungiblePositionManager.sol";
+import "../src/interfaces/IUniswapV2Router01.sol";
 
 contract GhostVault is ERC4626, IERC721Receiver {
 

@@ -21,6 +21,7 @@
     "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
     "@thirdweb-dev/dynamic-contracts": "^1.1.2",
+    "@chainlink/contracts-ccip": "^1.2.1",
     "erc721a-upgradeable": "^3.3.0"
   },
   "engines": {

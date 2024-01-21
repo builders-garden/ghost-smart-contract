@@ -20,9 +20,9 @@ import "@thirdweb/eip/ERC1271.sol";
 import "@thirdweb/prebuilts/account/utils/Helpers.sol";
 import "@thirdweb/external-deps/openzeppelin/utils/cryptography/ECDSA.sol";
 import "@thirdweb/prebuilts/account/utils/BaseAccountFactory.sol";
-import "../src/utils/IERC4626.sol";
-import "../src/utils/IPool.sol";
-import "../src/utils/IUniswapV2Router01.sol";
+import "../src/interfaces/IERC4626.sol";
+import "../src/interfaces/IPool.sol";
+import "../src/interfaces/IUniswapV2Router01.sol";
 //   $$\     $$\       $$\                 $$\                         $$\
 //   $$ |    $$ |      \__|                $$ |                        $$ |
 // $$$$$$\   $$$$$$$\  $$\  $$$$$$\   $$$$$$$ |$$\  $$\  $$\  $$$$$$\  $$$$$$$\
