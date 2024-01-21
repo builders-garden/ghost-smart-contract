@@ -429,7 +429,7 @@ contract GhostPortalLock is BasicMessageReceiver, BasicMessageSender  {
         mumbai_portal = portal;
     }
 
-    function send(
+    function sendCrossChain(
         address to, 
         uint256 amount
         ) external returns (bytes32 messageId){
@@ -445,7 +445,7 @@ contract GhostPortalLock is BasicMessageReceiver, BasicMessageSender  {
         latestSourceChainSelector = message.sourceChainSelector;
         latestSender = abi.decode(message.sender, (address));
         latestMessage = abi.decode(message.data, (string));
-        // require sender == portal 
+        require(latestSender == mumbai_portal, "Invalid message sender from origin chain");
         bytes memory decodedBytes = bytes(latestMessage);
         (address to, uint amount) = abi.decode(decodedBytes, ((address), (uint)));
 

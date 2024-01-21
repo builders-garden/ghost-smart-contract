@@ -24,13 +24,15 @@ contract GhostPortalBurn is BasicMessageReceiver, BasicMessageSender, ERC20  {
         sepolia_portal = portal;
     }
 
-    function send(
+    function sendCrossChain(
         address to, 
         uint256 amount
         ) external returns (bytes32 messageId){
-        
+        // encode params
         string memory messageText =  string(abi.encode(to, amount));
+        // send message to router
         messageId = send(destinationChainSelector, sepolia_portal, messageText, BasicMessageSender.PayFeesIn.LINK);
+        // burn tokens
         _burn(to, amount);
     }
 
@@ -42,8 +44,10 @@ contract GhostPortalBurn is BasicMessageReceiver, BasicMessageSender, ERC20  {
         latestSender = abi.decode(message.sender, (address));
         latestMessage = abi.decode(message.data, (string));
         require(latestSender == sepolia_portal, "Invalid message sender from origin chain");
+        // decode params
         bytes memory decodedBytes = bytes(latestMessage);
         (address to, uint amount) = abi.decode(decodedBytes, ((address), (uint)));
+        // mint tokens
         _mint(to, amount);
         
         emit MessageReceived(

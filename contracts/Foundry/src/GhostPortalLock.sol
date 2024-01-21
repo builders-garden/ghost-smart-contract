@@ -29,12 +29,15 @@ contract GhostPortalLock is BasicMessageReceiver, BasicMessageSender  {
         mumbai_portal = portal;
     }
 
-    function send(
+    function sendCrossChain(
         address to, 
         uint256 amount
         ) external returns (bytes32 messageId){
+        // encode params
         string memory messageText =  string(abi.encode(to, amount));
+        // send message to router
         messageId = send(destinationChainSelector, mumbai_portal, messageText, BasicMessageSender.PayFeesIn.LINK);
+        // lock tokens
         IERC20(ghoToken).transferFrom(msg.sender, address(this), amount);
     }
 
@@ -45,10 +48,11 @@ contract GhostPortalLock is BasicMessageReceiver, BasicMessageSender  {
         latestSourceChainSelector = message.sourceChainSelector;
         latestSender = abi.decode(message.sender, (address));
         latestMessage = abi.decode(message.data, (string));
-        // require sender == portal 
+        require(latestSender == mumbai_portal, "Invalid message sender from origin chain");
+        // decode params
         bytes memory decodedBytes = bytes(latestMessage);
         (address to, uint amount) = abi.decode(decodedBytes, ((address), (uint)));
-
+        // unlock tokens
         IERC20(ghoToken).transfer(to, amount);
         
         emit MessageReceived(
