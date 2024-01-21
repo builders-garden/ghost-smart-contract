@@ -5,7 +5,6 @@ tmp/
 .pnp.js
 tools/bin/abigen
 
-/chainlink
 core/chainlink
 
 # SQLite
@@ -95,7 +94,6 @@ contracts/yarn.lock
 /core/scripts/ccip/revert-reason/bin/ccip-revert-reason
 
 # dependencies generated after running `go mod vendor`
-vendor/
 go.work*
 
 # This sometimes shows up for some reason
