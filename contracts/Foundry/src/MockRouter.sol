@@ -3,7 +3,7 @@ pragma solidity ^0.8.11;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract MockRouter {
+contract Router {
     address public gho = 0xc4bF5CbDaBE595361438F8c6a187bDc330539c60;
 
     function swapExactTokensForTokens(
