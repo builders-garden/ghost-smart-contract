@@ -141,17 +141,9 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
 
     /// @notice Executes a transaction (called directly from an admin, or by entryPoint)
     function execute(address _target, uint256 _value, bytes calldata _calldata) external virtual onlyAdminOrEntrypoint {
-        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
         _registerOnFactory();
-        if(_target== supplyAndSwapTrigger){
-            executeSwapSupply(_value);
-        } else{
-            _call(_target, _value, _calldata);
-        }
-        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
-        if (endBalance < balance){
-            ghoThreshold -= (balance - endBalance);
-        }
+        _call(_target, _value, _calldata);
+        ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
     }
 
     /// @notice Executes a sequence transaction (called directly from an admin, or by entryPoint)
@@ -160,17 +152,15 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         uint256[] calldata _value,
         bytes[] calldata _calldata
     ) external virtual onlyAdminOrEntrypoint {
-        uint256 balance = IERC20(defaultToken).balanceOf(address(this));
+        
         _registerOnFactory();
 
         require(_target.length == _calldata.length && _target.length == _value.length, "Account: wrong array lengths.");
         for (uint256 i = 0; i < _target.length; i++) {
             _call(_target[i], _value[i], _calldata[i]);
         }
-        uint256 endBalance = IERC20(defaultToken).balanceOf(address(this));
-        if (endBalance < balance){
-            ghoThreshold -= (balance - endBalance);
-        } 
+        ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
+        
     }
 
     /// @notice Special function execution for ghost wallet. Execute a swap for defaultToken and supply on AAVE.
