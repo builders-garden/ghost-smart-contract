@@ -81,7 +81,7 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         usdcToken = 0x94a9D9AC8a22534E3FaCa9F4e7F2E2cf85d5E4C8; //USDC
         uniswapRouter = 0xC51aFe94b5931894f92A7D8F2D628985FFE4c9f9; 
         aavePool = 0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951;
-        vault = 0xCA324EB66adDA0B9612D3CF40cc1DDb50bBB756d;
+        vault = 0x942af163168A6CDed16Df6Df8b125F0278aa2976;
         supplyAndSwapTrigger = 0x3B1356916bA1d5e2b78Dc0bC4fBB0aE33353FA12; 
     }
 
