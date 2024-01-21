@@ -3,7 +3,7 @@ pragma solidity ^0.8.11;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Router {
+contract SupplyRouter {
 
     function swapExactTokensForTokens(
         uint256 amountIn,
@@ -13,11 +13,12 @@ contract Router {
         uint256 deadline
     ) external returns (uint256[] memory) {
 
-        uint256 amountOut;
+        uint256[] memory amountOut;
         IERC20(path[0]).transferFrom(msg.sender, address(this), amountIn);
         IERC20(path[1]).transfer(msg.sender, amountIn); 
+        amountOut[0] = amountIn;
+        amountOut[1] = amountIn;
 
-
-        return amounts;
+        return amountOut;
     }
 }
