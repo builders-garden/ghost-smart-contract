@@ -12,8 +12,8 @@
   },
   "files": {
     "lib/ccip/contracts/src/v0.8/ccip/applications/CCIPReceiver.sol": {
-      "lastModificationDate": 1705752808462,
-      "contentHash": "0f6f98069017878757b3d5d12dfc19b9",
+      "lastModificationDate": 1705838553388,
+      "contentHash": "30b154d0597fd569c794b970cae712ae",
       "sourceName": "lib/ccip/contracts/src/v0.8/ccip/applications/CCIPReceiver.sol",
       "solcConfig": {
         "settings": {
@@ -46,7 +46,7 @@
       "imports": [
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol",
         "lib/ccip/contracts/src/v0.8/ccip/libraries/Client.sol",
-        "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol"
+        "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol"
       ],
       "versionRequirement": "^0.8.0",
       "artifacts": {
@@ -179,10 +179,10 @@
         }
       }
     },
-    "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1705752813851,
-      "contentHash": "0fb8a98c0dcbb3f0f693ed5e24e0f32f",
-      "sourceName": "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol",
+    "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol": {
+      "lastModificationDate": 1705752812966,
+      "contentHash": "90fe5e2e3ed432d6f3b408e7c9e8a739",
+      "sourceName": "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -212,10 +212,10 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": ">=0.6.2",
       "artifacts": {
         "IERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "introspection/IERC165.sol/IERC165.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC165.sol/IERC165.json"
         }
       }
     },
@@ -3266,8 +3266,8 @@
       }
     },
     "src/Account.sol": {
-      "lastModificationDate": 1705792264783,
-      "contentHash": "fa2173be1cb8fd6a5d0b3647a24255d2",
+      "lastModificationDate": 1705834235982,
+      "contentHash": "13b3cf8a2d4e42096faffc298cf38332",
       "sourceName": "src/Account.sol",
       "solcConfig": {
         "settings": {
@@ -3528,7 +3528,7 @@
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol",
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IRouterClient.sol",
         "lib/ccip/contracts/src/v0.8/ccip/libraries/Client.sol",
-        "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol",
+        "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol",
         "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
@@ -3581,7 +3581,7 @@
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol",
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IRouterClient.sol",
         "lib/ccip/contracts/src/v0.8/ccip/libraries/Client.sol",
-        "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol",
+        "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol",
         "lib/chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "src/utils/BasicMessageReceiver.sol",
@@ -3633,605 +3633,6 @@
       "artifacts": {
         "Router": {
           "0.8.20+commit.a1b79de6.Linux.gcc": "Router.sol/Router.json"
-        }
-      }
-    },
-    "src/flatten/Account.flatten.sol": {
-      "lastModificationDate": 1705785667892,
-      "contentHash": "f7700e57bf618aa15f08fd69ac16aceb",
-      "sourceName": "src/flatten/Account.flatten.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.11",
-      "artifacts": {
-        "Account": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Account.json"
-        },
-        "AccountCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/AccountCore.json"
-        },
-        "AccountCoreStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/AccountCoreStorage.json"
-        },
-        "AccountExtension": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/AccountExtension.json"
-        },
-        "AccountPermissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/AccountPermissions.json"
-        },
-        "AccountPermissionsStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/AccountPermissionsStorage.json"
-        },
-        "Address": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Address.json"
-        },
-        "BaseAccount": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/BaseAccount.json"
-        },
-        "BaseAccountFactory": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/BaseAccountFactory.json"
-        },
-        "BytesLib": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/BytesLib.json"
-        },
-        "Clones": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Clones.json"
-        },
-        "ContractMetadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ContractMetadata.json"
-        },
-        "ContractMetadataStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ContractMetadataStorage.json"
-        },
-        "ECDSA": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ECDSA.json"
-        },
-        "EIP712": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/EIP712.json"
-        },
-        "ERC1155Holder": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ERC1155Holder.json"
-        },
-        "ERC1155Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ERC1155Receiver.json"
-        },
-        "ERC1271": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ERC1271.json"
-        },
-        "ERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ERC165.json"
-        },
-        "ERC721Holder": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/ERC721Holder.json"
-        },
-        "EnumerableSet": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/EnumerableSet.json"
-        },
-        "IAccount": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAccount.json"
-        },
-        "IAccountCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAccountCore.json"
-        },
-        "IAccountFactory": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAccountFactory.json"
-        },
-        "IAccountFactoryCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAccountFactoryCore.json"
-        },
-        "IAccountPermissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAccountPermissions.json"
-        },
-        "IAggregator": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IAggregator.json"
-        },
-        "IContractMetadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IContractMetadata.json"
-        },
-        "IERC1155Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IERC1155Receiver.json"
-        },
-        "IERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IERC165.json"
-        },
-        "IERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IERC20.json"
-        },
-        "IERC4626": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IERC4626.json"
-        },
-        "IERC721Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IERC721Receiver.json"
-        },
-        "IEntryPoint": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IEntryPoint.json"
-        },
-        "IMulticall": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IMulticall.json"
-        },
-        "INonceManager": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/INonceManager.json"
-        },
-        "IPool": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IPool.json"
-        },
-        "IStakeManager": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IStakeManager.json"
-        },
-        "IUniswapV2Router01": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/IUniswapV2Router01.json"
-        },
-        "InitStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/InitStorage.json"
-        },
-        "Initializable": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Initializable.json"
-        },
-        "Multicall": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Multicall.json"
-        },
-        "Strings": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/Strings.json"
-        },
-        "UserOperationLib": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "Account.flatten.sol/UserOperationLib.json"
-        }
-      }
-    },
-    "src/flatten/AccountFactory.flatten.sol": {
-      "lastModificationDate": 1705785667894,
-      "contentHash": "d9c5f656e2d335ebdcb57109d4264bfc",
-      "sourceName": "src/flatten/AccountFactory.flatten.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.12",
-      "artifacts": {
-        "Account": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Account.json"
-        },
-        "AccountCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountCore.json"
-        },
-        "AccountCoreStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountCoreStorage.json"
-        },
-        "AccountExtension": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountExtension.json"
-        },
-        "AccountFactory": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountFactory.json"
-        },
-        "AccountPermissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountPermissions.json"
-        },
-        "AccountPermissionsStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AccountPermissionsStorage.json"
-        },
-        "Address": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Address.json"
-        },
-        "AutomationBase": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AutomationBase.json"
-        },
-        "AutomationCompatible": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AutomationCompatible.json"
-        },
-        "AutomationCompatibleInterface": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/AutomationCompatibleInterface.json"
-        },
-        "BaseAccount": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/BaseAccount.json"
-        },
-        "BaseAccountFactory": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/BaseAccountFactory.json"
-        },
-        "BytesLib": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/BytesLib.json"
-        },
-        "Clones": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Clones.json"
-        },
-        "ContractMetadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ContractMetadata.json"
-        },
-        "ContractMetadataStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ContractMetadataStorage.json"
-        },
-        "ECDSA": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ECDSA.json"
-        },
-        "EIP712": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/EIP712.json"
-        },
-        "ERC1155Holder": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ERC1155Holder.json"
-        },
-        "ERC1155Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ERC1155Receiver.json"
-        },
-        "ERC1271": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ERC1271.json"
-        },
-        "ERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ERC165.json"
-        },
-        "ERC721Holder": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/ERC721Holder.json"
-        },
-        "EnumerableSet": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/EnumerableSet.json"
-        },
-        "IAccount": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAccount.json"
-        },
-        "IAccountCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAccountCore.json"
-        },
-        "IAccountFactory": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAccountFactory.json"
-        },
-        "IAccountFactoryCore": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAccountFactoryCore.json"
-        },
-        "IAccountPermissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAccountPermissions.json"
-        },
-        "IAggregator": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IAggregator.json"
-        },
-        "IContractMetadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IContractMetadata.json"
-        },
-        "IERC1155Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IERC1155Receiver.json"
-        },
-        "IERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IERC165.json"
-        },
-        "IERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IERC20.json"
-        },
-        "IERC4626": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IERC4626.json"
-        },
-        "IERC721Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IERC721Receiver.json"
-        },
-        "IEntryPoint": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IEntryPoint.json"
-        },
-        "IMulticall": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IMulticall.json"
-        },
-        "INonceManager": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/INonceManager.json"
-        },
-        "IPermissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IPermissions.json"
-        },
-        "IPermissionsEnumerable": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IPermissionsEnumerable.json"
-        },
-        "IPool": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IPool.json"
-        },
-        "IStakeManager": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IStakeManager.json"
-        },
-        "IUniswapV2Router01": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/IUniswapV2Router01.json"
-        },
-        "InitStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/InitStorage.json"
-        },
-        "Initializable": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Initializable.json"
-        },
-        "Multicall": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Multicall.json"
-        },
-        "Permissions": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Permissions.json"
-        },
-        "PermissionsEnumerable": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/PermissionsEnumerable.json"
-        },
-        "PermissionsEnumerableStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/PermissionsEnumerableStorage.json"
-        },
-        "PermissionsStorage": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/PermissionsStorage.json"
-        },
-        "Strings": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/Strings.json"
-        },
-        "UserOperationLib": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "AccountFactory.flatten.sol/UserOperationLib.json"
-        }
-      }
-    },
-    "src/flatten/GhoVault.flatten.sol": {
-      "lastModificationDate": 1705785667896,
-      "contentHash": "5ffcaefae471c6fa2dbf07307affbead",
-      "sourceName": "src/flatten/GhoVault.flatten.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.20",
-      "artifacts": {
-        "Address": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/Address.json"
-        },
-        "Context": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/Context.json"
-        },
-        "ERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/ERC20.json"
-        },
-        "ERC4626": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/ERC4626.json"
-        },
-        "GhostVault": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/GhostVault.json"
-        },
-        "IERC1155Errors": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC1155Errors.json"
-        },
-        "IERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC20.json"
-        },
-        "IERC20Errors": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC20Errors.json"
-        },
-        "IERC20Metadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC20Metadata.json"
-        },
-        "IERC20Permit": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC20Permit.json"
-        },
-        "IERC4626": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC4626.json"
-        },
-        "IERC721Errors": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC721Errors.json"
-        },
-        "IERC721Receiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IERC721Receiver.json"
-        },
-        "INonfungiblePositionManager": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/INonfungiblePositionManager.json"
-        },
-        "IUniswapV2Router01": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/IUniswapV2Router01.json"
-        },
-        "Math": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/Math.json"
-        },
-        "SafeERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhoVault.flatten.sol/SafeERC20.json"
-        }
-      }
-    },
-    "src/flatten/GhostPortalBurn.flatten.sol": {
-      "lastModificationDate": 1705826874618,
-      "contentHash": "f9cf8981c0d1e8a8403b541d2021e092",
-      "sourceName": "src/flatten/GhostPortalBurn.flatten.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.19",
-      "artifacts": {
-        "BasicMessageReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/BasicMessageReceiver.json"
-        },
-        "BasicMessageSender": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/BasicMessageSender.json"
-        },
-        "CCIPReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/CCIPReceiver.json"
-        },
-        "Client": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/Client.json"
-        },
-        "Context": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/Context.json"
-        },
-        "ERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/ERC20.json"
-        },
-        "GhostPortalBurn": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/GhostPortalBurn.json"
-        },
-        "IAny2EVMMessageReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/IAny2EVMMessageReceiver.json"
-        },
-        "IERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/IERC165.json"
-        },
-        "IERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/IERC20.json"
-        },
-        "IERC20Metadata": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/IERC20Metadata.json"
-        },
-        "IRouterClient": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/IRouterClient.json"
-        },
-        "LinkTokenInterface": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalBurn.flatten.sol/LinkTokenInterface.json"
-        }
-      }
-    },
-    "src/flatten/GhostPortalLock.flatten.sol": {
-      "lastModificationDate": 1705829331153,
-      "contentHash": "8dbd42401c5e9e7d2a8ed88e4a546ad9",
-      "sourceName": "src/flatten/GhostPortalLock.flatten.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.19",
-      "artifacts": {
-        "BasicMessageReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/BasicMessageReceiver.json"
-        },
-        "BasicMessageSender": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/BasicMessageSender.json"
-        },
-        "CCIPReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/CCIPReceiver.json"
-        },
-        "Client": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/Client.json"
-        },
-        "GhostPortalLock": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/GhostPortalLock.json"
-        },
-        "IAny2EVMMessageReceiver": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/IAny2EVMMessageReceiver.json"
-        },
-        "IERC165": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/IERC165.json"
-        },
-        "IERC20": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/IERC20.json"
-        },
-        "IRouterClient": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/IRouterClient.json"
-        },
-        "LinkTokenInterface": {
-          "0.8.20+commit.a1b79de6.Linux.gcc": "GhostPortalLock.flatten.sol/LinkTokenInterface.json"
         }
       }
     },
@@ -4433,7 +3834,7 @@
         "lib/ccip/contracts/src/v0.8/ccip/applications/CCIPReceiver.sol",
         "lib/ccip/contracts/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol",
         "lib/ccip/contracts/src/v0.8/ccip/libraries/Client.sol",
-        "lib/ccip/contracts/src/v0.8/vendor/openzeppelin-solidity/v4.8.3/contracts/utils/introspection/IERC165.sol"
+        "lib/ccip/contracts/src/v0.8/vendor/IERC165.sol"
       ],
       "versionRequirement": "^0.8.19",
       "artifacts": {
