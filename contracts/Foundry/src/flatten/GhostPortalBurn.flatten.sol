@@ -865,7 +865,7 @@ contract GhostPortalBurn is BasicMessageReceiver, BasicMessageSender, ERC20  {
         sepolia_portal = portal;
     }
 
-    function burnTokenAndSend(
+    function send(
         address to, 
         uint256 amount
         ) external returns (bytes32 messageId){

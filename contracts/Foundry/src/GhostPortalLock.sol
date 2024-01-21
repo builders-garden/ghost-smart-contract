@@ -29,7 +29,7 @@ contract GhostPortalLock is BasicMessageReceiver, BasicMessageSender  {
         mumbai_portal = portal;
     }
 
-    function lockTokenAndSend(
+    function send(
         address to, 
         uint256 amount
         ) external returns (bytes32 messageId){
