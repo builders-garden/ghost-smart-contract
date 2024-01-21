@@ -210,22 +210,6 @@ contract Account is AccountCore, ContractMetadata, ERC1271, ERC721Holder, ERC115
         ghoThreshold = IERC20(defaultToken).balanceOf(address(this));
     }
 
-    function executeSwapSupply(uint256 amountIn) internal {
-        // Swap token on Uniswap
-        address[] memory path = new address[](2);
-        path[0] = defaultToken; //GHO
-        path[1] = usdcToken; // usdc
-        // Approve token to swap
-        IERC20(defaultToken).approve(uniswapRouter, amountIn);
-        // Swap token on Uniswap
-        uint256[] memory amountOut;
-        (amountOut) = IUniswapV2Router01(uniswapRouter).swapExactTokensForTokens(amountIn, amountIn, path, address(this), block.timestamp);
-        // Supply on AAVE v3
-        IERC20(usdcToken).approve(aavePool, amountOut[1]);
-        // Supply token to AAVE
-        IPool(aavePool).supply(usdcToken, amountOut[1], address(this), 0);
-    }
-
     /// @notice Deposit funds for this account in Entrypoint.
     function addDeposit() public payable {
         entryPoint().depositTo{ value: msg.value }(address(this));
