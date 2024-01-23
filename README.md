@@ -24,7 +24,8 @@ We are applying for the following tracks:
 
 - **Account Factory**: [0x543F0BB75a4B76B7fF8253A283D1137A7E354fe3](https://sepolia.etherscan.io/address/0x543F0BB75a4B76B7fF8253A283D1137A7E354fe3)
 - **Ghost Vault**:   [0x6801402aE64a287d172f5c79b5b1e14505019494](https://sepolia.etherscan.io/address/0x6801402aE64a287d172f5c79b5b1e14505019494)
-- **Mocked Router**: [0xC847fe71906748A56cA211D0189d8b7798A60cDD](https://sepolia.etherscan.io/address/0xC847fe71906748A56cA211D0189d8b7798A60cDD)
+- **Mocked Router** [0x49b86914d97Db46FF0F771F7bea4f0B28501605b](https://sepolia.etherscan.io/address/0x49b86914d97Db46FF0F771F7bea4f0B28501605b)
+- **Mocked Supply Router**: [0xC847fe71906748A56cA211D0189d8b7798A60cDD](https://sepolia.etherscan.io/address/0xC847fe71906748A56cA211D0189d8b7798A60cDD)
 - **Ghost Portal Sepolia**:  [0x3d7eB0E00D7E0a0943C926E5D3bd92E414fc44dd](https://sepolia.etherscan.io/address/0x3d7eB0E00D7E0a0943C926E5D3bd92E414fc44dd)
 - **Ghost Portal Mumbai**:   [0x3674a4fbedd210fe6c82def29b8b3f9fd6324c49](https://sepolia.etherscan.io/address/0x3674a4fbedd210fe6c82def29b8b3f9fd6324c49)
 
